@@ -8,9 +8,22 @@ Before Starting this Lab make sure you complete the steps specified in **Azure D
 
 ## Architecture Diagram ## 
 
+
+Diagram here
+
+
+
 ## **Content:** ##
 - [Exercise #1: Enabling Defender](#Exercise-1-Enabling-Defender)
-  - [Task 1: Enabling Azure Defender for IoT](#Task-1-Enabling-Azure-Defender-for-fIoT)
+  - [Task 1: Enabling Azure Defender for IoT](#Task-1-Enabling-Azure-Defender-for-IoT)
+  - [Task 2: Setting up sensors](#Task-2-Setting-up-sensors)
+  - [Task 3 - Onboarding sensors](#Task-3-Onboarding-sensors)
+- [Exercise #2: Setting up your offline sensor](Exercise-2-Setting-up-your-offline-sensor)
+  - [Task 1: Set up Virtual Machine](#Task-1-Set-up-Virtual-Machine)
+  - [Task 2: Collect Information](#Task-2-Collect-Information)
+  - [Task 3: Configure Azure Defender](#Task-3-Configure-Azure-Defender)
+- [Exercise 4: Clean Up](#Exercise-4-Clean-Up)
+  -[Task-1-Delete resources](#Task-1-Delete-resources) 
   
 
 
@@ -110,8 +123,32 @@ In this step we will set up the offline sensor.
  9. In the next step **Download activation file** and click **Finish**
  10. At this point if you check again your **Sites and sensors** section you should see both sensors onboarded.
 
+11. The files jsut downloaded we will upload it to the Storage account created in the section **Azure Defender for IoT BHOL**, this way we will be able to make them available to download in the Virtual Machine. Another option could be to download the files directly in the Virtual Machine if you are login in Azure Portal directly insite the VM. However sometimes you will have policies on place not allowing this, so the storage account route will make this feasible.
 
-## **Exercise #2:** Setting up your offline sensor.##
+
+12. To Upload the Files, go to the Storage Account you created before. Select the container and click **Upload** from your local Download folder select the files and upload them.
+ 
+
+13. Login back to the Virtual Machine, open **Storage Explorer**. You will be ask to login to your Azure account where you just upload the files.
+
+**Subscription**
+
+  ![Storage Explorer](./images/sa-subs-login.png 'Subscription')
+
+8. Next, click on **Azure**, **Next**. At this point you will ask your credentials to **Sign in** to Azure. Once you are signed in, close the browser, in the Storage you you should see your subscription.
+
+9. On the left panel, you should see **Storage Accounts** under your Subscription.
+
+    ![Storage Explorer Container](./images/container.png 'Select Container')
+
+10. Once you selected the container on the right side you should see the files, just select the files and clikc **Download**
+
+   ![Storage Explorer](./images/download-files.png 'Subscription')
+
+ 
+   
+
+## **Exercise #2: Setting up your offline sensor**
 
 During this exercise we will set up the Virtual Machine created before with Azure Defender. 
 

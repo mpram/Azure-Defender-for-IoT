@@ -85,7 +85,39 @@ In the next window, select your subscription, assign a name to the resource grou
 
 13. It will take a few minutes to deploy. At the end you should see the your resources deployed.
 
- ![Deploy VN](./images/Create-VN-Deployment.PNG 'Deploy VN')
+ 
+
+ 14. In this step we will Create an Storage account and create a container. Go to the home page in Azure Portal click on **+ Create a Resource** at the bottom of the screen you will see **Storage Acount**, click there.
+
+![Create SA](./images/create-sa.png 'Create SA')
+
+15. Fill the basics tab
+    - **Subscription**: Select the Subscription you are using for this Lab.
+    - **Resource Group**: Select the resource group just created.
+    - **Storage Account name**: adfiles+SUFFIX
+    - **Region**: East US.
+    - **Performance**: Standard
+    - **Redundancy**: Locally-redundant storage (LRS)
+
+    Then **Review + Create**.
+
+    ![Create SA](./images/sa-basics.png 'Create SA')
+
+16. Once the Storage Account is created, **Go to Resource**, in the **Data Storage** section(left panel), select **Containers** , then click **+ Container**
+    - **Name**: defenderfiles
+    - **Public Access level**: Private
+ Then, **Create**
+
+
+![Create Blob](./images/create-blob.png 'Create Blob')
+
+
+
+
+
+
+
+
 
 ### **Task 2: Virtual Machines** ###
 
@@ -209,26 +241,11 @@ We are going to enable Hyper-V via PowerShell in the newly created VM.
 > If you are not promoted to restart the VM within PowerShell. Please close the Bastion Host tab, and return to the Azure Portal, and select your VM. At this point you can either "restart your VM" and reconnect via Bastion. OR you can *STOP* the VM and *Start* the VM again.
 
 
-5. Set up Storage Account, upload defender images **WE NEED TO CAPTURE THE STEPS HERE I FORGOT PROBABLY THIS SHOULD BE THE FIRST STEP ALSO IN THE HOL?**
+5. Login back to the Virtual Machine, using RDP or Bastiion, open in the Vm download Storage Explorer, open **Microsoft Edge** and download the ['Storage Explorer'](https://azure.microsoft.com/en-us/features/storage-explorer/ 'Storage Explorer') clikc **Download**
 
-6. Login back to the Virtual Machine, using RDP or Bastiion, open in the Vm download Storage Explorer, open **Microsoft Edge** and download the ['Storage Explorer'](https://azure.microsoft.com/en-us/features/storage-explorer/ 'Storage Explorer') clikc **Download**
+6. Once the download is completed run the installation selecting **Install for me only (recommended)** option. Next click on **I accept the agreement**, and **Install**, you will ask a few additional **Next** optiosn before starting the installation.
 
-7. Once the download is completed run the installation selecting **Install for me only (recommended)** option. Next click on **Iaccept the agreement**, and **Install**, you will ask a few additional **Next** optiosn before starting the installation.
 
-8. Next you will login to your Azure account where you save the Defender Files.Once Storage explorer opens select **Subscription**
 
-    ![Storage Explorer](./images/sa-subs-login.png 'Subscription')
 
-9.Next, click on **Azure**, **Next**. At this point you will ask your credentials to **Sign in** to Azure. Once you are signed in, close the browser, in the Storage you you should see your subscription.
-
-10. On the left panel, you should see **Storage Accounts** under your Subscription.
-
-    ![Storage Explorer Container](./images/container.png 'Select Container')
-
-11. Once you selected the container on the right side you should see the files, just select the files and clikc **Download**
-
-   ![Storage Explorer](./images/download-files.png 'Subscription')
-
- 
-    
 
