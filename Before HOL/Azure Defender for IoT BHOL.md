@@ -10,6 +10,9 @@ During this time we will set up the environment need it for the Hands-on Lab.
 
 - [Exercise 1: Set up Environment](#exercise-1-set-up-environment)
    - [Task 1: Resources](#task-1-resources)
+   - [Task 2: Virtual Machines](Task-2-Virtual-Machines)
+   - [Task 3: Connect to Virtual Machine](Task-3-Connect-to-Virtual-Machine)
+   - [Task 4: Enable Hyper-V](Task-4-Enable-Hyper-V])
 
 
 
@@ -64,7 +67,7 @@ In the next window, select your subscription, assign a name to the resource grou
 
 9. Select **Next: Security** button at the bottom of the page. Under **BastionHost**, select **Enable**.
 
-     ![Bastion Security](./images/enable-bastion-security.png 'Bastion Security')
+    ![Bastion Security](./images/enable-bastion-security.png 'Bastion Security')
 
     
 10. Enter this information for the **BastionHost**:
@@ -109,7 +112,7 @@ In the next window, select your subscription, assign a name to the resource grou
     | Password | **Learningmode123!** |
     | Confirm password | **Learningmode123!** |
     | **Inbound port rules** |    |
-    | Public inbound ports | Select **None**. |
+    | Public inbound ports | Select **3389**. |
 
     
 ![Create VM](./images/Create-VM-Basic.PNG 'Create VM')
@@ -152,16 +155,11 @@ In the next window, select your subscription, assign a name to the resource grou
 > You will not be able to start the Bastion connection if the VM has not been started and is running. So give it a minute or two to finish updating and wait for the status to say **"Running"**.
 
 
-3. In the VM menu bar, select **Connect**, then select **Bastion**.
+3. In the VM menu bar, select **Connect**, then select **Bastion** or **RDP**.
 
 ![Bastion Connect](./images/Connect-VM-Bastion.PNG 'Bastion Connect')
 
-
-4. In the **Connect** page, select the blue **Use Bastion** button.
-
-
-
-5. In the **Bastion** page, enter the username and password for the virtual machine.
+4. In the **Bastion** page, enter the username and password for the virtual machine.
 
     | Field | Enter |
     |-------|-------|
@@ -170,13 +168,13 @@ In the next window, select your subscription, assign a name to the resource grou
 
 ![Bastion Connect](./images/Connect-VM-Bastion-Connect.PNG 'Bastion Connect')
 
-6. Select **Connect**.
+5. Select **Connect**.
 
 
 
-7. A new tab should open, and you should be connected to your virtual machine.
+6. A new tab should open, and you should be connected to your virtual machine.
 
-8. **Accept** the default settings.
+7. **Accept** the default settings.
 
 
 ![Bastion Connect](./images/VM-Bastion-Settings.PNG 'Bastion Connect')
