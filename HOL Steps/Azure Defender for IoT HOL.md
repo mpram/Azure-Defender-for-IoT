@@ -280,6 +280,7 @@ Below, a ***sample*** screen, your parameters will be different.
 WORK IN PROGRESS
 
 </br>
+
 ## **Exercise 4: Clean Up**
 
 ### **Task 1: Delete resources**
