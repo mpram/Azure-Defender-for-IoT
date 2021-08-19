@@ -27,7 +27,7 @@ Diagram here
   
 
 
-## **Exercise #1:** Enabling Defender##
+## **Exercise #1: Enabling Defender**
 
 ### **Task 1: Enabling Azure Defender for IoT:**
 
@@ -42,7 +42,7 @@ Next, select **IoT Security** under **Advanced Protection** section as shown bel
 Next in the **Getting Started** section, select **Oboard Subscription**
 
 
-Before selecting your subscription make sure you select the option to **+Start Trial** as shown below:
+Before selecting your subscription make sure you select the option to **+ Start with Trial** as shown below:
 
    ![Trial Selection](./images/trial-selection.png 'Trial Selection')
 
@@ -91,9 +91,9 @@ Fill the contact info window and then wait for a few minutes to complete the dow
 ![Onboard sensor](./images/sensor.png 'Onboard Sensor')
 
 
-In this step we will set up the offline sensor. 
 
-4. then assigned a name to the sensor **myofflinesensor**, select your subscription and make sure you toogle **Cloud Connected** once you disable this option the rest of the form below will dissapear. Click **Register**
+
+4.Assigned a name to the sensor **myofflinesensor**, select your subscription and make sure you toogle **Cloud Connected** once you disable this option the rest of the form below will dissapear. Click **Register**
 
 
 
@@ -123,7 +123,7 @@ In this step we will set up the offline sensor.
  9. In the next step **Download activation file** and click **Finish**
  10. At this point if you check again your **Sites and sensors** section you should see both sensors onboarded.
 
-11. The files jsut downloaded we will upload it to the Storage account created in the section **Azure Defender for IoT BHOL**, this way we will be able to make them available to download in the Virtual Machine. Another option could be to download the files directly in the Virtual Machine if you are login in Azure Portal directly insite the VM. However sometimes you will have policies on place not allowing this, so the storage account route will make this feasible.
+11. The files just downloaded we will upload it to the Storage account created in the section **Azure Defender for IoT BHOL**, this way we will be able to make them available to download in the Virtual Machine. Another option could be to download the files directly in the Virtual Machine if you are login in Azure Portal directly insite the VM. However, sometimes you will have policies on place not allowing this, so the storage account route will make this feasible.
 
 
 12. To Upload the Files, go to the Storage Account you created before. Select the container and click **Upload** from your local Download folder select the files and upload them.
@@ -216,8 +216,9 @@ During this task we will configure Azure Defender,
 
   ![Setting up  Sensor](./images/setting-up-sensor-version.png 'Setting up Sensor')
 
+</br>
 
-3. You will ask to fulfill some parameters, it is **VERY IMPORTANT** you pay attention to the previous task because you will use the network information you captured before, this is unique to each Virtual Machine. So the following is an **EXAMPLE** based on the prtscrn presented above.
+3. You will be ask to fulfill some parameters, it is ***VERY IMPORTANT*** you pay attention to the previous task because you will use the network information you captured before, this is unique to each Virtual Machine. So the following is an **EXAMPLE** based on the prtscrn presented above.
 
 
 - **configure hardware profile**: **Office**, then press enter. 
