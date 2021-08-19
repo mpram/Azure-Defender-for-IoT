@@ -275,8 +275,11 @@ Below, a ***sample*** screen, your parameters will be different.
 
  11. Let's analyze together what information we already have available before moving forward.
 
+## **Exercise 3: Analyzing Threads**
 
+WORK IN PROGRESS
 
+</br>
 ## **Exercise 4: Clean Up**
 
 ### **Task 1: Delete resources**
