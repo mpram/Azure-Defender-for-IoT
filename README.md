@@ -26,7 +26,7 @@ Teams working in projects related to Connected Devices, Smart Places, Factory of
 ## **Azure Defender Vocabulary** ## 
 
 - Sensor: Linux machine, physical hardware running Azure defender connected to the network. 
-- Manager: Linux machine, physical hardware running Azure defender connected to the network. It connects to multiple sensors to summarize data, alerts across multiples systems, carries the PCAP Configuration and new updates. Can connect to many SIEM systems if needed.
+- Manager: Linux machine, physical hardware running Azure defender connected to the network. It connects to multiple sensors to summarize data, alerts across multiples systems, carries the PCAP Configuration and new updates. Central Manager can be used to update the sensor's version and threat intelligence, can connect to many SIEM systems if needed also.
 - IoT: Internet of the things. Modern, new standards connected devices
 - OT: Operational Technology, old equipment and technology (i.e. conveys belts, PLCs, )
 - IIoT: Industrial IoT 
