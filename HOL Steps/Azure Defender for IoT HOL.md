@@ -25,8 +25,6 @@ Diagram here
 - [Exercise 3: Enabling system settings](#exercise-1-enabling-setting-settings)
    - [Task 1: System Properties](#task-1-System-properties)
   - [Task 2: Pcap Files](#task-2-Pcap-Files)
-   
-
 - [Exercise 4: Clean Up](#Exercise-4-Clean-Up)
   -[Task-1-Delete resources](#Task-1-Delete-resources) 
 
