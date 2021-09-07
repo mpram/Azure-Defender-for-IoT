@@ -16,6 +16,7 @@ During this time we will set up the environment need it for the Hands-on Lab.
 
 
 
+
 ## **Exercise 1: Set up Environment** ##
 During this exercise you will be setting up your  environment for this lab in Azure Virtual Machine acting as Azure Defender Sensors.
 
