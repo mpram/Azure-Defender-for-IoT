@@ -22,8 +22,14 @@ Diagram here
   - [Task 1: Set up Virtual Machine](#Task-1-Set-up-Virtual-Machine)
   - [Task 2: Collect Information](#Task-2-Collect-Information)
   - [Task 3: Configure Azure Defender](#Task-3-Configure-Azure-Defender)
+- [Exercise 3: Enabling system settings](#exercise-1-enabling-setting-settings)
+   - [Task 1: System Properties](#task-1-System-properties)
+  - [Task 2: Pcap Files](#task-2-Pcap-Files)
+   
+
 - [Exercise 4: Clean Up](#Exercise-4-Clean-Up)
   -[Task-1-Delete resources](#Task-1-Delete-resources) 
+
   
 
 
@@ -231,7 +237,7 @@ During this task we will configure Azure Defender,
 - **Configure bridge interface**: Just press Enter
 - Then type **Y** and click **Enter**.
 
-Now the installation we run for 10-15minutes.
+Now the installation will run for 10-15minutes.
 
 ***Note: Once the installation is complete, you will be able to access Azure Defender Console, check if you can open a cmd window, ping the Ip Adrress  you enter in the step 'Configure management network interface'
 If the request timeout, you will need to reconfigure this step again, for that review the IPs one more time and use the command below to start over:***
@@ -253,7 +259,7 @@ Below, a ***sample*** screen, your parameters will be different.
 
 ![Setting up  Sensor](./images/login-info.png 'Setting up Sensor')
 
-5. Open a brower, type the Ip you use for the this step above **Configure management network interface**: this example was **172.25.224.2**, you should be able to login to Azure Defender 
+5. Open a brower, type the IP you use for the this step above **Configure management network interface**: this example was **172.25.224.2**, you should be able to login to Azure Defender 
 
 
 ![Defender Login](./images/defender-login-page.png 'Defender Login')
@@ -275,19 +281,119 @@ Below, a ***sample*** screen, your parameters will be different.
 
  11. Let's analyze together what information we already have available before moving forward.
 
-## **Exercise 3: Analyzing Threads**
+## **Exercise 3: Enabling system settings**
 
-WORK IN PROGRESS
+### **Task 1: System Properties**
+
+1. In your offline sensor you will find **System Settings** on the left side of the Azure Defender portal, click there as shown below.
+
+  ![system settings](./images/defender-system-settings.png 'System settings')
+
+2. Next, look for the icon **System Properties** on the right side. Click in the icon, you will see a pop up warning, select **Ok**.
+
+3. In the new window on the left side, scroll down until you see **Pcaps**, click there. Now on the right side scroll all the way down and we will modify three parameters as shown below:
+  - **player_max_amount=200**
+  - **enabled=1**
+  - **player.params=-M 5**
+
+
+  ![system settings pcaps](./images/enabling-pcaps.png 'System settings Pcaps')
+
+4. Click **Save** and then **Ok**
+
+5. Continue in the System Properties window, scroll up and select **Horizon** on the left side select, scroll down and modify the followin parameter:
+  - **ui.enabled=true**
+
+
+  ![Horizon Enable UI](./images/horizon-ui-enabled.png 'Horizon enable ui')
+
+6. Click **Save** and then **Ok**
+
+7. In system Properties, look for **Global** and modify the following parameter:
+  - **auto_discovery.enabled=1**
+
+
+  ![Global Settings](./images/global-settings.png 'global settings')
+
+8. Click on **Save** and then **OK**
+
+9. At this point you should see the Pcap Player available:
+
+  ![Pcap Player](./images/pcap-player.png 'Pcap player')
+
+
+</br>
+  
+### **Task 2: Pcap Files**
+
+In this exercise your instructor will share the SAS token with you to download Pcap files to analyze and explorer further based on different scenarios and industries. 
+
+
+1. Go to your Virtual Machine acting like a sensor, open **Microsoft Azure Storage Explorer** on the left side panel select the connect icon, an screen will pop up **Connect to Azure Storage** then click on **Use a shared access signature (SAS) URI**, **Next**
+
+
+  ![Pcap Files](./images/connect-to-container.png 'Pcap files')
+
+
+2. In the next screen your instructor will share the SAS Token with the class to connect to the container and download the files needed. 
+
+
+3. Once you are connected to the Container, select all the files and click **Download**. Now you have all the files available locally and you can upload them to Azure Defender.
+
+
+4. Go back to AZure Defender, Click on **System Settings**, then **PCAP Player** now select **Upload**,
+**Browse Files**, browse to the folder where you download the files in the previous step, select all the files and click **Open**. This operation will take a few minutes to upload all the files.
+
+5. At this point you should see all the files uploaded.
+
+
+
+    ![Pcap Files Uploaded](./images/pcap-files-uploaded.png 'Pcap files uploaded')
 
 </br>
 
-## **Exercise 4: Clean Up**
+6. Click on **Play All**, in a few minutes you will receive a message saying all the files has been played. 
+
+
+## **Exercise 4: Analyzing the Data**
+
+### **Task 1: Devices Map**
+
+
+### **Task 2: Device Inventory**
+
+### **Task 3: Alerts**
+
+### **Task 4: Event Timeline**
+
+### **Task 5: Data Mining**
+
+</br>
+
+## **Exercise 5: Online Sensor**
+
+### **Task 1: Create an Online sensor**
+
+### **Task 2: Integrate with Sentinel**
+
+### **Task 3: Alerts - Intelligent Thread.**
+
+
+
+
+
+</br>
+
+## **Exercise 6: Clean Up**
 
 ### **Task 1: Delete resources**
-When you're done using the virtual network and VM, delete the resource group and all of the resources it contains:
 
-Search for and select myResourceGroup.
+The Azure Passes will allow you to run the services for 90 days for training porpose. Although it is a best practice to delete all your resources after the training. 
 
-Select Delete resource group.
+Search for the Resource Group created for this training.
 
-Enter myResourceGroup for TYPE THE RESOURCE GROUP NAME and select Delete.
+Select Delete resource group on the top right side.
+
+Enter your-resource-group-name for **TYPE THE RESOURCE GROUP NAME** and select Delete. This operation will take a few minutes.
+
+After that is done go to Azure defender for IoT and deactivate the subscription.
