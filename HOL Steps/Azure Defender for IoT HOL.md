@@ -290,9 +290,9 @@ Below, a ***sample*** screen, your parameters will be different.
 2. Next, look for the icon **System Properties** on the right side. Click in the icon, you will see a pop up warning, select **Ok**.
 
 3. In the new window on the left side, scroll down until you see **Pcaps**, click there. Now on the right side scroll all the way down and we will modify three parameters as shown below:
-  - **player_max_amount=200**
-  - **enabled=1**
-  - **player.params=-M 5**
+    - **player_max_amount=200**
+    - **enabled=1**
+    - **player.params=-M 5**
 
 
   ![system settings pcaps](./images/enabling-pcaps.png 'System settings Pcaps')
@@ -300,7 +300,7 @@ Below, a ***sample*** screen, your parameters will be different.
 4. Click **Save** and then **Ok**
 
 5. Continue in the System Properties window, scroll up and select **Horizon** on the left side select, scroll down and modify the followin parameter:
-  - **ui.enabled=true**
+    - **ui.enabled=true**
 
 
   ![Horizon Enable UI](./images/horizon-ui-enabled.png 'Horizon enable ui')
@@ -308,7 +308,7 @@ Below, a ***sample*** screen, your parameters will be different.
 6. Click **Save** and then **Ok**
 
 7. In system Properties, look for **Global** and modify the following parameter:
-  - **auto_discovery.enabled=1**
+    - **auto_discovery.enabled=1**
 
 
   ![Global Settings](./images/global-settings.png 'global settings')
