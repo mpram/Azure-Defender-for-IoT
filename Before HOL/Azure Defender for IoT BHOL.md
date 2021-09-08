@@ -8,19 +8,22 @@ During this time we will set up the environment need it for the Hands-on Lab.
 
 ## **Content:** ##
 
-- [Exercise 1: Set up Environment](#exercise-1-set-up-environment)
+- [Exercise 1: Azure Passess](#azure-passess)
+- [Exercise 2: Set up Environment](#exercise-1-set-up-environment)
    - [Task 1: Resources](#task-1-resources)
    - [Task 2: Virtual Machines](Task-2-Virtual-Machines)
    - [Task 3: Connect to Virtual Machine](Task-3-Connect-to-Virtual-Machine)
    - [Task 4: Enable Hyper-V](Task-4-Enable-Hyper-V])
 
 
+## **Exercise 1: Azure Passess** ##
+
+Previous to this workshop, after registration, you will receive an Azure Pass to configure with your personal email account, this step will be coordinated with your instructors.
 
 
-## **Exercise 1: Set up Environment** ##
-During this exercise you will be setting up your  environment for this lab in Azure Virtual Machine acting as Azure Defender Sensors.
+## **Exercise 2: Set up Environment** ##
 
-First we will set up an online sensor connected to IoT Hub, in the second step we will set up an offline sensor.
+Once your Azure Pass is activated and you have a new subscription to work with we will move to this exercise to create a resource group for all the services we will use to build our architecture.
 
 
 ### **Task 1: Resources** ###
@@ -242,7 +245,7 @@ We are going to enable Hyper-V via PowerShell in the newly created VM.
 > If you are not promoted to restart the VM within PowerShell. Please close the Bastion Host tab, and return to the Azure Portal, and select your VM. At this point you can either "restart your VM" and reconnect via Bastion. OR you can *STOP* the VM and *Start* the VM again.
 
 
-5. Login back to the Virtual Machine, using RDP or Bastiion, open in the Vm download Storage Explorer, open **Microsoft Edge** and download the ['Storage Explorer'](https://azure.microsoft.com/en-us/features/storage-explorer/ 'Storage Explorer') clikc **Download**
+5. Login back to the Virtual Machine, using RDP or Bastiion, open in the Vm download Storage Explorer, open **Microsoft Edge** and download the ['Storage Explorer'](https://azure.microsoft.com/en-us/features/storage-explorer/ 'Storage Explorer') click **Download**
 
 6. Once the download is completed run the installation selecting **Install for me only (recommended)** option. Next click on **I accept the agreement**, and **Install**, you will ask a few additional **Next** optiosn before starting the installation.
 

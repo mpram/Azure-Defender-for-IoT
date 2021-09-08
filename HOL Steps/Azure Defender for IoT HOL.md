@@ -9,8 +9,9 @@ Before Starting this Lab make sure you complete the steps specified in **Azure D
 ## Architecture Diagram ## 
 
 
-Diagram here
+During this workshop we will be focusing on setting up our Azure Defender sensors, for online alerts and also offline scenarios, you will learn  how to configure your environment and assess the results. This hands-on lab will be focus on Securing your facilities, this will cover brownfield and greenfield devices. The scenario below is one of many you would apply this lessons, other scenarios are Oil & Gas, Utility and Energy companies.
 
+  ![Architecture](./images/architecture-diagram.png 'Architecture Diagram')
 
 
 ## **Content:** ##
@@ -19,7 +20,7 @@ Diagram here
   - [Task 2: Setting up sensors](#Task-2-Setting-up-sensors)
   - [Task 3 - Onboarding sensors](#Task-3-Onboarding-sensors)
 - [Exercise #2: Setting up your offline sensor](Exercise-2-Setting-up-your-offline-sensor)
-  - [Task 1: Set up Virtual Machine](#Task-1-Set-up-Virtual-Machine)
+  - [Task 1: Set up your offline sensor](#Task-1-Set-up-your-offline-sensor)
   - [Task 2: Collect Information](#Task-2-Collect-Information)
   - [Task 3: Configure Azure Defender](#Task-3-Configure-Azure-Defender)
 - [Exercise 3: Enabling system settings](#exercise-1-enabling-setting-settings)
@@ -154,46 +155,78 @@ Fill the contact info window and then wait for a few minutes to complete the dow
 
 ## **Exercise #2: Setting up your offline sensor**
 
-During this exercise we will set up the Virtual Machine created before with Azure Defender. 
+During this exercise we will set up the Virtual Machine created before with Azure Defender acting as a sensor offline.
 
-### **Task 1: Set up Virtual Machine**
+### **Task 1: Set up your Virtual Machine**
 
 1. Connect to the Virtual machine created, using RDP or Bastion.
 
-2.  Open HyperV, select **New** on the left side will open multiple options, select **Virtual Machine**
+2.  Open HyperV, select **New** on the left side will open multiple options, select **Hard Disk..**
+
+3. A new window will pop up, with several tabs, follow this values for each tab: 
+  - **Before you begin**: just select **Next**
+  - **Choose disk format**: VHDX, **Next**
+  - **Choose disk type**: Dynamically expanding, **Next**
+  - **Specify Name and location**: myofflinesensordisk.vhdx location default, **Next**
+  - **Configure Disk**: 100GB as shown below, **Next**
+  - **Summary**: Finish
+
+  ![Hard Disk](./images/config-hard-disk.png 'Hard Disk')
+
+
+4. Right click on your sensor, under **Hyper-V Manager**, left side, and select **Virtual Switch Manager**
+
+
+  ![Virtual Switch](./images/virtual-switch.png 'Virtual Switch')
+
+
+5. A new window will pop up, select **New Virtual network switch**, then **Internal**, **Create virtual switch**. Assign a name **MySwitch**. Last **Aplly** and **Ok**
+
+  ![Virtual Switch](./images/create-virtual-switch.png 'Virtual Switch')
+
+
+6. Back in the HyperV, select **New** on the left side will open multiple options, select **Virtual Machine**
 
  ![Onboard Online Sensor](./images/hyperv-create-vm.png 'Onboard Online Sensor')
 
-3. In the first tab, assign a name **ad4iotsensoroffline**, then click **Next**
+  - First tab, assign a name **ad4iotsensoroffline**, then click **Next**
 
-4. The next tab **Specify Generation**, select **Generation 1**, click **Next** again.
+  - **Specify Generation**, select **Generation 1**, click **Next** again.
 
-5. Then change the memory to **2024MB**, **Next** again.
+  - Change the memory to **2024MB**, **Next** again.
 
-6. **Configure Network** tab, select in **Connection**, **Default Switch**, **Next** again.
+  - **Configure Network** tab, select in **Connection**, **MySwitch**, **Next** again.
 
-7. **Connect Virtual Hard Disk** tab, only modify the **Size** to 80GB as shown below, click **Next**.
+  - **Connect Virtual Hard Disk** tab, **Use an existing virtual hard disk** as shown below, select the hard disk created in previous step and then click **Next**.
 
  ![Disk Size](./images/disk-size.png 'Disk Size')
 
-8.  In the **Connect Virtual Hard Disk** section, select **Install operating system from a bootable CD/DVD-ROM** option, then click in **Image file .(iso):** browse to the Download folder where you have the iso file downloaded from the Storage Explorer. Clikc **Next** and then **Finish**
+
+
+7. Right click on the Virtual Machine just created, select **Settings**. At the top **Add Hardware**, select **Network Adapter**, then **Add**, in the next window select **MySwitch**  and **Ok** 
+
+
+ ![Add Network adapter](./images/assign=hardware.png 'Add Network adapter')
+
+
+ 8. In the **Processor** Tab, assign **2** to **Number of virtual processors**, then **Apply** 
+
+
+ 9. In the same screen, select **IDE Controler 0**, then click on **image file**, and browse to the location where the iso file was downloaded. **Apply**
+
+ 
+ ![Assign image](./images/assign-image.png 'Assign image')
+
+
+10.  In the **Connect Virtual Hard Disk** section, select **Install operating system from a bootable CD/DVD-ROM** option, then click in **Image file .(iso):** browse to the Download folder where you have the iso file downloaded from the Storage Explorer. Clikc **Next** and then **Finish**
 
 ![Disk Size](./images/select-iso.png 'Disk Size')
+11. Back to the VM, right click to **Start**, then right click again to **Connect**
 
-
-9. Now you have the Virtual Machine available and Off. right click on the VM, select **Settings**
-
-10. Select **Network Adapter** and click **Add**. The select **Default Switch**, **Apply** and **Ok**
-
-![Network Adapter](./images/network-adapter.png 'Network Adapter')
-
-12. Select **Processor** section in hte left panel, and assign **2** to **Number of virtual processors**, select **Apply** and **Ok**.
-
-13. Back to the VM, right click to **Start**, then right click again to **Connect**
-
-14. When you connect to the VM after a few minutes of running the system installation, you should see the following configuration next
+12. When you connect to the VM after a few minutes of running the system installation(this is a good time to grab a coffee!)after your coffee you should see the following screen
 
  ![Connect to  Sensor](./images/connect-to-sensor.png 'Connect to Sensor')
+
 ### **Task 2: Collect Information**
 
 Before setting up Azure Defender is important you take a prtscrn of the Virtual Machine IP so both can communicate to each other, we are going to use this info to set up Defender.
@@ -225,9 +258,9 @@ During this task we will configure Azure Defender,
 3. You will be ask to fulfill some parameters, it is ***VERY IMPORTANT*** you pay attention to the previous task because you will use the network information you captured before, this is unique to each Virtual Machine. So the following is an **EXAMPLE** based on the prtscrn presented above.
 
 
-- **configure hardware profile**: **Office**, then press enter. 
+- **configure hardware profile**: **office**, then press enter. 
 - **Configure network interface**, type **eth0**
-- **Configure management network interface**: this is an example **172.25.224.2**, you will use the **Ipv4 Address** from the previous task **+1 or -1** NOT THE SAME. Click Enter to continue
+- **Configure management network interface**: this is an example **172.25.224.2**, you will use the **Ipv4 Address** from the previous task **+1 or -1** NOT THE SAME. Click Enter to continue. ***Take a note of this IP you will need it later on***.
 - **Subnets mask**: **255.255.240.0** this will be the SAME as the **Subnet Mask** captured in previous task.
 - **Configure DNS**: **8.8.8.8**
 - **Configure default gateway IP Address**: This value will be the sam as **Default Gateway** captured in previous task, in this example will be 10.4.0.1
