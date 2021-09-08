@@ -2,14 +2,12 @@
 
 # ***WORK IN PROGRESS, NOT TO SHARE***
 
-1) Azure Digital Twins, theory, deck presented avialable at **pdf files** folder.
-
-Before Starting this Lab make sure you complete the steps specified in **Azure Digital Twins BHOL.md** File.
+Before Starting this Lab make sure you complete the steps specified in **Azure Defender for IoT BHOL.md** File.
 
 ## Architecture Diagram ## 
 
 
-During this workshop we will be focusing on setting up our Azure Defender sensors, for online alerts and also offline scenarios, you will learn  how to configure your environment and assess the results. This hands-on lab will be focus on Securing your facilities, this will cover brownfield and greenfield devices. The scenario below is one of many you would apply this lessons, other scenarios are Oil & Gas, Utility and Energy companies.
+During this workshop we will be focusing on setting up our Azure Defender sensors, for online alerts and also offline scenarios, you will learn  how to configure your environment and assess the results. This hands-on lab will be focus on Securing your facilities, this will cover brownfield and greenfield devices. The scenario below is one of many you would apply these lessons, other scenarios are Oil & Gas, Utility and Energy companies.
 
   ![Architecture](./images/architecture-diagram.png 'Architecture Diagram')
 
@@ -26,8 +24,20 @@ During this workshop we will be focusing on setting up our Azure Defender sensor
 - [Exercise 3: Enabling system settings](#exercise-1-enabling-setting-settings)
    - [Task 1: System Properties](#task-1-System-properties)
   - [Task 2: Pcap Files](#task-2-Pcap-Files)
-- [Exercise 4: Clean Up](#Exercise-4-Clean-Up)
-  -[Task-1-Delete resources](#Task-1-Delete-resources) 
+- [Exercise 4: Analyzing the Data](#Exercise-4-Analyzing-the-Data)
+	- [Task 1: Devices Map](#Task-1-Devices-Map)
+	- [Task 2: Device Inventory](#Task-2-Device-Inventory)
+	- [Task 3: Alerts](#Task-3-Alerts)
+	- [Task 4: Event Timeline](#Task-4-Event-Timeline)
+	- [Task 5: Data Mining](#Task-5-Data-Mining)
+- [Exercise 5: Online Sensor](#Exercise-5-Online-Sensor)
+	- [Task 1: Create an Online sensor](#Task-1-Create-an-Online-sensor)
+	- [Task 2: Integrate with Sentinel](#Task-2-Integrate-with-Sentinel)
+	- [Task 3: Alerts - Intelligent Thread](#Task-3-Alerts-Intelligent-Thread)
+
+- [Exercise 6: Clean Up](#Exercise-6-Clean-Up)
+	- [Task 1: Delete resources](#Task-1-Delete-resources)
+
 
   
 
@@ -161,31 +171,20 @@ During this exercise we will set up the Virtual Machine created before with Azur
 
 1. Connect to the Virtual machine created, using RDP or Bastion.
 
-2.  Open HyperV, select **New** on the left side will open multiple options, select **Hard Disk..**
-
-3. A new window will pop up, with several tabs, follow this values for each tab: 
-  - **Before you begin**: just select **Next**
-  - **Choose disk format**: VHDX, **Next**
-  - **Choose disk type**: Dynamically expanding, **Next**
-  - **Specify Name and location**: myofflinesensordisk.vhdx location default, **Next**
-  - **Configure Disk**: 100GB as shown below, **Next**
-  - **Summary**: Finish
-
-  ![Hard Disk](./images/config-hard-disk.png 'Hard Disk')
 
 
-4. Right click on your sensor, under **Hyper-V Manager**, left side, and select **Virtual Switch Manager**
+2. Right click on your sensor, under **Hyper-V Manager**, left side, and select **Virtual Switch Manager**
 
 
   ![Virtual Switch](./images/virtual-switch.png 'Virtual Switch')
 
 
-5. A new window will pop up, select **New Virtual network switch**, then **Internal**, **Create virtual switch**. Assign a name **MySwitch**. Last **Aplly** and **Ok**
+3. A new window will pop up, select **New Virtual network switch**, then **Internal**, **Create virtual switch**. Assign a name **MySwitch**. Last **Aplly** and **Ok**
 
   ![Virtual Switch](./images/create-virtual-switch.png 'Virtual Switch')
 
 
-6. Back in the HyperV, select **New** on the left side will open multiple options, select **Virtual Machine**
+4. Back in the HyperV, select **New** on the left side will open multiple options, select **Virtual Machine**
 
  ![Onboard Online Sensor](./images/hyperv-create-vm.png 'Onboard Online Sensor')
 
@@ -195,37 +194,22 @@ During this exercise we will set up the Virtual Machine created before with Azur
 
   - Change the memory to **2024MB**, **Next** again.
 
-  - **Configure Network** tab, select in **Connection**, **MySwitch**, **Next** again.
+  - **Configure Network** tab, select in **Connection**, **Default Switch**, **Next** again.
 
-  - **Connect Virtual Hard Disk** tab, **Use an existing virtual hard disk** as shown below, select the hard disk created in previous step and then click **Next**.
+  - **Connect Virtual Hard Disk** tab, **Create a virtual hard disk** click **Next**.
 
- ![Disk Size](./images/disk-size.png 'Disk Size')
+ - **Installations Options**, select **Install an operating system from a bootable CD/DVD-ROM** then select **Image file (.iso)** and browse the Azure defender .iso file downloaded in previous steps. Last **Finish**
 
-
-
-7. Right click on the Virtual Machine just created, select **Settings**. At the top **Add Hardware**, select **Network Adapter**, then **Add**, in the next window select **MySwitch**  and **Ok** 
-
-
- ![Add Network adapter](./images/assign=hardware.png 'Add Network adapter')
-
-
- 8. In the **Processor** Tab, assign **2** to **Number of virtual processors**, then **Apply** 
-
-
- 9. In the same screen, select **IDE Controler 0**, then click on **image file**, and browse to the location where the iso file was downloaded. **Apply**
-
- 
- ![Assign image](./images/assign-image.png 'Assign image')
-
-
-10.  In the **Connect Virtual Hard Disk** section, select **Install operating system from a bootable CD/DVD-ROM** option, then click in **Image file .(iso):** browse to the Download folder where you have the iso file downloaded from the Storage Explorer. Clikc **Next** and then **Finish**
 
 ![Disk Size](./images/select-iso.png 'Disk Size')
-11. Back to the VM, right click to **Start**, then right click again to **Connect**
 
-12. When you connect to the VM after a few minutes of running the system installation(this is a good time to grab a coffee!)after your coffee you should see the following screen
+5. Back to the VM, right click to **Start**, then right click again to **Connect**
+
+6. When you connect to the VM after a few minutes of running the system installation, you should see the following screen
 
  ![Connect to  Sensor](./images/connect-to-sensor.png 'Connect to Sensor')
+
+
 
 ### **Task 2: Collect Information**
 
@@ -263,7 +247,7 @@ During this task we will configure Azure Defender,
 - **Configure management network interface**: this is an example **172.25.224.2**, you will use the **Ipv4 Address** from the previous task **+1 or -1** NOT THE SAME. Click Enter to continue. ***Take a note of this IP you will need it later on***.
 - **Subnets mask**: **255.255.240.0** this will be the SAME as the **Subnet Mask** captured in previous task.
 - **Configure DNS**: **8.8.8.8**
-- **Configure default gateway IP Address**: This value will be the sam as **Default Gateway** captured in previous task, in this example will be 10.4.0.1
+- **Configure default gateway IP Address**: This value will be the same as **Default Gateway** captured in previous task, in this example will be 10.4.0.1
 - **Configure input interface(s)**: **eth1**
 - **Configure bridge interface**: Just press Enter
 - Then type **Y** and click **Enter**.

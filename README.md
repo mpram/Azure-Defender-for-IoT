@@ -39,10 +39,10 @@ Teams working in projects related to Connected Devices, Smart Places, Factory of
   **What to expect:**
   - Session: This session is 100% Hands-on, no previous knowledge in Azure is required, you will learn by doing, it is important you are a person with Security experience or an Industrial consrol system engineering working in facilities. You will work with us all day, block any distractions during this day. Explanations will happening while we are building the solution.
 
-    **The session will not be recorded**
+    **This session will not be recorded**
   </br>
 
-  - **IMPORTANT**: After the session, you will be able to configure Azure Defender in your facility to assess your own evironment, you will have a period of 15 days to schedule a call with Microsoft cybersecurity teams to assess your findings and guide through the process at no charge.
+  - **IMPORTANT**: After the session, you will be able to configure Azure Defender in your facility to assess your own evironment, you will have a period of 15 days to schedule a call with Microsoft cybersecurity teams to assess your findings and guide you through the process at no charge.
 
 </br>
 
@@ -59,7 +59,7 @@ This workshop is **by invitation only**, Azure Passes will be provided as part o
 For any questions please send an email to:
 iotacademy@microsoft.com
 
-This workshop is delivered by SME in IoT and Cybersecurity at Microsoft.
+This workshop is delivered by SMEs in IoT and Cybersecurity at Microsoft.
 
 
 </br>
