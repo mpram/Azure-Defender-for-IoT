@@ -1,7 +1,7 @@
-# Azure Defender for IoT
+# Azure Defender for IoT/OT Security
 # ***WORK IN PROGRESS, NOT TO SHARE***
 
-**Hands-on lab workshop, Azure Defender for IoT.**
+**Hands-on lab workshop, Azure Defender for IoT/OT Security.**
 
 
 
@@ -18,10 +18,51 @@ The names of manufacturers, products, or URLs are provided for informational pur
 Microsoft and the trademarks listed at https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
 
+</br>
 
 ## **Audience:** ##
 
 Teams working in projects related to Connected Devices, Smart Places, Factory of the Future, Industrial IoT, Energy, Oil and Gas.
+  
+  **Ideal attendee will be:**
+
+   - Security Teams 
+   - Operational Technology/Engineering(ICS)
+		(Personal securing facilities such as factory floor, substations, oil and gas facilities.)
+
+  **Industries:**
+    - Energy 
+	  - Utility
+	  - Manufacturing
+	  - Oil & Gas
+
+  **What to expect:**
+  - Session: This session is 100% Hands-on, no previous knowledge in Azure is required, you will learn by doing, it is important you are a person with Security experience or an Industrial consrol system engineering working in facilities. You will work with us all day, block any distractions during this day. Explanations will happening while we are building the solution.
+
+    **The session will not be recorded**
+  </br>
+
+  - **IMPORTANT**: After the session, you will be able to configure Azure Defender in your facility to assess your own evironment, you will have a period of 15 days to schedule a call with Microsoft cybersecurity teams to assess your findings and guide through the process at no charge.
+
+</br>
+
+## **Date:** ##
+
+- Americas: Oct/21/2021
+- Time: 9am to 5pm EST Time
+
+This workshop is **by invitation only**, Azure Passes will be provided as part of the training to make sure all the attendees can complete the labs without issues.
+
+
+## **Contact Info:** ##
+
+For any questions please send an email to:
+iotacademy@microsoft.com
+
+This workshop is delivered by SME in IoT and Cybersecurity at Microsoft.
+
+
+</br>
 
 ## **Azure Defender Vocabulary** ## 
 
@@ -29,6 +70,9 @@ Teams working in projects related to Connected Devices, Smart Places, Factory of
 - Manager: Linux machine, physical hardware running Azure defender connected to the network. It connects to multiple sensors to summarize data, alerts across multiples systems, carries the PCAP Configuration and new updates. Central Manager can be used to update the sensor's version and threat intelligence, can connect to many SIEM systems if needed also.
 - IoT: Internet of the things. Modern, new standards connected devices
 - OT: Operational Technology, old equipment and technology (i.e. conveys belts, PLCs).
+- Brownfield devices: Type of legacy equipment and legacy software tht performs discrete function in isolation, usually nobody is willing to modify texisting, well-functioning legacy assets. 
+- ICS: Industrial Control systems
+- Greenfield devices: New and smart "cyber-physical systems", supporting new software landscape such as open communication protocols and open standards such as MQTT, REST APIs, AMQP, OPC-UA, MTConnect and CodeSys
 - IIoT: Industrial IoT.
 - SIEM: Security Information and event management.
 - XDR: Cross detection and response
