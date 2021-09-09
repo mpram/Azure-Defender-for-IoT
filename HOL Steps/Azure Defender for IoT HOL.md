@@ -273,12 +273,18 @@ Below, a ***sample*** screen, your parameters will be different.
 
 ![Setting up  Sensor](./images/login-info.png 'Setting up Sensor')
 
-5. Open a brower, type the IP you use for the this step above **Configure management network interface**: this example was **172.25.224.2**, you should be able to login to Azure Defender. If you forgot to take note of the IP, login to the defender console and check the IP presented at the top of the scree.
-
-
-![Defender Login](./images/defender-login-page.png 'Defender Login')
+5. Once the installation finished you will ask to login, enter the credentials from previous step. In this screen you can also validate the IP, you will use that IP in your browser.
 
 </br>
+
+***Note: At this stage your IPs should look similar to the example below, if you can't reach the portal validate the IPs. If you restarted your VM there is a chance your IPs changed so you will need to go back and reconfigure them, if that is the case use the command in step 3.***
+
+</br>
+
+![Defender IP](./images/validate-ip.png 'Defender IP')
+
+</br>
+
 
 6. Login with the credentials provided in step **4**
 7. Next, you will be ask to activate the product, click **Upload**, then **Browse Files**, in your dowloads folder select the file you downloaded from the Storage Explorer, in this example **myofflinesensor.zip**
