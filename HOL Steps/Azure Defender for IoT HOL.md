@@ -406,8 +406,8 @@ Your first interaction with Devices map you will see a similar map like the belo
 ### **Task 2: Alerts**
 
 1. Once you click Alerts in your PLC you will see a new window pop up showing three different types of alerts.
-  - Operational(high Alert and lower alert)
-  - Policy Violation
+    - Operational(high Alert and lower alert)
+    - Policy Violation
 
 For each of these alerts you will be able to analyze the pcap file, export a report, analyze the timeline or mute the alert.
 
