@@ -108,7 +108,7 @@ Fill the contact info window and then wait for a few minutes to complete the dow
 
 
 
-4.Assigned a name to the sensor **myofflinesensor**, select your subscription and make sure you toogle **Cloud Connected** once you disable this option the rest of the form below will dissapear. Click **Register**
+4. Assigned a name to the sensor **myofflinesensor**, select your subscription and make sure you toogle **Cloud Connected** once you disable this option the rest of the form below will dissapear. Click **Register**
 
 
 
@@ -129,7 +129,7 @@ Fill the contact info window and then wait for a few minutes to complete the dow
   
   **Site** Section
   - **Hub**: Select the IoT Hub created in previous step.
-  - **Display Name**:AD4IoTHub
+  - **Display Name**: AD4IoTHub
 
   
   ![Onboard Online Sensor](./images/onboard-online-sensor.png 'Onboard Online Sensor')
@@ -144,19 +144,18 @@ Fill the contact info window and then wait for a few minutes to complete the dow
 12. To Upload the Files, go to the Storage Account you created before. Select the container and click **Upload** from your local Download folder select the files and upload them.
  
 
-13. Login back to the Virtual Machine, open **Storage Explorer**. You will be ask to login to your Azure account where you just upload the files.
-
-**Subscription**
+13. Login back to the Virtual Machine, open **Storage Explorer**. You will be ask to login to your Azure account where you just upload the files. Then select 
+**Subscription**.
 
   ![Storage Explorer](./images/sa-subs-login.png 'Subscription')
 
-8. Next, click on **Azure**, **Next**. At this point you will ask your credentials to **Sign in** to Azure. Once you are signed in, close the browser, in the Storage you you should see your subscription.
+8. Next, click on **Azure**, **Next**. Now **Sign in** to Azure. Once you are signed in, close the browser, in the Storage explorer you you should see your subscription.
 
-9. On the left panel, you should see **Storage Accounts** under your Subscription.
+9. On the left panel, select **Storage Accounts** under your Subscription.
 
     ![Storage Explorer Container](./images/container.png 'Select Container')
 
-10. Once you selected the container on the right side you should see the files, just select the files and clikc **Download**
+10. Once you selected the container on the right side you should see the files, just select the files and click **Download**
 
    ![Storage Explorer](./images/download-files.png 'Subscription')
 
@@ -192,9 +191,9 @@ During this exercise we will set up the Virtual Machine created before with Azur
 
   - **Specify Generation**, select **Generation 1**, click **Next** again.
 
-  - Change the memory to **2024MB**, **Next** again.
+  - Change the memory to **2024MB**, **Next**.
 
-  - **Configure Network** tab, select in **Connection**, **Default Switch**, **Next** again.
+  - **Configure Network** tab, select in **Connection**, **Default Switch**, **Next**.
 
   - **Connect Virtual Hard Disk** tab, **Create a virtual hard disk** click **Next**.
 
@@ -254,7 +253,7 @@ During this task we will configure Azure Defender,
 
 Now the installation will run for 10-15minutes.
 
-***Note: Once the installation is complete, you will be able to access Azure Defender Console, check if you can open a cmd window, ping the Ip Adrress  you enter in the step 'Configure management network interface'
+***Note: Once the installation is complete, you will be able to access Azure Defender Console, check if you can open a cmd window, ping the IP Address  you enter in the step 'Configure management network interface'
 If the request timeout, you will need to reconfigure this step again, for that review the IPs one more time and use the command below to start over:***
 
 ```powershell
@@ -267,14 +266,14 @@ Below, a ***sample*** screen, your parameters will be different.
 
 </br>
 
-4. ***IMPORTANT STEP!!!*** Once the installation is complete, you will have the login information availabe in the screen **TAKE THE PRTSCRN!!** before continuing, press **Enter**. Now you will have the support account, again in the screen **TAKE THE PRTSCRN!!** press **Enter** to continue.
+4. ***IMPORTANT STEP!!!*** Once the installation is complete, you will have the login information availabe in the screen **TAKE THE PRTSCRN!!** before continuing, press **Enter**. Now you will have the support account, again in the screen **TAKE THE PRTSCRN!!** press **Enter** to continue. If you fail to capture the credentials, you will need to start over.
 
 </br>
 
 
 ![Setting up  Sensor](./images/login-info.png 'Setting up Sensor')
 
-5. Open a brower, type the IP you use for the this step above **Configure management network interface**: this example was **172.25.224.2**, you should be able to login to Azure Defender 
+5. Open a brower, type the IP you use for the this step above **Configure management network interface**: this example was **172.25.224.2**, you should be able to login to Azure Defender. If you forgot to take note of the IP, login to the defender console and check the IP presented at the top of the scree.
 
 
 ![Defender Login](./images/defender-login-page.png 'Defender Login')
@@ -316,7 +315,7 @@ Below, a ***sample*** screen, your parameters will be different.
 
 4. Click **Save** and then **Ok**
 
-5. Continue in the System Properties window, scroll up and select **Horizon** on the left side select, scroll down and modify the followin parameter:
+5. Continue in the System Properties window, scroll up and select **Horizon** on the left side select, scroll down and modify the following parameter:
     - **ui.enabled=true**
 
 
@@ -356,7 +355,7 @@ In this exercise your instructor will share the SAS token with you to download P
 3. Once you are connected to the Container, select all the files and click **Download**. Now you have all the files available locally and you can upload them to Azure Defender.
 
 
-4. Go back to AZure Defender, Click on **System Settings**, then **PCAP Player** now select **Upload**,
+4. Go back to Azure Defender, Click on **System Settings**, then **PCAP Player** now select **Upload**,
 **Browse Files**, browse to the folder where you download the files in the previous step, select all the files and click **Open**. This operation will take a few minutes to upload all the files.
 
 5. At this point you should see all the files uploaded.
