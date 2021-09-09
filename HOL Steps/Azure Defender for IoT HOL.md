@@ -26,8 +26,8 @@ During this workshop we will be focusing on setting up our Azure Defender sensor
   - [Task 2: Pcap Files](#task-2-Pcap-Files)
 - [Exercise 4: Analyzing the Data](#Exercise-4-Analyzing-the-Data)
 	- [Task 1: Devices Map](#Task-1-Devices-Map)
-	- [Task 2: Device Inventory](#Task-2-Device-Inventory)
-	- [Task 3: Alerts](#Task-3-Alerts)
+	- [Task 2: Alerts](#Task-2-Alerts)
+  - [Task 3: Device Inventory](#Task-2-Device-Inventory)
 	- [Task 4: Event Timeline](#Task-4-Event-Timeline)
 	- [Task 5: Data Mining](#Task-5-Data-Mining)
 - [Exercise 5: Online Sensor](#Exercise-5-Online-Sensor)
@@ -377,12 +377,49 @@ In this exercise your instructor will share the SAS token with you to download P
 
 ## **Exercise 4: Analyzing the Data**
 
+After Azude Defender learnt about your environment it will be able to share insights pretty fast.
+
 ### **Task 1: Devices Map**
 
+Your first interaction with Devices map you will see a similar map like the below
 
-### **Task 2: Device Inventory**
+   ![Pcap Files Uploaded](./images/devices-map.png 'Pcap files uploaded')
+1. Use the four icon on the left to select **Layout by Purdue**. In this model you will see the different layers between Corporate IT and site opeartions.
 
-### **Task 3: Alerts**
+
+2. Check your notifications available and you can take action at this point.
+
+3. For each device right click to analyze properties, show events, reports and simulate attack vectors.
+
+
+4. In the hamburguer menu on the left, click the highlights and select one of the **OT Protocols** i.e. **MODBUS** and click on **Filter**. Now your map will show those devices only
+
+
+  ![Pcap Files Uploaded](./images/device-map-filtering.png'Pcap files uploaded')
+
+
+5. Then filter your devices by **CIP** OT Protocol, at the bottom of your map you will see a PLC, where the Vendor is Rockwell Automation, has already 3 alerts activated. Right click on the device, **View Properties**. In this view you will be able to analyze the Backbone of your PLCs, take actions and analyze the Alerts.
+
+
+  ![PLC](./images/plc.png 'PLC')
+
+### **Task 2: Alerts**
+
+1. Once you click Alerts in your PLC you will see a new window pop up showing three different types of alerts.
+  - Operational(high Alert and lower alert)
+  - Policy Violation
+
+For each of these alerts you will be able to analyze the pcap file, export a report, analyze the timeline or mute the alert.
+
+2. If we remove the device filter from the top of the screen, then click **Confirm** you will see 20 Alerts in process.
+
+
+3. Apply **Custom Groups** to filter different scenarios, such as **Unclassified subnets** then **Confirm**
+
+
+### **Task 3: Device Inventory**
+
+
 
 ### **Task 4: Event Timeline**
 
