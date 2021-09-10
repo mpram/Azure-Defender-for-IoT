@@ -138,7 +138,7 @@ Fill the contact info window and then wait for a few minutes to complete the dow
  9. In the next step **Download activation file** and click **Finish**
  10. At this point if you check again your **Sites and sensors** section you should see both sensors onboarded.
 
-11. The files just downloaded we will upload it to the Storage account created in the section **Azure Defender for IoT BHOL**, this way we will be able to make them available to download in the Virtual Machine. Another option could be to download the files directly in the Virtual Machine if you are login in Azure Portal directly insite the VM. However, sometimes you will have policies on place not allowing this, so the storage account route will make this feasible.
+11. The files just downloaded we will upload it to the Storage account created in the section **Azure Defender for IoT BHOL**, this way we will be able to make them available to download in the Virtual Machine. Another option could be to download the files directly in the Virtual Machine if you are login in Azure Portal directly inside the VM. However, sometimes you will have policies on place not allowing this, so the storage account route will make this feasible.
 
 
 12. To Upload the Files, go to the Storage Account you created before. Select the container and click **Upload** from your local Download folder select the files and upload them.
@@ -418,18 +418,92 @@ For each of these alerts you will be able to analyze the pcap file, export a rep
 
 
 ### **Task 3: Device Inventory**
+1. In this view, filter all your devices by **Is Authorized**, True or False are possible values.
 
+2. Organize your devices based on filters.
+
+3. Export the list to a csv files.
 
 
 ### **Task 4: Event Timeline**
 
+This vewi will allow you a Forensic analysis of your alerts.
+
+1. Choose **Advanced Filers**, filter the timeline by **CIP**, let's analyze the alert timeline.
+
+
 ### **Task 5: Data Mining**
+
+In this section you can create multiple custom reports.
+As an example we will create a Report based on firmware updates versions.
+
+1. Go To **+**, **New report**, in the categories section select **Modules and Firmware update versions**
+
+2. Assign a name to your report. Then go to Filters, **add** and select **Firmware version(generic)**
+
+  ![PLC](./images/dm-firmware.png 'PLC')
+
+3. In the new field added **Firmware Version(GENERIC)** add **0.4.1**, then **Save**.
+
+4. You can remove the filter to list all the firmware updates version in your list also.
+
+5. Export you report(pdf, csv) for further actions. 
+
+
+### **Task 6: Risk Assessment**
+
+1. Go to the Risk assessment, run the assessment. During this task we will show you how to analyze the assessment. 
+
+***IMPORTANT***, after completing this workshop you will have a period of two weeks to run the risk assessment in your evironment and schedule an appoitment with our Cybersecurity team to guide you through analysis, best practices and vulnerabilities in your facilities.
 
 </br>
 
 ## **Exercise 5: Online Sensor**
 
+To modfy our sensor to be an online sensor, we will use the same virtual machine but we will modify the activation file creating a new sensor in Azure Defender. 
+
 ### **Task 1: Create an Online sensor**
+
+1. Go to Azure Portal, select **Security Center**, under **Cloud Security** click on **Azure Defender**. Look for **IoT Security** at the bottom of the right side.
+
+2. In the new window, on the left panel you will find **Sites and sensors**. Click on **+ Onboard sensor**
+
+3. Fill the form:
+    - **Name**: myonlinesensor
+    - **Subscription**: Select the Subscrition you are using for this workshop.
+    - **Cloud Connected**: Enabled
+    - **Automatic Threat Intelligence Updates (Preview)**: Enabled
+
+    ***Site Section***
+    - **Hub**: Select the hub created during **Before hands-on lab** section
+    - **Name**: no needed.
+    - **Tags**: blank.
+
+  Then **Register**
+
+4. In the next window, **Download activation file** and **Finish**
+
+  ![Online sensor](./images/online-sensor.png 'Online Sensor')
+5. Go to the resource group you are using for training, look for the storage account created in **Azure Defender for IoT BHOL** section, click on it. 
+
+6. On the left side panel, select **Containers** under **Data Storage section**, click on **Activationfiles** folder
+
+
+![Upload File](./images/upload-activation-file.png 'Upload File')
+
+7. Browse to select the file downloaded and then click **Upload**. Once the file is in the portal go to the Virtual Machine, connect to the **Microsoft Azure Storage Explorer** and refresh the container to see the file.
+
+8. Select the File and click on **Download**.
+
+![Upload File](./images/dowloand-file.png 'Upload File')
+
+
+9. Go to Azure Defender Portal, select **System Settings** and then, **Reactivation**
+![Reactivate](./images/reactivate.png 'Reactivate')
+
+
+10. In hte new window, select **Upload**, **Browse File**, select the file you jsut downloaded, then **Open** and **Activate**, **Ok** to the instructions
+
 
 ### **Task 2: Integrate with Sentinel**
 

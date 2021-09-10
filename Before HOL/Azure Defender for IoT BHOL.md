@@ -11,9 +11,11 @@ During this time we will set up the environment need it for the Hands-on Lab.
 - [Exercise 1: Azure Passess](#azure-passess)
 - [Exercise 2: Set up Environment](#exercise-1-set-up-environment)
    - [Task 1: Resources](#task-1-resources)
-   - [Task 2: Virtual Machines](Task-2-Virtual-Machines)
-   - [Task 3: Connect to Virtual Machine](Task-3-Connect-to-Virtual-Machine)
-   - [Task 4: Enable Hyper-V](Task-4-Enable-Hyper-V])
+   - [Task 2: Virtual Machines](#Task-2-Virtual-Machines)
+   - [Task 3: Connect to Virtual Machine](#Task-3-Connect-to-Virtual-Machine)
+   - [Task 4: Enable Hyper-V](#Task-4-Enable-Hyper-V])
+   - [Task 5: Create an IoT Hub](#task-5-create-an-iot-hub)
+   - [Task 6: Create an Storage Account](#task-6-create-an-storage-account)
 
 
 ## **Exercise 1: Azure Passess** ##
@@ -249,6 +251,56 @@ We are going to enable Hyper-V via PowerShell in the newly created VM.
 
 6. Once the download is completed run the installation selecting **Install for me only (recommended)** option. Next click on **I accept the agreement**, and **Install**, you will ask a few additional **Next** optiosn before starting the installation.
 
+
+
+## **Task 5: Create an IoT Hub**
+
+1. In Azure Portal, click on **+ Create a Resurce**. In the marketplace look for **IoT Hub**, the click create.
+
+2. Fill the form: 
+
+    ***Basics Tab***:
+    - **Subscriptions**: Select the subscription you are using for this workshop.
+    - **Resource Group**: Select the resource group created for this workshop in previous step.
+    - **IoT Hub Name**: ad4iothol.
+    - **Region**: East US
+
+    ***Management Tab***
+
+    - **Pricing & scale Tier**: S1: Standard Tier
+
+    ![IoT Hub Create](./images/iot-hub-create.png 'IoT Hub Create')
+
+3. Click on **Review + Create**, after the validation is completed, click on **Create.
+
+
+
+## **Task 6: Create an Storage Account**
+
+
+1. In Azure Portal, click on **+ Create a Resurce**. In the marketplace look for **Storage Account**, then click create.
+
+2. Fill the form:
+
+    ***Basics Tab***
+    - **Subscriptions**: Select the subscription you are using for this workshop.
+    - **Resource Group**: Select the resource group created for this workshop in previous step.
+    - **Storage Account Name**: adfiles+Suffix.
+    - **Region**: East US
+    - **Redundancy**: Locally-redundant storage(LRS)
+
+Then **Review + Create** after the validation is complete, click **Create**
+
+  ![SA](./images/sa-create.png
+ 'SA Create')
+
+
+3. Once the Storage account is created, click on it. Under **Data Storage** select **Containers**, then on the right side select **+ Contianer**.
+
+4. A new window will open on the right assign a name **acitvationfiles** and then click **Create**
+
+  ![SA container](./images/create-container.png
+ 'SA Container')
 
 
 
