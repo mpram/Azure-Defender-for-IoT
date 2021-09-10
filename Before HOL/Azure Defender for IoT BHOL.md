@@ -73,7 +73,7 @@ In the next window, select your subscription, assign a name to the resource grou
 
 9. Select **Next: Security** button at the bottom of the page. Under **BastionHost**, select **Enable**.
 
-    ![Bastion Security](./images/enable-bastion-security.png 'Bastion Security')
+![Bastion Security](./images/enable-bastion-security.png 'Bastion Security')
 
     
 10. Enter this information for the **BastionHost**:
@@ -90,40 +90,6 @@ In the next window, select your subscription, assign a name to the resource grou
 
 
 13. It will take a few minutes to deploy. At the end you should see the your resources deployed.
-
- 
-
- 14. In this step we will Create an Storage account and create a container. Go to the home page in Azure Portal click on **+ Create a Resource** at the bottom of the screen you will see **Storage Acount**, click there.
-
-![Create SA](./images/create-sa.png 'Create SA')
-
-15. Fill the basics tab
-    - **Subscription**: Select the Subscription you are using for this Lab.
-    - **Resource Group**: Select the resource group just created.
-    - **Storage Account name**: adfiles+SUFFIX
-    - **Region**: East US.
-    - **Performance**: Standard
-    - **Redundancy**: Locally-redundant storage (LRS)
-
-    Then **Review + Create**.
-
-    ![Create SA](./images/sa-basics.png 'Create SA')
-
-16. Once the Storage Account is created, **Go to Resource**, in the **Data Storage** section(left panel), select **Containers** , then click **+ Container**
-    - **Name**: defenderfiles
-    - **Public Access level**: Private
- Then, **Create**
-
-
-![Create Blob](./images/create-blob.png 'Create Blob')
-
-
-
-
-
-
-
-
 
 ### **Task 2: Virtual Machines** ###
 
