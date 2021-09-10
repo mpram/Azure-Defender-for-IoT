@@ -79,7 +79,7 @@ Then, select your subscription and keep the devices selection to 1000, that is t
  - **Region**: East US
 
 
-  ![IoT Hub Create](./images/iot-hub-create.png 'IoT Hub Create')
+![IoT Hub Create](./images/iot-hub-create.png 'IoT Hub Create')
  
 
 
@@ -475,7 +475,7 @@ To modfy our sensor to be an online sensor, we will use the same virtual machine
     - **Automatic Threat Intelligence Updates (Preview)**: Enabled
 
     ***Site Section***
-    - **Hub**: Select the hub created during **Before hands-on lab** section
+    - **Hub**: Select the hub created in previous steps.
     - **Name**: no needed.
     - **Tags**: blank.
 
