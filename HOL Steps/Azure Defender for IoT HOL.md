@@ -9,6 +9,8 @@ Before Starting this Lab make sure you complete the steps specified in **Azure D
 
 During this workshop we will be focusing on setting up our Azure Defender sensors, for online alerts and also offline scenarios, you will learn  how to configure your environment and assess the results. This hands-on lab will be focus on Securing your facilities, this will cover brownfield and greenfield devices. The scenario below is one of many you would apply these lessons, other scenarios are Oil & Gas, Utility and Energy companies.
 
+This architecture and implementation will teach you how to set up an offline sensor to assess your evironment and also a different scenario setting up your sensor connected to Azure Security Center for Threat Intelligent monitoring in real time.
+
   ![Architecture](./images/architecture-diagram.png 'Architecture Diagram')
 
 
@@ -178,12 +180,29 @@ During this exercise we will set up the Virtual Machine created before with Azur
   ![Virtual Switch](./images/virtual-switch.png 'Virtual Switch')
 
 
-3. A new window will pop up, select **New Virtual network switch**, then **Internal**, **Create virtual switch**. Assign a name **MySwitch**. Last **Aplly** and **Ok**
+3. A new window will pop up, select **New Virtual network switch**, then **Internal**, **Create virtual switch**. Assign a name **MySwitch**. Last **Aply** and **Ok**
 
   ![Virtual Switch](./images/create-virtual-switch.png 'Virtual Switch')
 
+4. In the Windows Menu, in the search box look for the **command prompt**, once the screen open type **ipconfig**, capture IPv4 address in this example is: **172.25.224.1** and the subnet mask: **255.255.240.0**
 
-4. Back in the HyperV, select **New** on the left side will open multiple options, select **Virtual Machine**
+</br>
+
+  ![Virtual Switch](./images/network-properties.png 'Virtual Switch')
+
+5. Go to control panel in your Windows Virtual Machine, click on **Network & Internet**, then **Network and Sharing Center**, on the left select click on **Change adapter settings**.
+
+6. Select the **Default Switch**(this is NOT the switch you just created), right click and select **Properties**, then look for **Internet Protocol Version 4(TCP/IPv4)** click on it and click on **Properties**. In the new window assign the Ip and subnet Mask from the previous step as show below:
+
+
+</br>
+
+ ![Default Switch](./images/default-switch-ip.png 'Default Switch IP')
+
+7. Click on **Ok** you will receive a warning message to change IPs, answer **No** and then apply **Ok**
+
+
+8. Back in the HyperV, select **New** on the left side will open multiple options, select **Virtual Machine**
 
  ![Onboard Online Sensor](./images/hyperv-create-vm.png 'Onboard Online Sensor')
 
@@ -202,9 +221,9 @@ During this exercise we will set up the Virtual Machine created before with Azur
 
 ![Disk Size](./images/select-iso.png 'Disk Size')
 
-5. Back to the VM, right click to **Start**, then right click again to **Connect**
+9. Back to the VM, right click to **Start**, then right click again to **Connect**
 
-6. When you connect to the VM after a few minutes of running the system installation, you should see the following screen
+10. When you connect to the VM after a few minutes of running the system installation, you should see the following screen
 
  ![Connect to  Sensor](./images/connect-to-sensor.png 'Connect to Sensor')
 
@@ -214,6 +233,7 @@ During this exercise we will set up the Virtual Machine created before with Azur
 
 Before setting up Azure Defender is important you take a prtscrn of the Virtual Machine IP so both can communicate to each other, we are going to use this info to set up Defender.
 
+In this github repositry look for the **Files** folder and dowload the cheat sheet.xls file in your laptop. You will fill the sample using your values to complete the set up.
 
 1. Login to the Windows Virtual Machine where you are hosting the Ubuntu VM with Defender.
 2. In the search box next to the windows logo, type **cmd** this should open a command window, type **ipconfig**, take a prtscrn, we will use this parameters to configure defender
