@@ -447,7 +447,7 @@ For each of these alerts you will be able to analyze the pcap file, export a rep
 
 ### **Task 4: Event Timeline**
 
-This vewi will allow you a Forensic analysis of your alerts.
+This view will allow you a Forensic analysis of your alerts.
 
 1. Choose **Advanced Filers**, filter the timeline by **CIP**, let's analyze the alert timeline.
 
@@ -535,17 +535,23 @@ sudo cyberx-xsense-network-reconfigure
 ![Changing IP to online](./images/defender-config-online.png 'Changing IP')
 </br>
 
-12. Type Y at the end of the process to apply the change, it will run a reconfiguration just in a few seconds. 
+12. Type **Y** at the end of the process to apply the change, it will run a reconfiguration just in a few seconds. 
 
 13. Test that you have external connectivity: **ping 8.8.8.8.8** in the Ubuntu sensor, you should now receive a different message  containing "...icmp..."
 
-14. Now that your sensor has connectivity, go to Azure Defender Portal, select **System Settings** and then, **Reactivation**
+14. Now that your sensor has connectivity, go to Azure Defender Portal, select **System Settings** and then, **Reactivation**.
 
-10. In hte new window, select **Upload**, **Browse File**, select the file you jsut downloaded, then **Open** and **Activate**, **Ok** to the instructions
+10. In the new window, select **Upload**, **Browse File**, select the file you just downloaded, then **Open** and **Activate**, **Ok** to the instructions
 
 </br>
 
 ![Reactivate](./images/reactivate.png 'Reactivate')
+
+11. Last, you should receive a message showing your sensor modified to **Connected**. You can verify if IoT Hub in Azure is receiving messages from your sensor:
+
+![IoT Hub Azure](./images/monitoring-iot-hub.png 'IoT Hub')
+
+
 
 ### **Task 2: Integrate with Sentinel**
 
