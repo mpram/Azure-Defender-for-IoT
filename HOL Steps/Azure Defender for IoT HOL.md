@@ -518,12 +518,34 @@ To modfy our sensor to be an online sensor, we will use the same virtual machine
 ![Upload File](./images/dowloand-file.png 'Upload File')
 
 
-9. Go to Azure Defender Portal, select **System Settings** and then, **Reactivation**
-![Reactivate](./images/reactivate.png 'Reactivate')
+9. To modify your sensor to be connected with Azure, we will need to modify the network confirguration. If you test your sensor using:
 
+    - **ping 8.8.8.8** google dns, you will receive a message as **network unreacheable** your sensor needs connectivity before changing the activation mode.
+
+
+10. In the Ubuntu sensor we will need to recongure the gateway to reach Azure IoT Hub type the following:
+
+```powershell
+sudo cyberx-xsense-network-reconfigure 
+```
+
+11. You will ask to login, then you can start to reconfigure the network settings, will only change one value, **configure default gateway IP address** you will assign the The defatul switch value configured in previous steps, which also match the IP of the Windows machine, you will keep all the other values as before(just type N when asked for changes).
+
+
+![Changing IP to online](./images/defender-config-online.png 'Changing IP')
+</br>
+
+12. Type Y at the end of the process to apply the change, it will run a reconfiguration just in a few seconds. 
+
+13. Test that you have external connectivity: **ping 8.8.8.8.8** in the Ubuntu sensor, you should now receive a different message  containing "...icmp..."
+
+14. Now that your sensor has connectivity, go to Azure Defender Portal, select **System Settings** and then, **Reactivation**
 
 10. In hte new window, select **Upload**, **Browse File**, select the file you jsut downloaded, then **Open** and **Activate**, **Ok** to the instructions
 
+</br>
+
+![Reactivate](./images/reactivate.png 'Reactivate')
 
 ### **Task 2: Integrate with Sentinel**
 
