@@ -1,7 +1,7 @@
 
 # **Before Hands-on Lab**
 
-# ***WORK IN PROGRESS, NOT TO SHARE***
+
 
 During this time we will set up the environment need it for the Hands-on Lab.
 
@@ -11,7 +11,7 @@ During this time we will set up the environment need it for the Hands-on Lab.
 - [Exercise 1: Azure Passess](#azure-passess)
 - [Exercise 2: Set up Environment](#exercise-1-set-up-environment)
    - [Task 1: Resources](#task-1-resources)
-   - [Task 2: Virtual Machines](#Task-2-Virtual-Machines)
+   - [Task 2: Virtual Machine](#Task-2-Virtual-Machine)
    - [Task 3: Connect to Virtual Machine](#Task-3-Connect-to-Virtual-Machine)
    - [Task 4: Enable Hyper-V](#Task-4-Enable-Hyper-V])
    - [Task 5: Create an Storage Account](#task-5-create-an-storage-account)
@@ -36,61 +36,7 @@ In the next window, select your subscription, assign a name to the resource grou
  ![Resource Group](./images/rg-create.png 'Resource Group')
 
 
-
-2. In your browser, navigate to the [Azure portal](https://portal.azure.com), select **+Create a resource** in the navigation pane, enter `virtual Network` into the **Search the Marketplace** box.
-
-3. Select **Virtual Network** from the results, and then select **Create**.
-
- ![Virtual Network](./images/Create-VN.PNG 'Virtual Netowrk')
-
-
-4. In **Create virtual network**, enter or select this information in the **Basics** tab:
-
-      | Setting | Value |
-      | ------- | ----- |
-      | **Project details** |   |
-      | Subscription | Select your subscription. |
-      | Resource group | Select the resource group just created above|
-      | **Instance details** |   |
-      | Name | Enter **myVNetwork**. |
-      | Region | Select **(US) East US**. |
-
- ![Virtual Network Basics](./images/Create-VN-Basics.PNG  'Virtual Netowrk Basic')
-   
-
-5. Select the **IP Addresses** tab, or select the **Next: IP Addresses** button at the bottom of the page.
-
-6. In **IPv4 address space**, select the existing address space and change it to **10.1.0.0/16**.
-
-7. Select **+ Add subnet**, then enter **MySubnet** for **Subnet name** and **10.1.0.0/24** for **Subnet address range**.
-
-8. Select **Add**.
-
- ![Virtual Network Subnet](./images/Create-VN-Add-Subnet.PNG  'Virtual Netowrk Subnet')
-
-  >[!NOTE] You can ignore the warning as we are not intending to peer virtual networks.
-
-9. Select **Next: Security** button at the bottom of the page. Under **BastionHost**, select **Enable**.
-
-![Bastion Security](./images/enable-bastion-security.png 'Bastion Security')
-
-    
-10. Enter this information for the **BastionHost**:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | Bastion name | Enter **myBastionHost** |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/24** |
-    | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
-
-11. Select the **Review + create** tab or select the **Review + create** button.
-
-12. Once you passed the validation select **Create**.
-
-
-13. It will take a few minutes to deploy. At the end you should see the your resources deployed.
-
-### **Task 2: Virtual Machines** ###
+### **Task 2: Virtual Machine** ###
 
 1. On the upper-left side of the portal, select: **Create a resource** > **Compute** > **Virtual machine** >> **Create**
 
@@ -116,7 +62,13 @@ In the next window, select your subscription, assign a name to the resource grou
     | Confirm password | **Learningmode123!** |
     | **Inbound port rules** |    |
     | Public inbound ports | Select **3389**. |
+     | **Licensing** |    |
+    | I confirm I have an eligible Windows 10 license with multi-tenant hosting rights. | Select **Check the box**. |
 
+
+3. Go to the **Management**, in the **Monitoring** section, select **Disable** for **Boot Diagnostics**
+
+4. At the bottom click on **Review + Create**. Once the validation is complete, select **Create**
     
 ![Create VM](./images/Create-VM-Basic.PNG 'Create VM')
 
@@ -162,7 +114,7 @@ In the next window, select your subscription, assign a name to the resource grou
 
 ![Bastion Connect](./images/Connect-VM-Bastion.PNG 'Bastion Connect')
 
-4. In the **Bastion** page, enter the username and password for the virtual machine.
+4. In the **Bastion** page, click on **Use Bastion** then  enter the username and password for the virtual machine.
 
     | Field | Enter |
     |-------|-------|
@@ -238,7 +190,7 @@ Then **Review + Create** after the validation is complete, click **Create**
  'SA Create')
 
 
-3. Once the Storage account is created, click on it. Under **Data Storage** select **Containers**, then on the right side select **+ Contianer**.
+3. Once the Storage account is created, click on it. Under **Data Storage** select **Containers**, then on the right side select **+ Container**.
 
 4. A new window will open on the right assign a name **acitvationfiles** and then click **Create**
 

@@ -1,5 +1,5 @@
 # Azure Defender for IoT/OT Security
-# ***WORK IN PROGRESS, NOT TO SHARE***
+
 
 **Hands-on lab workshop, Azure Defender for IoT/OT Security.**
 
@@ -68,17 +68,17 @@ This workshop is delivered by SMEs in IoT and Cybersecurity at Microsoft.
 
 - Sensor: Linux machine, physical hardware running Azure defender connected to the network. 
 - Manager: Linux machine, physical hardware running Azure defender connected to the network. It connects to multiple sensors to summarize data, alerts across multiples systems, carries the PCAP Configuration and new updates. Central Manager can be used to update the sensor's version and threat intelligence, can connect to many SIEM systems if needed also.
-- IoT: Internet of the things. Modern, new standards connected devices
+- IoT: Internet of the things. Modern, new standards connected devices.
+- IIoT: Industrial IoT.
 - OT: Operational Technology, old equipment and technology (i.e. conveys belts, PLCs).
 - Brownfield devices: Type of legacy equipment and legacy software tht performs discrete function in isolation, usually nobody is willing to modify texisting, well-functioning legacy assets. 
 - ICS: Industrial Control systems
 - Greenfield devices: New and smart "cyber-physical systems", supporting new software landscape such as open communication protocols and open standards such as MQTT, REST APIs, AMQP, OPC-UA, MTConnect and CodeSys
-- IIoT: Industrial IoT.
 - SIEM: Security Information and event management.
-- XDR: Cross detection and response
 - Section 52: Microsoft Team dedicated to search for threads in the IoT and OT World.
 - PCAP file: Packet Capture or PCAP (also known as libpcap) is an application programming interface (API) that captures live network packet data from OSI model Layers 2-7.
-- Zero Trust Principles: Assume breach, verify explicitly, use least privilege access(identity at network)
+- Zero Trust Principles: Assume breach, verify explicitly, use least privilege access(identity at network).
+- XDR: Cross detection and response
 - Purdue Model
     - Level 0 - Process: Phisical Machinery(actuators, pumps, cutters, mechanical arms, etc).
     - Level 1 - Basic Control
