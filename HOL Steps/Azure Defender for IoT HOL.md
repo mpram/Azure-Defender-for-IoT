@@ -9,7 +9,7 @@ Before starting this Lab make sure you complete the steps specified in **Azure D
 
 During this workshop we will be focusing on setting up our Azure Defender sensors, for online alerts and also offline scenarios, you will learn  how to configure your environment, assess the results and integrate with SIEM systems like Azure Sentinel. This hands-on lab will be focus on Securing your facilities, this will cover brownfield and greenfield devices. The scenario below is one of many you would apply these lessons, other scenarios are Oil & Gas, Utility and Energy companies.
 
-This architecture and implementation will teach you how to set up an offline sensor to assess your evironment and also a different scenario setting up your sensor connected to Azure Security Center for Threat Intelligent monitoring in real time.
+</br>
 
   ![Architecture](./images/architecture-diagram.png 'Architecture Diagram')
 
@@ -17,8 +17,8 @@ This architecture and implementation will teach you how to set up an offline sen
 ## **Content:** ##
 - [Exercise #1: Enabling Defender](#Exercise-1-Enabling-Defender)
   - [Task 1: Enabling Azure Defender for IoT](#Task-1-Enabling-Azure-Defender-for-IoT)
-  - [Task 2: Create IoT Hub:](#Task-2-Create-IoT-Hub)
-  - [Task 3 - Onboarding sensors](#Task-3-Onboarding-sensors)
+  - [Task 2: Create an IoT Hub:](#Task-2-Create-an-IoT-Hub)
+  - [Task 3: Onboarding sensors](#Task-3-Onboarding-sensors)
 - [Exercise #2: Setting up your offline sensor](Exercise-2-Setting-up-your-offline-sensor)
   - [Task 1: Set up your offline sensor](#Task-1-Set-up-your-offline-sensor)
   - [Task 2: Collect Information](#Task-2-Collect-Information)
@@ -46,7 +46,7 @@ This architecture and implementation will teach you how to set up an offline sen
 
 ## **Exercise #1: Enabling Defender**
 
-### **Task 1: Enabling Azure Defender for IoT:**
+### **Task 1: Enabling Azure Defender for IoT**
 
 [In Azure Portal](#https://ms.portal.azure.com/) open **Security Center**, on the left panel under **Cloud Security** select **Azure Defender**
 
@@ -56,25 +56,25 @@ Next, select **IoT Security** under **Advanced Protection** section as shown bel
 
    ![IoT security Access](./images/iot-security.png 'IoT security Access')
 
-Next in the **Getting Started** section, select **Oboard Subscription**
+Next in the **Getting Started** section, select **Onboard Subscription**.
 
 
 Before selecting your subscription make sure you select the option to **+ Start with Trial** as shown below:
 
    ![Trial Selection](./images/trial-selection.png 'Trial Selection')
 
-Then, select your subscription and keep the devices selection to 1000, that is the minimum amount of devices configuration. These devices represents all those equipments/sensors connected to your network, this configuration allows you for a 30 days trial for free. Select **Evaluate** to continue.
+Then, select your subscription and keep the devices selection to 1000, that is the minimum amount of devices configuration. These devices represents all those equipments/sensors connected to your network in the facility you are analyzing. This configuration allows you for a 30 days trial for free. Select **Evaluate** to continue.
 
 
 
-### **Task 2: Create IoT Hub:**
+### **Task 2: Create an IoT Hub:**
 
-Before onboarding your sensors we will need to create an IoT Hub for your online sensor.
+Before onboarding your sensors we will need to create an IoT Hub for your online sensor to connect to.
 
 
- 1. Go to the resource group you created for this training, in the Overview panel, you will see at the top **+ Create**, click there and type **IoT Hub** in the search box, then clikc **Create**.
+ 1. Go to the resource group you created for this training, in the Overview panel, you will see at the top **+ Create**, click there and type **IoT Hub** in the search box, then click **Create**.
 
- 2. In the next screen you will ask to fill the **Basics** tab
+ 2. In the next screen you will ask to fill the **Basics** tab:
 
  - **Subscription**: Select the Subscription you are woking on.
  - **Resource Group**: Should be the resource group created in previous step.
@@ -88,7 +88,7 @@ Before onboarding your sensors we will need to create an IoT Hub for your online
 
  3. Next, click on **Management** tab and make sure it is selected **S1:Standard Tier** in the **Pricing and scale tier** section.
 
-4. Last, clikc **Review + create**, once validation is completed, click **Create**
+4. Last, click **Review + create**, once validation is completed, click **Create**.
 
 
 ### **Task 3 - Onboarding sensors** ###
@@ -116,18 +116,18 @@ Fill the contact info window and then wait for a few minutes to complete the dow
 
 
 
-5. In the next step, click on **Download activation file** the activation zip and click **Finish**.
+5. In the next step, click on **Download activation file** this will generate a zip file and click **Finish**.
 
  ![Activation Offline sensor](./images/downaload-offline-activation.png 'ActivationOffline Sensor')
 
-6. You should see your sensor onboarded, locally managed, in your list of sensors as shown below.
+6. You should see your new sensor onboarded, locally managed, in your list of sensors as shown below.
 
 ![Sensor Onboarded](./images/sensor-onboarded.png 'Sensor Oonboarded')
 
 7. Now, we will create another sensor, in this case we will be the online sensor. Click on **+ Onboard sensor**, in the next screen input the following information:
   - **Sensor name**: myonlinesensor
   - **Subscription**: Select the subscription you are using for this lab.
-  - **Cloud Connected**: Enabled
+  - **Cloud Connected**: keep it as Enabled
   - **Automatic Threat Intelligence Updates**: Enable
   
   **Site** Section
@@ -137,17 +137,17 @@ Fill the contact info window and then wait for a few minutes to complete the dow
   
   ![Onboard Online Sensor](./images/onboard-online-sensor.png 'Onboard Online Sensor')
  
- 8. Click **Register**
- 9. In the next step **Download activation file** and click **Finish**
- 10. At this point if you check again your **Sites and sensors** section you should see both sensors onboarded.
+ 8. Click **Register**.
+ 9. In the next step **Download activation file** and click **Finish**.
+ 10. Check again your **Sites and sensors** section you should see both sensors onboarded.
 
-11. At this point you have 3 files downloaded locally (two zips sensons and the iso file) we will upload them to the Storage account created in the section **Azure Defender for IoT BHOL**, this way we will be able to make them available to download in the Virtual Machine. Another option could be to download the files directly in the Virtual Machine if you are login in the Azure Portal directly inside the VM. However, sometimes you will have policies on place not allowing this, so the storage account route will make this feasible.
+11. At this point you have 3 files downloaded locally (two zips licenses sensors and the iso file) we will upload them to the Storage account created in the section **Azure Defender for IoT BHOL**, this way we will be able to make them available to download in the Virtual Machine. Another option could be to download the files directly in the Virtual Machine, if you are login in the Azure Portal inside the VM. However, sometimes you will have policies on place not allowing this, so the storage account route will make this feasible.
 
 
 12. To Upload the Files, go to the Storage Account you created before in the Azure Portal. On the left panel select **Containers**, on the right side, click on **acitvationfiles**, next on the top menu click **Upload** browse to the location where you download the files, select all of them and click **Upload**.
  
 
-13. Login back to the Virtual Machine, open **Storage Explorer**. You will be ask to login to your Azure account where you just upload the files. Then select 
+13. Go back to the windows Virtual Machine, open **Storage Explorer**. You will be ask to login to your Azure account where you just upload the files. Then select 
 **Subscription**.
 
   ![Storage Explorer](./images/sa-subs-login.png 'Subscription')
@@ -171,7 +171,7 @@ During this exercise we will set up the Virtual Machine created before with Azur
 
 ### **Task 1: Set up your Virtual Machine**
 
-1. Connect to the Virtual machine created, using RDP or Bastion. Once inside the VM in the windows search box, type **Hyer-V** and enter. Thsi should open a new window with Hyerp-V console.
+1. On the windows Virtual machine created before, login with Bastion. Once inside the VM in the windows search box, type **Hyper-V** and enter. This should open a new window with Hyerp-V console.
 
 
 
@@ -224,7 +224,7 @@ During this exercise we will set up the Virtual Machine created before with Azur
 
 9. At this point in the Hyper-V console you should see the new VM available, right click on it and select **Start**, then right click again to **Connect**.
 
-10. When you connect to the VM after a few minutes of running the system installation, you should see the following screen to start the installation process.
+10. When you connect to the Ubuntu VM after a few minutes of running the system installation, you should see the following screen to start the configuration process.
 
  ![Connect to  Sensor](./images/connect-to-sensor.png 'Connect to Sensor')
 
@@ -234,16 +234,16 @@ During this exercise we will set up the Virtual Machine created before with Azur
 
 Before setting up Azure Defender is important you take a prtscrn of the windows Virtual Machine IP so both can communicate to each other, we are going to use this info to set up Defender.
 
-In this github repository look for the **Files** folder and dowload the cheat sheet.xls file in your laptop. You will fill the sample using your values to complete the set up, use a new tab in the excel.
+In this github repository look for the **Files** folder and download the cheat sheet.xls file in your laptop. You will fill the sample using your values to complete the set up, use a new tab in the excel.
 
 1. Login to the Windows Virtual Machine where you are hosting the Ubuntu VM with Defender.
 2. In the search box next to the windows logo, type **cmd** this should open a command window, type **ipconfig**, take a prtscrn, we will use this parameters to configure defender
 
 ![Network Properties](./images/network-properties.png 'Netowrk Properties')
 
-Keep this screen open or take a prtscrn.
+Keep this screen open or take a prtscrn or complete the cheat sheet with your values, this way it will be easier to follow them as reference for the next task.
 
-We will map these values in the next task.
+
 
   
  ### **Task 3: Configure Azure Defender**
@@ -270,11 +270,11 @@ During this task we will configure Azure Defender based on the IPs highlighted b
 - **Configure default gateway IP Address**: This value will be the same as **Default Gateway** captured in previous task, in this example will be 10.4.0.1
 - **Configure input interface(s)**: **eth1**
 - **Configure bridge interface**: Just press Enter
-- Then type **Y** and click **Enter**.
+- Then type **Y** to apply the changes and click **Enter**.
 
 Now the installation will run for 10-15minutes.
 
-***Note: Once the installation is complete, you will be able to access Azure Defender Console, check if you can open a cmd window, ping the IP Address  you enter in the step 'Configure management network interface'
+***Troubleshooting Note: Once the installation is complete, you will be able to access Azure Defender Console, check if you can open a cmd window, ping the IP Address  you enter in the step 'Configure management network interface'
 If the request timeout, you will need to reconfigure this step again, for that review the IPs one more time and use the command below to start over:***
 
 ```powershell
@@ -287,7 +287,7 @@ Below, a ***sample*** screen, your parameters will be different.
 
 </br>
 
-4. ***IMPORTANT STEP!!!*** Once the installation is complete, you will have the login information availabe in the screen **TAKE THE PRTSCRN!!** before continuing, press **Enter**. Now you will have the support account, again in the screen **TAKE THE PRTSCRN!!** press **Enter** to continue. If you fail to capture the credentials, you will need to start over.
+4. ***IMPORTANT STEP!!!*** Once the installation is complete, you will have the login information availabe in the screen **TAKE THE PRTSCRN!!** before continuing, press **Enter**. Now you will have the support account, again **TAKE THE PRTSCRN!!** press **Enter** to continue. If you fail to capture the credentials, you will need to start over.
 
 </br>
 
@@ -307,8 +307,8 @@ Below, a ***sample*** screen, your parameters will be different.
 </br>
 
 
-6. Login with the credentials provided in step **4**
-7. Next, you will be ask to activate the product, click **Upload**, then **Browse Files**, in your dowloads folder select the file you downloaded from the Storage Explorer, in this example **myofflinesensor.zip**
+6. Login with the credentials provided in step **4**.
+7. Next, you will be ask to activate the product, click **Upload**, then **Browse Files**, in your dowloads folder select the file you downloaded from the Storage Explorer, in this example **myofflinesensor.zip**.
 
 ![Defender Login](./images/activation.png 'Defender Login')
 
@@ -318,7 +318,7 @@ Below, a ***sample*** screen, your parameters will be different.
 
 ![Certificate selection](./images/Certificate.png 'Certificate selection')
  
- 10. For this lab in the next step we will **Disable** the system wide validation. **Finish**
+ 10. For this lab in the next step we will **Disable** the system wide validation. **Finish**.
 
  11. Let's analyze together what information we already have available before moving forward.
 
@@ -340,7 +340,7 @@ Below, a ***sample*** screen, your parameters will be different.
 
   ![system settings pcaps](./images/enabling-pcaps.png 'System settings Pcaps')
 
-4. Click **Save** and then **Ok**
+4. Click **Save** and then **Ok**.
 
 5. Continue in the System Properties window, scroll up and select **Horizon** on the left side select, scroll down and modify the following parameter:
     - **ui.enabled=true**
@@ -348,15 +348,15 @@ Below, a ***sample*** screen, your parameters will be different.
 
   ![Horizon Enable UI](./images/horizon-ui-enabled.png 'Horizon enable ui')
 
-6. Click **Save** and then **Ok**
+6. Click **Save** and then **Ok**.
 
-7. In system Properties, look for **Global** and modify the following parameter:
+7. In System Properties, look for **Global** and modify the following parameter:
     - **auto_discovery.enabled=1**
 
 
   ![Global Settings](./images/global-settings.png 'global settings')
 
-8. Click on **Save** and then **OK**
+8. Click on **Save** and then **OK**.
 
 9. At this point you should see the Pcap Player available:
 
@@ -405,7 +405,7 @@ After Azude Defender learnt about your environment it will be able to share insi
 Your first interaction with Devices map you will see a similar map like the below
 
    ![Pcap Files Uploaded](./images/devices-map.png 'Pcap files uploaded')
-1. Use the four icon on the left to select **Layout by Purdue**. In this model you will see the different layers between Corporate IT and site opeartions.
+1. Use the four icon bar on the left to select **Layout by Purdue**. In this model you will see the different layers between Corporate IT and site operations.
 
 
 2. Check your notifications available and you can take action at this point.
@@ -416,7 +416,7 @@ Your first interaction with Devices map you will see a similar map like the belo
 4. In the hamburguer menu on the left, click the highlights and select one of the **OT Protocols** i.e. **MODBUS** and click on **Filter**. Now your map will show those devices only
 
 
-  ![Pcap Files Uploaded](./images/device-map-filtering.png'Pcap files uploaded')
+  ![Pcap Files Uploaded](./images/device-map-filtering.png 'Pcap files uploaded')
 
 
 5. Then filter your devices by **CIP** OT Protocol, at the bottom of your map you will see a PLC, where the Vendor is Rockwell Automation, has already 3 alerts activated. Right click on the device, **View Properties**. In this view you will be able to analyze the Backbone of your PLCs, take actions and analyze the Alerts.
