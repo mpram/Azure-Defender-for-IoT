@@ -63,7 +63,7 @@ In the next window, select your subscription, assign a name to the resource grou
     | **Inbound port rules** |    |
     | Public inbound ports | Select **3389**. |
      | **Licensing** |    |
-    | I confirm I have an eligible Windows 10 license with multi-tenant hosting rights. | Select **Check the box**. |
+    | I confirm I have an eligible Windows 10 license with multi-tenant hosting rights. | **Check the box**. |
 
 
 3. Go to the **Management**, in the **Monitoring** section, select **Disable** for **Boot Diagnostics**
@@ -72,26 +72,7 @@ In the next window, select your subscription, assign a name to the resource grou
     
 ![Create VM](./images/Create-VM-Basic.PNG 'Create VM')
 
-3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
-
-4. In the Networking tab, select or enter:
-
-    | Setting | Value |
-    |-|-|
-    | **Network interface** |  |
-    | Virtual network | Select **myVNetwork**. |
-    | Subnet | Select **mySubnet** |
-    | Public IP | Select **None** |
-    | NIC network security group | Select **Basic**|
-    | Public inbound ports network | Select **None**. |
-
-
-
-5. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
-
-6. Review the settings, and then select **Create**.
-
-7. It will take a few minutes to deploy. At the end you should see the your resources deployed.
+5. It will take a few minutes to deploy. At the end you should see the your resources deployed.
 
 
     ![Create VM](./images/Create-VM-Deployment.PNG 'Create VM')
@@ -100,17 +81,17 @@ In the next window, select your subscription, assign a name to the resource grou
 
 1. Navigate to the Azure Portal Home and select your newly created virtual machine.
 
-2. Make sure you that you start your Virtual Machine and that the status is **Running**.
+2. Make sure that the Virtual Machine status is **Running**.
 
 
 ![Running VM](./images/VM-status-running.PNG 'Running VM')
 
 
 >[!TIP]
-> You will not be able to start the Bastion connection if the VM has not been started and is running. So give it a minute or two to finish updating and wait for the status to say **"Running"**.
+> You will not be able to connect if your Virtual Machines is not in **Running** status. So give it a minute or two to finish updating.
 
 
-3. In the VM menu bar, select **Connect**, then select **Bastion** or **RDP**.
+3. In the VM menu, select **Connect**, then select **Bastion** or **RDP**.
 
 ![Bastion Connect](./images/Connect-VM-Bastion.PNG 'Bastion Connect')
 
@@ -164,9 +145,9 @@ We are going to enable Hyper-V via PowerShell in the newly created VM.
 > If you are not promoted to restart the VM within PowerShell. Please close the Bastion Host tab, and return to the Azure Portal, and select your VM. At this point you can either "restart your VM" and reconnect via Bastion. OR you can *STOP* the VM and *Start* the VM again.
 
 
-5. Login back to the Virtual Machine, using RDP or Bastiion, open in the Vm download Storage Explorer, open **Microsoft Edge** and download the ['Storage Explorer'](https://azure.microsoft.com/en-us/features/storage-explorer/ 'Storage Explorer') click **Download**
+5. Login back to the Virtual Machine, using RDP or Bastion, open **Microsoft Edge** and download the ['Storage Explorer'](https://azure.microsoft.com/en-us/features/storage-explorer/ 'Storage Explorer') click **Download**.
 
-6. Once the download is completed run the installation selecting **Install for me only (recommended)** option. Next click on **I accept the agreement**, and **Install**, you will ask a few additional **Next** optiosn before starting the installation.
+6. Once the download is completed run the installation selecting **Install for me only (recommended)** option. Next, click on **I accept the agreement**, and **Install**, you will ask a few additional questions, select **Next** each time, the the installation will run for a few seconds.
 
 
 
@@ -177,7 +158,7 @@ We are going to enable Hyper-V via PowerShell in the newly created VM.
 
 2. Fill the form:
 
-    ***Basics Tab***
+    ***Basics Tab:***
     - **Subscriptions**: Select the subscription you are using for this workshop.
     - **Resource Group**: Select the resource group created for this workshop in previous step.
     - **Storage Account Name**: adfiles+Suffix.
@@ -192,7 +173,7 @@ Then **Review + Create** after the validation is complete, click **Create**
 
 3. Once the Storage account is created, click on it. Under **Data Storage** select **Containers**, then on the right side select **+ Container**.
 
-4. A new window will open on the right assign a name **acitvationfiles** and then click **Create**
+4. A new window will open on the right, assign a name **acitvationfiles** and then click **Create**.
 
   ![SA container](./images/create-container.png
  'SA Container')
