@@ -111,8 +111,9 @@ Fill the contact info window and then wait for a few minutes to complete the dow
 
 
 
-4. Assign a name to the sensor **myofflinesensor**, select your subscription and make sure you toogle **Cloud Connected** once you disable this option the rest of the form below will dissapear. Click **Register**.
+4. Assign a name to the sensor **myofflinesensor**, select your subscription and **An opreational network(On premises)**. Click **Register**.
 
+![Onboard sensor](./images/adfonboard-sensor.png 'Onboard Sensor')
 
 
 

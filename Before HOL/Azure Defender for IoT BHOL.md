@@ -53,7 +53,7 @@ In the next window, select your subscription, assign a name to the resource grou
     | Virtual machine name | Enter **myofflinesensor** |
     | Region | Select **(US) East US** |
     | Availability Options | Select **No infrastructure redundancy required** |
-    | Image | Select **Windows 10 Pro, Version 20H2 - Gen1** |
+    | Image | Select **Windows 10 Pro, Version 20H2 - Gen2** |
     | Azure Spot instance | Select **No** |
     | Size | **Standard_D4s_v3 - 4 vcpus, 16 GiB memory** |
     | **Administrator Account** | **Use the following Credentials** |
