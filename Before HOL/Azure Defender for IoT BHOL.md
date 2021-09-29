@@ -3,12 +3,12 @@
 
 
 
-During this time we will set up the environment need it for the Hands-on Lab.
+During this time, we will set up the environment that is required for the Hands-on Lab.
 
 
 ## **Content:** ##
 
-- [Exercise 1: Azure Passess](#azure-passess)
+- [Exercise 1: Azure Passes](#azure-passes)
 - [Exercise 2: Set up Environment](#exercise-1-set-up-environment)
    - [Task 1: Resources](#task-1-resources)
    - [Task 2: Virtual Machine](#Task-2-Virtual-Machine)
@@ -17,7 +17,7 @@ During this time we will set up the environment need it for the Hands-on Lab.
    - [Task 5: Create an Storage Account](#task-5-create-an-storage-account)
 
 
-## **Exercise 1: Azure Passess** ##
+## **Exercise 1: Azure Passes** ##
 
 Previous to this workshop, after registration, you will receive an Azure Pass to configure with your personal email account, this step will be coordinated with your instructors.
 
@@ -72,7 +72,7 @@ In the next window, select your subscription, assign a name to the resource grou
     
 ![Create VM](./images/Create-VM-Basic.PNG 'Create VM')
 
-5. It will take a few minutes to deploy. At the end you should see the your resources deployed.
+5. It will take a few minutes to deploy. At the end you should see your resources deployed.
 
 
     ![Create VM](./images/Create-VM-Deployment.PNG 'Create VM')
@@ -95,7 +95,7 @@ In the next window, select your subscription, assign a name to the resource grou
 
 ![Bastion Connect](./images/Connect-VM-Bastion.PNG 'Bastion Connect')
 
-4. In the **Bastion** page, click on **Use Bastion** then  enter the username and password for the virtual machine.
+4. In the **Bastion** page, click on **Use Bastion** then enter the username and password for the virtual machine.
 
     | Field | Enter |
     |-------|-------|
@@ -147,14 +147,14 @@ We are going to enable Hyper-V via PowerShell in the newly created VM.
 
 5. Login back to the Virtual Machine, using RDP or Bastion, open **Microsoft Edge** and download the ['Storage Explorer'](https://azure.microsoft.com/en-us/features/storage-explorer/ 'Storage Explorer') click **Download**.
 
-6. Once the download is completed run the installation selecting **Install for me only (recommended)** option. Next, click on **I accept the agreement**, and **Install**, you will ask a few additional questions, select **Next** each time, the the installation will run for a few seconds.
+6. Once the download is completed run the installation selecting **Install for me only (recommended)** option. Next, click on **I accept the agreement**, and **Install**, you will ask a few additional questions, select **Next** each time, the installation will run for a few seconds.
 
 
 
-## **Task 5: Create an Storage Account**
+## **Task 5: Create a Storage Account**
 
 
-1. In Azure Portal, click on **+ Create a Resurce**. In the marketplace look for **Storage Account**, then click create.
+1. In Azure Portal, click on **+ Create a Resource**. In the marketplace look for **Storage Account**, then click create.
 
 2. Fill the form:
 
