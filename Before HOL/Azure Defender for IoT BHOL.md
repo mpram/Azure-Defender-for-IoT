@@ -8,12 +8,12 @@ During this time, we will set up the environment that is required for the Hands-
 
 ## **Content:** ##
 
-- [Exercise 1: Azure Passes](#azure-passes)
-- [Exercise 2: Set up Environment](#exercise-1-set-up-environment)
+- [Exercise 1: Azure Passes](#exercise-1-azure-passes)
+- [Exercise 2: Set up Environment](#exercise-2-set-up-environment)
    - [Task 1: Resources](#task-1-resources)
-   - [Task 2: Virtual Machine](#Task-2-Virtual-Machine)
-   - [Task 3: Connect to Virtual Machine](#Task-3-Connect-to-Virtual-Machine)
-   - [Task 4: Enable Hyper-V](#Task-4-Enable-Hyper-V])
+   - [Task 2: Virtual Machine](#task-2-virtual-machine)
+   - [Task 3: Connect to Virtual Machine](#task-3-connect-to-virtual-machine)
+   - [Task 4: Enable Hyper-V](#task-4-enable-hyper-v)
    - [Task 5: Create an Storage Account](#task-5-create-an-storage-account)
 
 
