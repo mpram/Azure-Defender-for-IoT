@@ -133,7 +133,7 @@ Fill the contact info window and then wait for a few minutes to complete the dow
   
   **Site** Section
   - **Hub**: Select the IoT Hub created in previous step.
-  - **Display Name**: AD4IoTHub
+  - **Display Name**: AD4IoTHub, usually this name will represent the site you will be analyze such as Plant I.
 
   
   ![Onboard Online Sensor](./images/onboard-online-sensor.png 'Onboard Online Sensor')
@@ -194,17 +194,10 @@ During this exercise we will set up the Virtual Machine created before with Azur
 
 5. Go to control panel in your Windows Virtual Machine, click on **Network & Internet**, then **Network and Sharing Center**, on the left select click on **Change adapter settings**.
 
-6. Select the **Default Switch**(this is NOT the switch you just created), right click and select **Properties**, then look for **Internet Protocol Version 4(TCP/IPv4)** click on it and click on **Properties**. In the new window assign the Ip and subnet Mask from the previous step as show below:
 
 
-</br>
 
- ![Default Switch](./images/default-switch-ip.png 'Default Switch IP')
-
-7. Click on **Ok** you will receive a warning message to change IPs, answer **No** and then apply **Ok**
-
-
-8. Back in the HyperV, select **New** on the left side will open multiple options, select **Virtual Machine**
+6. Back in the HyperV, select **New** on the left side will open multiple options, select **Virtual Machine**
 
  ![Onboard Online Sensor](./images/hyperv-create-vm.png 'Onboard Online Sensor')
 
@@ -223,12 +216,19 @@ During this exercise we will set up the Virtual Machine created before with Azur
 
 ![Disk Size](./images/select-iso.png 'Disk Size')
 
-9. At this point in the Hyper-V console you should see the new VM available, right click on it and select **Start**, then right click again to **Connect**.
+7. Right click on your Virtual machine just created, select **Settings** in the **Add Hardware** section select **Network Adapter**, click on **Add**, select the virtual switch created previously **My Switch**, click **Apply** and then **Ok**
 
-10. When you connect to the Ubuntu VM after a few minutes of running the system installation, you should see the following screen to start the configuration process.
+
+
+8. Back to the Hyper-V, right click on the VM and select **Start**, then right click again to **Connect**.
+
+9. When you connect to the Ubuntu VM you should see the following screen to start the configuration process.
 
  ![Connect to  Sensor](./images/connect-to-sensor.png 'Connect to Sensor')
 
+**Note!**: If you don't see that screen above, your installation time out or press enter selecting a different configuration by mistake or timeout, delete the virtual machine and start over this task.
+
+</br>
 
 
 ### **Task 2: Collect Information**

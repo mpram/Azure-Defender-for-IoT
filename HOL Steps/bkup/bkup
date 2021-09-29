@@ -1,0 +1,8 @@
+6. Select the **Default Switch**(this is NOT the switch you just created), right click and select **Properties**, then look for **Internet Protocol Version 4(TCP/IPv4)** click on it and click on **Properties**. In the new window assign the Ip and subnet Mask from the previous step as show below:
+
+
+</br>
+
+ ![Default Switch](./images/default-switch-ip.png 'Default Switch IP')
+
+7. Click on **Ok** you will receive a warning message to change IPs, answer **No** and then apply **Ok**
