@@ -518,11 +518,21 @@ sudo cyberx-xsense-network-reconfigure
 
 ![Reactivate](./images/reactivate.png 'Reactivate')
 
-8. Last, you should receive a message showing your sensor modified to **Connected**. You can verify if IoT Hub in Azure Portal is receiving messages from your sensor:
+8. Last, you should receive a message showing your sensor modified to **Connected**. 
+
+9. Close the screen, open again the **Reactivation** window and double check if your sensor is **Cloud Connected** as shown below:
+
+![Reactivate](./images/validate-reactivation.png 'Reactivate')
+
+
+
+10. Run the Pcap files again in your console, in a few minutes you can verify if IoT Hub in Azure Portal is receiving messages from your sensor:
 
 ![IoT Hub Azure](./images/monitoring-iot-hub.png 'IoT Hub')
 
+11. In the same IoT Hub now you should see the alers generated for Defender, scroll down to **Security**, select **Security Alerts**, on the right side you will see some alers already available.
 
+![IoT Hub Azure](./images/hub-security-alerts.png 'IoT Hub')
 
 ### **Task 2: Integrate with Sentinel**
 
