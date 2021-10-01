@@ -181,3 +181,41 @@ Then **Review + Create** after the validation is complete, click **Create**
 
 
 
+5. Login to the Windows virtual machine, in the search box enter Microsoft Storage Explorer 
+
+  ![SA](./images/storage-explorerbol.png
+ 'SA Open app')
+
+6. You will be prompt to login, use the personal email you are using to set up your Azure Pass for this training.
+
+7.  Once you are login, go to the connect icon on the left bar, then select **Storage account or service**.
+
+
+
+![SA](./images/connect-to-sa.png
+ 'SA Open app') 
+
+
+9. In the next step select **Shared Access Signature URL(SAS)** and then **Next**
+
+![SA](./images/sas-url.png
+ 'SA Open app') 
+
+
+10. In the Enter Connection Info window, you wil assign a name to the connection **HOLFiles** and you will paste below the Blob SAS URL (service URL) you received by email previous to this training.
+
+![SA](./images/sas-url-input.png
+ 'SA Open app') 
+
+
+11. Once the storage account is connected you should select the container on the left side **attendeefiles** then **Labfiles** now in the right side you will see the two files you need to download locally. Select the files and click **Download**
+
+![SA](./images/files-ready.png
+ 'SA Open app') 
+
+
+ 12. Once this download is complete, go to the Azure Portal select your Virtual Machine and click **Stop**. Now you are all set for your training session. 
+
+ ![Stop VM](./images/stop-machine.png
+ 'Stop VM') 
+
