@@ -39,7 +39,7 @@ During this workshop we will be focusing on setting up our Azure Defender sensor
 
 - [Exercise 6: Clean Up](#Exercise-6-Clean-Up)
 	- [Task 1: Delete resources](#Task-1-Delete-resources)
-
+- [Appendix: Troubleshooting](Appendix-Troubleshooting)
 
   
 
