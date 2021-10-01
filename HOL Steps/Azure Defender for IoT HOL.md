@@ -313,7 +313,7 @@ Below, a ***sample*** screen, your parameters will be different.
 
 ![Defender Login](./images/activation.png 'Defender Login')
 
-8. Click **Aprove these terms and Conditions**, then **Activate**.
+8. Click **Approve these terms and Conditions**, then **Activate**.
 
 9. You will be prompted to select **SSL/TLS Certificates | Onboarding 1/2** for this lab will use the second option **Use a locally generated self signed certificate(..)**. Then click **I CONFIRM**, **Next**.
 
@@ -476,7 +476,7 @@ As an example we will create a Report based on firmware updates versions.
 
 1. Go to the Risk assessment, run the assessment. During this task we will show you how to analyze the assessment. 
 
-***IMPORTANT***, after completing this workshop you will have a period of two weeks to run the risk assessment in your evironment and schedule an appoitment with our Cybersecurity team to guide you through analysis, best practices and vulnerabilities in your facilities.
+***IMPORTANT***, after completing this workshop you will have a period of two weeks to run the risk assessment in your evironment and schedule an apponitment with our Cybersecurity team to guide you through analysis, best practices and vulnerabilities in your facilities.
 
 </br>
 
@@ -487,7 +487,7 @@ To modify our sensor to be an online sensor, we will use the same virtual machin
 ### **Task 1: Reconfiguring sensor**
 
 
-1. To modify your sensor to be connected with Azure, we will need to modify the network confirguration. If you test your sensor using:
+1. To modify your sensor to be connected with Azure, we will need to modify the network configuration. If you test your sensor using:
 
     - **ping 8.8.8.8** google dns, you will receive a message as **network unreacheable** your sensor needs connectivity before changing the activation mode.
 
