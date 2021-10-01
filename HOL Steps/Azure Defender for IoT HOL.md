@@ -117,6 +117,7 @@ Fill the contact info window and then wait for a few minutes to complete the dow
 
 
 
+
 5. In the next step, click on **Download activation file** this will generate a zip file and click **Finish**.
 
  ![Activation Offline sensor](./images/downaload-offline-activation.png 'ActivationOffline Sensor')
@@ -129,7 +130,7 @@ Fill the contact info window and then wait for a few minutes to complete the dow
   - **Sensor name**: myonlinesensor
   - **Subscription**: Select the subscription you are using for this lab.
   - **Cloud Connected**: keep it as Enabled
-  - **Automatic Threat Intelligence Updates**: Enable
+  - **Deploy for**: An Operational network(Cloud Connected)
   
   **Site** Section
   - **Hub**: Select the IoT Hub created in previous step.
@@ -137,6 +138,7 @@ Fill the contact info window and then wait for a few minutes to complete the dow
 
   
   ![Onboard Online Sensor](./images/onboard-online-sensor.png 'Onboard Online Sensor')
+
  
  8. Click **Register**.
  9. In the next step **Download activation file** and click **Finish**.
@@ -545,3 +547,32 @@ Select Delete resource group on the top right side.
 Enter your-resource-group-name for **TYPE THE RESOURCE GROUP NAME** and select Delete. This operation will take a few minutes.
 
 After that is done go to Azure defender for IoT and deactivate the subscription.
+
+
+
+## **Appendix: Troubleshooting**
+
+1. If your Defender portal is not working properly run the following command to validate if the components are running properly
+
+```powershell
+cyberx-xsense-sanity
+```
+
+![Sanity check](./images/sanity-check.png 'Sanity check')
+
+
+2. If your IoT hub is not receiving messages, check if ubuntu machine can reach IoT Hub, first run the following command to identify the IP of your IoT Hub:
+
+
+```powershell
+netstat -na | grep EST | grep -v 127.0.0.1
+```
+
+
+![Sanity check](./images/ips-connected.png 'Sanity check')
+
+Then, ping the IoT Hub using the connection string from the overview blade in Azure Portal.
+
+
+![Ping IoT Hub](./images/ping-iot-hub.png 'Ping IoT Hub')
+
