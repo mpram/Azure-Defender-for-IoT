@@ -2,12 +2,12 @@
 
 
 
-Before starting this Lab make sure you complete the steps specified in **Azure Defender for IoT BHOL.md** File in this repository.
+Before starting this Lab make sure you completed the steps specified in **Azure Defender for IoT BHOL.md** File in this repository.
 
 ## Architecture Diagram ## 
 
 
-During this workshop we will be focusing on setting up our Azure Defender sensors, for online alerts and also offline scenarios, you will learn  how to configure your environment, assess the results and integrate with SIEM systems like Azure Sentinel. This hands-on lab will be focus on Securing your facilities, this will cover brownfield and greenfield devices. The scenario below is one of many you would apply these lessons, other scenarios are Oil & Gas, Utility and Energy companies.
+During this workshop we will be focusing on setting up our Azure Defender sensors, for online alerts and also offline scenarios, you will learn how to configure your environment, assess the results, and integrate with SIEM systems like Azure Sentinel. This hands-on lab will be focus on Securing your facilities, this will cover brownfield and greenfield devices. The scenario below is one of many you would apply these lessons, other scenarios are Oil, Gas, Utility, and Energy companies.
 
 </br>
 
@@ -516,7 +516,7 @@ To modify our sensor to be an online sensor, we will use the same virtual machin
 
 ![IoT Hub Azure](./images/monitoring-iot-hub.png 'IoT Hub')
 
-11. In the same IoT Hub now you should see the alers generated for Defender, scroll down to **Security**, select **Security Alerts**, on the right side you will see some alers already available.
+11. In the same IoT Hub now you should see the alerts generated for Defender, scroll down to **Security**, select **Security Alerts**, on the right side you will see some alerts already available. (Note that this alert view will be deprecated soon and will be available in Azure's "Defender for IoT" Portal)
 
 ![IoT Hub Azure](./images/hub-security-alerts.png 'IoT Hub')
 
@@ -534,7 +534,7 @@ To modify our sensor to be an online sensor, we will use the same virtual machin
 
 ### **Task 1: Delete resources**
 
-The Azure Passes will allow you to run the services for 90 days for training porpose. Although it is a best practice to delete all your resources after the training. 
+The Azure Passes will allow you to run the services for 90 days for training purposes. Although it is a best practice to delete all your resources after the training. 
 
 Search for the Resource Group created for this training.
 
