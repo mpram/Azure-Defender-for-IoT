@@ -19,7 +19,7 @@ During this workshop we will be focusing on setting up our Azure Defender sensor
   - [Task 1: Enabling Azure Defender for IoT](#Task-1-Enabling-Azure-Defender-for-IoT)
   - [Task 2: Create an IoT Hub:](#Task-2-Create-an-IoT-Hub)
   - [Task 3: Onboarding sensors](#Task-3-Onboarding-sensors)
-- [Exercise #2: Setting up your offline sensor](Exercise-2-Setting-up-your-offline-sensor)
+- [Exercise #2: Setting up your offline sensor](#Exercise-2-Setting-up-your-offline-sensor)
   - [Task 1: Set up your offline sensor](#Task-1-Set-up-your-offline-sensor)
   - [Task 2: Collect Information](#Task-2-Collect-Information)
   - [Task 3: Configure Azure Defender](#Task-3-Configure-Azure-Defender)
