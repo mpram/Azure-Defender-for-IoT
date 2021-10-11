@@ -237,7 +237,10 @@ New-NetNat -Name MyNATnetwork -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 ![Disk Size](./images/select-iso.png 'Disk Size')
 
-7. Right click on your Virtual machine just created, select **Settings** in the **Add Hardware** section select **Network Adapter**, click on **Add**, select the virtual switch created previously **My Switch**, click **Apply**.  Also, increase the Processor from **1** to **4** Virtual Processors, click **Apply** and click **Ok**.
+7. Right click on your Virtual machine just created, select **Settings** in the **Add Hardware** section select **Network Adapter**, click on **Add**, select the virtual switch created previously **My Switch**, click **Apply**.
+
+
+Increase the Processor from **1** to **4** Virtual Processors, click **Apply** and click **Ok**.
 
 
 8. Back to the Hyper-V, right click on the VM and select **Connect**, then in the console click **Start**.
