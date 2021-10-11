@@ -205,9 +205,7 @@ Get-NetAdapter
 
 6.  Assign an IP address to the NATSwitch (either 192.168.0.1 or 172.27.0.1) depending on your network address based on step 1, and the ifIndex number noted from above.
 
-```powershell
-New-NetIPAddress -IPAddress 192.168.0.1 -PrefixLength 24 -InterfaceIndex 60
-```
+`New-NetIPAddress -IPAddress 192.168.0.1 -PrefixLength 24 -InterfaceIndex 60`
 
 7. Create the new NAT network.  Again, your IP address space will either be 192.168.0.0/24 or 172.27.0.0/24 depending on step 1.
 
@@ -237,10 +235,7 @@ New-NetNat -Name MyNATnetwork -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 ![Disk Size](./images/select-iso.png 'Disk Size')
 
-7. Right click on your Virtual machine just created, select **Settings** in the **Add Hardware** section select **Network Adapter**, click on **Add**, select the virtual switch created previously **My Switch**, click **Apply**.
-
-
-Increase the Processor from **1** to **4** Virtual Processors, click **Apply** and click **Ok**.
+7. Right click on your Virtual machine just created, select **Settings** in the **Add Hardware** section select **Network Adapter**, click on **Add**, select the virtual switch created previously **My Switch**, click **Apply**.  Increase the Processor from **1** to **4** Virtual Processors, click **Apply** and click **Ok**.
 
 
 8. Back to the Hyper-V, right click on the VM and select **Connect**, then in the console click **Start**.
