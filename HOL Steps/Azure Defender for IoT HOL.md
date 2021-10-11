@@ -174,14 +174,13 @@ During this exercise we will set up the Virtual Machine created before with Azur
 
 ### **Task 1: Set up your Virtual Machine**
 
-1. On the windows Virtual machine created before, login with Bastion. Once inside the VM in the windows search box, type **Hyper-V** and enter. This should open a new window with Hyerp-V console.
+1. On the Windows 10 Virtual machine created previously, login with Bastion or RDP. Open a command prompt and run the command "ipconfig".
 
+![Command Prompt](./images/command-prompt-ipconfig-output.PNG 'Command Prompt')
 
+2. Take note of the IP address used on your Windows 10 Host's Ethernet Adapter. **NOTE: In this example, the Win10 host Ethernet Adapter is assigned an IP of 10.0.0.5, therefore we will use 192.168.0.0/24 as the network scope of the “NATSwitch”.  If your primary adapter is already using 192.168.x.x, then use 172.27.0.0/24 for your “NATSwitch”.**
 
-2. Right click on your sensor, under **Hyper-V Manager**, left side, and select **Virtual Switch Manager**
-
-
-  ![Virtual Switch](./images/virtual-switch.png 'Virtual Switch')
+3. Open a PowerShell prompt as an Administrator by searching for PowerShell and right-clicking to "Run as administrator".
 
 
 3. A new window will pop up, select **New Virtual network switch**, then **Internal**, **Create virtual switch**. Assign a name **MySwitch**. Last **Aply** and **Ok**
