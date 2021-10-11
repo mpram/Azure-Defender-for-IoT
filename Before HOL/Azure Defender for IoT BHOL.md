@@ -235,8 +235,22 @@ Then **Review + Create** after the validation is complete, click **Create**
 In order to connect your IoT Security Alerts to Sentinel, you will need the following prerequisites:
 1.	A Log Analytics workspace in the Subscription where the IoTHub resource lives. 
 2.	Connect the Sentinel instance to the new Log Analytics workspace.
+ 
+ ![Stop VM](./images/Enable Sentinel #1.png
+ 'Stop VM') 
+ 
+ ![Stop VM](./images/Enable Sentinel #2.png
+ 'Stop VM') 
+ 
+ ![Stop VM](./images/Enable Sentinel #3.png
+ 'Stop VM') 
+
 3.	You will need contributor access to the IoT hub. Go to Access Control (IAM) in IoT Hub and grant contributor access to the individual that will be connecting Sentinel to IoT hub.
 
+
+ ![Stop VM](./images/Enable Sentinel #4.png
+ 'Stop VM') 
+ 
 If you are unfamiliar, please follow these instructions: ['Enable Azure Sentinel'](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard#:~:text=process%20these%20rules.-,Enable%20Azure%20Sentinel,-Sign%20in%20to 'Enable Azure Sentinel')  
 
 **WHY**: This will create the backend data repository where all the IoT security alerts will be feed so that Sentinel can be analyzed and further investigated.
