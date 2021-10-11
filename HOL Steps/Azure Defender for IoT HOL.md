@@ -257,7 +257,7 @@ During this task we will configure Azure Defender based on the IPs highlighted b
 
 - **configure hardware profile**: **office**, then press enter. 
 - **Configure network interface**, type **eth0**
-- **Configure management network interface**: in this example we're using **192.168.0.50**, you will use one of the **Ipv4 Addresses** depending on your network scope from the previous task, either **192.168.0.50 OR 172.27.0.50**. Click Enter to continue. ***Take a note of this IP you will need it later on***.
+- **Configure management network interface**: in this example we're using **192.168.0.50**, you will use one of the **Ipv4 Addresses** depending on your network scope from the previous task, either **192.168.0.50 or 172.27.0.50**. Click Enter to continue. ***Take a note of this IP you will need it later on***.
 - **Subnets mask**: **255.255.255.0** this will be the SAME for everyone.
 - **Configure DNS**: **8.8.8.8**
 - **Configure default gateway IP Address**: We are intentionaly mis-configuring this value to force the sensor in **offline** mode. Use either 192.168.0.**2** or 172.27.0.**2**.
