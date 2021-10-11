@@ -237,9 +237,8 @@ In order to connect your IoT Security Alerts to Sentinel, you will need the foll
 2.	Connect the Sentinel instance to the new Log Analytics workspace.
 3.	You will need contributor access to the IoT hub. Go to Access Control (IAM) in IoT Hub and grant contributor access to the individual that will be connecting Sentinel to IoT hub.
 
-If you are unfamiliar, please follow these instructions: https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard#:~:text=process%20these%20rules.-,Enable%20Azure%20Sentinel,-Sign%20in%20to 
+If you are unfamiliar, please follow these instructions: ['Enable Azure Sentinel'](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard#:~:text=process%20these%20rules.-,Enable%20Azure%20Sentinel,-Sign%20in%20to 'Enable Azure Sentinel')  
 
 **WHY**: This will create the backend data repository where all the IoT security alerts will be feed so that Sentinel can be analyzed and further investigated.
 
-**Caution**: Sentinel has a 30-day free trial similar to Defender for IoT. If you plan to discard your test IoT environment after this lab, please remove Sentinel and Log Analytics.
-https://docs.microsoft.com/en-us/azure/sentinel/offboard#:~:text=Remove%20Azure%20Sentinel%20from%20Workspace%201%20Go%20to,Remove%20Azure%20Sentinel%20from%20your%20workspace.%20See%20More.
+**Caution**: Sentinel has a 30-day free trial similar to Defender for IoT. If you plan to discard your test IoT environment after this lab, please remove Sentinel and Log Analytics. Here are the instructions: ['Remove Azure Sentinel'](https://docs.microsoft.com/en-us/azure/sentinel/offboard#:~:text=Remove%20Azure%20Sentinel%20from%20Workspace%201%20Go%20to,Remove%20Azure%20Sentinel%20from%20your%20workspace.%20See%20More. 'Remove Azure Sentinel') 
