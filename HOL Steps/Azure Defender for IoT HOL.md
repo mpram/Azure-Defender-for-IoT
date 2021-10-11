@@ -155,13 +155,13 @@ Fill the contact info window and then wait for a few minutes to complete the dow
 
   ![Storage Explorer](./images/sa-subs-login.png 'Subscription')
 
-8. Next, click on **Azure**, **Next**. Now **Sign in** to Azure. Once you are signed in, close the browser, in the Storage explorer you you should see your subscription.
+14. Next, click on **Azure**, **Next**. Now **Sign in** to Azure. Once you are signed in, close the browser, in the Storage explorer you you should see your subscription.
 
-9. On the left panel, select **Storage Accounts** under your Subscription.
+15. On the left panel, select **Storage Accounts** under your Subscription.
 
     ![Storage Explorer Container](./images/container.png 'Select Container')
 
-10. Once you selected the container on the right side you should see the files, just select the files and click **Download**
+16. Once you selected the container on the right side you should see the files, just select the files and click **Download**
 
    ![Storage Explorer](./images/download-files.png 'Subscription')
 
@@ -188,7 +188,7 @@ During this exercise we will set up the Virtual Machine created before with Azur
 
 4. Run the next two commands in the PowerShell window
 
-`New-VMSwitch -SwitchName "NATSwitch" -SwitchType Internal`
+`New-VMSwitch -SwitchName "NATSwitch" -SwitchType Internal`<br/>
 `New-VMSwitch -SwitchName "MySwitch" -SwitchType Internal`
 
 5. Run `Get-NetAdapter` and take note of the "ifIndex" of the "vEthernet (NATSwitch)"
