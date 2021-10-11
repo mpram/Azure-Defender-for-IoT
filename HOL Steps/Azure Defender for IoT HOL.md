@@ -176,7 +176,7 @@ During this exercise we will set up the Virtual Machine created before with Azur
 
 1. On the Windows 10 Virtual machine created previously, login with Bastion or RDP. Open a command prompt and run the command "ipconfig".
 
-![Command Prompt](./images/command-prompt-ipconfig-output.PNG 'Command Prompt')
+![Command Prompt](./images/command-prompt-ipconfig-output.png 'Command Prompt')
 
 2. Take note of the IP address used on your Windows 10 Host's Ethernet Adapter.
 
@@ -184,7 +184,7 @@ During this exercise we will set up the Virtual Machine created before with Azur
 
 3. Open a PowerShell prompt as an Administrator by searching for PowerShell and right-clicking to "Run as administrator".
 
-![PowerShell Admin](./images/run-powershell-as-admin.PNG 'PowerShell Admin')
+![PowerShell Admin](./images/run-powershell-as-admin.png 'PowerShell Admin')
 
 4. Run the next two commands in the PowerShell window
 
@@ -193,7 +193,7 @@ During this exercise we will set up the Virtual Machine created before with Azur
 
 5. Run `Get-NetAdapter` and take note of the "ifIndex" of the "vEthernet (NATSwitch)"
 
-![ifIndex](./images/get-ifindex.PNG 'ifIndex')
+![ifIndex](./images/get-ifindex.png 'ifIndex')
 
 6.  Assign an IP address to the NATSwitch (either 192.168.0.1 or 172.27.0.1) depending on your network address based on step 1, and the ifIndex number noted from above.
 
