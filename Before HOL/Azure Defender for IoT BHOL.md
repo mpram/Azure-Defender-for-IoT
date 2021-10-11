@@ -230,15 +230,15 @@ Then **Review + Create** after the validation is complete, click **Create**
  'Stop VM') 
 
 ## **Task 6: Sentinel Prep-Work** ##
-Note: If you already are leveraging a Sentinel instance, please disregard these steps and head over to the Hands-On-Lab for instructions on how to connect the IoT alerts to Sentinel.
+**Note**: If you already are leveraging a Sentinel instance, please disregard these steps and head over to the Hands-On-Lab for instructions on how to connect the IoT alerts to Sentinel.
 
 In order to connect your IoT Security Alerts to Sentinel, you will need the following prerequisites:
 1.	A Log Analytics workspace in the Subscription where the IoTHub resource lives. 
 2.	Connect the Sentinel instance to the new Log Analytics workspace.
 3.	You will need contributor access to the IoT hub. Go to Access Control (IAM) in IoT Hub and grant contributor access to the individual that will be connecting Sentinel to IoT hub.
 
-
 If you are unfamiliar, please follow these instructions: Enable Azure Sentinel 
-WHY: This will create the backend data repository where all the IoT security alerts will be feed so that Sentinel can be analyzed and further investigated.
-Caution: Sentinel has a 30-day free trial similar to Defender for IoT. If you plan to discard your test IoT environment after this lab, please remove Sentinel and Log Analytics.
+**WHY**: This will create the backend data repository where all the IoT security alerts will be feed so that Sentinel can be analyzed and further investigated.
+
+**Caution**: Sentinel has a 30-day free trial similar to Defender for IoT. If you plan to discard your test IoT environment after this lab, please remove Sentinel and Log Analytics.
 Remove Azure Sentinel | Microsoft Docs
