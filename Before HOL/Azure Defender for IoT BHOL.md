@@ -236,6 +236,7 @@ In order to connect your IoT Security Alerts to Sentinel, you will need the foll
 1.	A Log Analytics workspace in the Subscription where the IoTHub resource lives. 
 2.	Connect the Sentinel instance to the new Log Analytics workspace.
  
+ ![Sentinel](./images/Enable Sentinel #1.PNG 'Sentinel')
  ![Stop VM](./images/Enable Sentinel #1.png
  'Stop VM') 
  
