@@ -111,7 +111,7 @@ Fill the contact info window and then wait for a few minutes to complete the dow
 
 
 
-4. Assign a name to the sensor **myofflinesensor**, select your subscription and **An opreational network(On premises)**. Click **Register**.
+4. Assign a name to the sensor **myofflinesensor**, select your subscription and **An operational network(On premises)**. Click **Register**.
 
 ![Onboard sensor](./images/adfonboard-sensor.png 'Onboard Sensor')
 
@@ -178,27 +178,35 @@ During this exercise we will set up the Virtual Machine created before with Azur
 
 ![Command Prompt](./images/command-prompt-ipconfig-output.PNG 'Command Prompt')
 
-2. Take note of the IP address used on your Windows 10 Host's Ethernet Adapter. **NOTE: In this example, the Win10 host Ethernet Adapter is assigned an IP of 10.0.0.5, therefore we will use 192.168.0.0/24 as the network scope of the “NATSwitch”.  If your primary adapter is already using 192.168.x.x, then use 172.27.0.0/24 for your “NATSwitch”.**
+2. Take note of the IP address used on your Windows 10 Host's Ethernet Adapter.
+
+**NOTE: In this example, the Win10 host Ethernet Adapter is assigned an IP of 10.0.0.5, therefore we will use 192.168.0.0/24 as the network scope of the “NATSwitch”.  If your primary adapter is already using 192.168.x.x, then use 172.27.0.0/24 for your “NATSwitch”.**
 
 3. Open a PowerShell prompt as an Administrator by searching for PowerShell and right-clicking to "Run as administrator".
 
+![PowerShell Admin](./images/run-powershell-as-admin.PNG 'PowerShell Admin')
 
-3. A new window will pop up, select **New Virtual network switch**, then **Internal**, **Create virtual switch**. Assign a name **MySwitch**. Last **Aply** and **Ok**
+4. Run the next two commands in the PowerShell window
 
-  ![Virtual Switch](./images/create-virtual-switch.png 'Virtual Switch')
+`New-VMSwitch -SwitchName "NATSwitch" -SwitchType Internal`
+`New-VMSwitch -SwitchName "MySwitch" -SwitchType Internal`
 
-4. In the Windows Menu, in the search box look for the **command prompt**, once the screen open type **ipconfig**, capture IPv4 address in this example is: **172.25.224.1** and the subnet mask: **255.255.240.0**
+5. Run `Get-NetAdapter` and take note of the "ifIndex" of the "vEthernet (NATSwitch)"
+
+![ifIndex](./images/get-ifindex.PNG 'ifIndex')
+
+6.  Assign an IP address to the NATSwitch (either 192.168.0.1 or 172.27.0.1) depending on your network address based on step 1, and the ifIndex number noted from above.
+
+`New-NetIPAddress -IPAddress 192.168.0.1 -PrefixLength 24 -InterfaceIndex 60`
+
+7. Create the new NAT network.  Again, your IP address space will either be 192.168.0.0/24 or 172.27.0.0/24 depending on step 1.
+
+`New-NetNat -Name MyNATnetwork -InternalIPInterfaceAddressPrefix 192.168.0.0/24`
+
 
 </br>
 
-  ![Virtual Switch](./images/network-properties.png 'Virtual Switch')
-
-5. Go to control panel in your Windows Virtual Machine, click on **Network & Internet**, then **Network and Sharing Center**, on the left select click on **Change adapter settings**.
-
-
-
-
-6. Back in the HyperV, select **New** on the left side will open multiple options, select **Virtual Machine**
+ 8. Once inside the VM in the windows search box, type **Hyper-V** and enter. This should open a new window with Hyper-V console. Select **New** on the left side will open multiple options, select **Virtual Machine**
 
  ![Onboard Online Sensor](./images/hyperv-create-vm.png 'Onboard Online Sensor')
 
@@ -206,49 +214,32 @@ During this exercise we will set up the Virtual Machine created before with Azur
 
   - **Specify Generation**, select **Generation 1**, click **Next** again.
 
-  - Change the memory to **2024MB**, **Next**.
+  - Change the memory to **8196MB**, **Next**.
 
-  - **Configure Network** tab, select in **Connection**, **Default Switch**, **Next**.
+  - **Configure Network** tab, select in **Connection**, **NATSwitch**, **Next**.
 
   - **Connect Virtual Hard Disk** tab, **Create a virtual hard disk** click **Next**.
 
- - **Installations Options**, select **Install an operating system from a bootable CD/DVD-ROM** then select **Image file (.iso)** and browse the Azure defender .iso file downloaded in previous steps. Last **Finish**
+ - **Installation Options**, select **Install an operating system from a bootable CD/DVD-ROM** then select **Image file (.iso)** and browse the Azure defender .iso file downloaded in previous steps. Last **Finish**
 
 
 ![Disk Size](./images/select-iso.png 'Disk Size')
 
-7. Right click on your Virtual machine just created, select **Settings** in the **Add Hardware** section select **Network Adapter**, click on **Add**, select the virtual switch created previously **My Switch**, click **Apply** and then **Ok**
+7. Right click on your Virtual machine just created, select **Settings** in the **Add Hardware** section select **Network Adapter**, click on **Add**, select the virtual switch created previously **My Switch**, click **Apply**.  Also, increase the Processor from **1** to **4** Virtual Processors, click **Apply** and click **Ok**.
 
 
-
-8. Back to the Hyper-V, right click on the VM and select **Start**, then right click again to **Connect**.
+8. Back to the Hyper-V, right click on the VM and select **Connect**, then in the console click **Start**.
 
 9. When you connect to the Ubuntu VM you should see the following screen to start the configuration process.
 
  ![Connect to  Sensor](./images/connect-to-sensor.png 'Connect to Sensor')
 
-**Note!**: If you don't see that screen above, your installation time out or press enter selecting a different configuration by mistake or timeout, delete the virtual machine and start over this task.
+**Note!**: If you don't see that screen above, your installation timed out or you pressed enter selecting a different configuration by mistake, delete the virtual machine and start this task over.
 
 </br>
 
 
-### **Task 2: Collect Information**
-
-Before setting up Azure Defender is important you take a prtscrn of the windows Virtual Machine IP so both can communicate to each other, we are going to use this info to set up Defender.
-
-In this github repository look for the **Files** folder and download the cheat sheet.xls file in your laptop. You will fill the sample using your values to complete the set up, use a new tab in the excel.
-
-1. Login to the Windows Virtual Machine where you are hosting the Ubuntu VM with Defender.
-2. In the search box next to the windows logo, type **cmd** this should open a command window, type **ipconfig**, take a prtscrn, we will use this parameters to configure defender
-
-![Network Properties](./images/network-properties.png 'Netowrk Properties')
-
-Keep this screen open or take a prtscrn or complete the cheat sheet with your values, this way it will be easier to follow them as reference for the next task.
-
-
-
-  
- ### **Task 3: Configure Azure Defender**
+ ### **Task 2: Configure Azure Defender**
 
 During this task we will configure Azure Defender based on the IPs highlighted before, this first configuration will be based on an offline sensor.
 
@@ -261,27 +252,25 @@ During this task we will configure Azure Defender based on the IPs highlighted b
 
 </br>
 
-3. You will be ask to fulfill some parameters, it is ***VERY IMPORTANT*** you pay attention to the previous task because you will use the network information you captured before, this is unique to each Virtual Machine. So the following is an **EXAMPLE** based on the prtscrn presented above.
+3. You will be ask to fulfill some parameters, it is ***VERY IMPORTANT*** you pay attention to the previous task because you will use the network information you captured before, this is unique to each Virtual Machine. So the following is an **EXAMPLE**.
 
 
 - **configure hardware profile**: **office**, then press enter. 
 - **Configure network interface**, type **eth0**
-- **Configure management network interface**: this is an example **172.25.224.2**, you will use the **Ipv4 Address** from the previous task **+1 or -1** NOT THE SAME. Click Enter to continue. ***Take a note of this IP you will need it later on***.
-- **Subnets mask**: **255.255.240.0** this will be the SAME as the **Subnet Mask** captured in previous task.
+- **Configure management network interface**: in this example we're using **192.168.0.50**, you will use one of the **Ipv4 Addresses** depending on your network scope from the previous task, either **192.168.0.50 OR 172.27.0.50**. Click Enter to continue. ***Take a note of this IP you will need it later on***.
+- **Subnets mask**: **255.255.255.0** this will be the SAME for everyone.
 - **Configure DNS**: **8.8.8.8**
-- **Configure default gateway IP Address**: This value will be the same as **Default Gateway** captured in previous task, in this example will be 10.4.0.1
+- **Configure default gateway IP Address**: We are intentionaly mis-configuring this value to force the sensor in **offline** mode. Use either 192.168.0.**2** or 172.27.0.**2**.
 - **Configure input interface(s)**: **eth1**
 - **Configure bridge interface**: Just press Enter
 - Then type **Y** to apply the changes and click **Enter**.
 
-Now the installation will run for 10-15minutes.
+Now the installation will run for 10-15 minutes.
 
 ***Troubleshooting Note: Once the installation is complete, you will be able to access Azure Defender Console, check if you can open a cmd window, ping the IP Address  you enter in the step 'Configure management network interface'
-If the request timeout, you will need to reconfigure this step again, for that review the IPs one more time and use the command below to start over:***
+If the request times out, you will need to reconfigure this step again, for that review the IPs one more time and use the command below to start over:***
 
-```powershell
-sudo cyberx-xsense-network-reconfigure 
-```
+`sudo cyberx-xsense-network-reconfigure`
 
 Below, a ***sample*** screen, your parameters will be different.
 
@@ -337,7 +326,7 @@ Below, a ***sample*** screen, your parameters will be different.
 3. In the new window on the left side, scroll down until you see **Pcaps**, click there. Now on the right side scroll all the way down and we will modify three parameters as shown below:
     - **player_max_amount=200**
     - **enabled=1**
-    - **player.params=-M 5**
+    - **player.params=-M 2**
 
 
   ![system settings pcaps](./images/enabling-pcaps.png 'System settings Pcaps')
@@ -477,7 +466,7 @@ As an example we will create a Report based on firmware updates versions.
 
 1. Go to the Risk assessment, run the assessment. During this task we will show you how to analyze the assessment. 
 
-***IMPORTANT***, after completing this workshop you will have a period of two weeks to run the risk assessment in your evironment and schedule an apponitment with our Cybersecurity team to guide you through analysis, best practices and vulnerabilities in your facilities.
+***IMPORTANT***, after completing this workshop you will have a period of two weeks to run the risk assessment in your evironment and schedule an appointment with our Cybersecurity team to guide you through analysis, best practices, and vulnerabilities in your facilities.
 
 </br>
 
@@ -493,23 +482,21 @@ To modify our sensor to be an online sensor, we will use the same virtual machin
     - **ping 8.8.8.8** google dns, you will receive a message as **network unreacheable** your sensor needs connectivity before changing the activation mode.
 
 
-2. In the Ubuntu sensor we will need to reconfigure the gateway to reach Azure IoT Hub, type the following:
+2. In the Ubuntu sensor we will need to reconfigure the gateway to bring it online and allow it to reach Azure IoT Hub, type the following:
 
-```powershell
-sudo cyberx-xsense-network-reconfigure 
-```
+`sudo cyberx-xsense-network-reconfigure`
 
-3. You will ask to login, then you can start to reconfigure the network settings, will only change one value, **configure default gateway IP address** you will assign the The defatul switch value configured in previous steps, which also match the IP of the Windows machine, you will keep all the other values as before(just type N when asked for changes).
+3. You will ask to login, then you can start to reconfigure the network settings, you will only change **one** value, **configure default gateway IP address** you will assign the IP Address of the NATSwitch value configured in previous steps, either 192.168.0.**1** or 172.27.0.**1**, you will keep all the other values as before.
 
 
 ![Changing IP to online](./images/defender-config-online.png 'Changing IP')
 </br>
 
-4. Type **Y** at the end of the process to apply the change, it will run a reconfiguration just in a few seconds. 
+4. Type **Y** at the end of the process to apply the change, it will run a reconfiguration and reboot. 
 
-5. Test that you have external connectivity: **ping 8.8.8.8.8** in the Ubuntu sensor, you should now receive a different message  containing "...icmp..."
+5. After logging back in, test that you have external connectivity: **ping 8.8.8.8.8** in the Ubuntu sensor, you should now receive a different message  containing "...icmp...".  Note: hit Cntrl-C to stop the pinging.
 
-6. Now that your sensor has connectivity, go to Azure Defender Portal, select **System Settings** and then, **Reactivation**.
+6. Now that your sensor has connectivity, go to the Azure Defender Portal, select **System Settings** and then, **Reactivation**.
 
 7. In the new window, select **Upload**, **Browse File**, select the zip file you downloaded from the storage account in previous steps **myonlinesensor.zip**, then **Open** and **Activate**, **Ok** to the instructions
 
