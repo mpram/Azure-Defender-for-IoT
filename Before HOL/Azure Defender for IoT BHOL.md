@@ -21,6 +21,15 @@ During this time, we will set up the environment that is required for the Hands-
 
 Previous to this workshop, after registration, you will receive an Azure Pass to configure with your personal email account, this step will be coordinated with your instructors.
 
+Go to this link: https://www.microsoftazurepass.com/
+
+Click on **START**, make sure you set up this pass with a personal email or just create an outlook email account for this training. After you login and valicate the account. You will ask to **Enter the Promo Code**, here you will copy the Azure Pass Code you receive by email and then click on **Claim Promo Code**.
+
+
+After a few minutes you should have a Subscription available to start setting up your servicces in the next exercises. 
+
+
+
 
 ## **Exercise 2: Set up Environment** ##
 
