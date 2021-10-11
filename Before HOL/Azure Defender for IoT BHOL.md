@@ -15,7 +15,7 @@ During this time, we will set up the environment that is required for the Hands-
    - [Task 3: Connect to Virtual Machine](#task-3-connect-to-virtual-machine)
    - [Task 4: Enable Hyper-V](#task-4-enable-hyper-v)
    - [Task 5: Create a Storage Account](#task-5-create-a-storage-account)
-   - [Task 6: Sentinel Prep-work](#task-6-create-a-log-analytics-workspace)
+   - [Task 6: Sentinel Prep-work](#task-6-Sentinel-Prep-work)
 
 
 ## **Exercise 1: Azure Passes** ##
