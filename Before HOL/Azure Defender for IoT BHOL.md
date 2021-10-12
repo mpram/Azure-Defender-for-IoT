@@ -128,10 +128,10 @@ After a few minutes you will be able to login
 
 In the **Bastion** page, click on **Use Bastion** then enter the username and password for the virtual machine.
 
-    | Field | Enter |
-    |-------|-------|
-    | **Username** | *ADefenderlab* |
-    | **Password** | *Learningmode123!* |
+  | Field | Enter |
+  |-------|-------|
+  | **Username** | *ADefenderlab* |
+  | **Password** | *Learningmode123!* |
 
 ![Bastion Connect](./images/Connect-VM-Bastion-Connect.PNG 'Bastion Connect')
 
@@ -262,12 +262,14 @@ Then **Review + Create** after the validation is complete, click **Create**
  
  ![Sentinel create](./images/create-sentinel.png 'Sentinel create') 
 
- 3. In the window, fill the form with the following data:
- - **Subscription**: Select the subscription you are using for this training.
- - **Resource Group**: select the resource group you created previously.
- - **Name**: Mylogworkspace+SUFFIX
- - **Regions**: East US
+ 3. In the new window, fill the form with the following data:
+    - **Subscription**: Select the subscription you are using for this training.
+  - **Resource Group**: select the resource group you created previously.
+  - **Name**: Mylogworkspace+SUFFIX
+  - **Regions**: East US
  
  ![Sentinel Create workspace](./images/create-workspace.png 'Sentinel create workspace') 
 
  4. Click **Review and create**, after validation is completed, click **create**
+
+ You have completed all your pre-work tasks before attending the Hands-on Lab! Please make sure your Virtual Machine is **STOP** until the training date, otherwise you will consume your Azure Credit before the training. 
