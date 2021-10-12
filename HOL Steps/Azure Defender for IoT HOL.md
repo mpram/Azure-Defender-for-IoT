@@ -531,6 +531,88 @@ To modify our sensor to be an online sensor, we will use the same virtual machin
 ![IoT Hub Azure](./images/hub-security-alerts.png 'IoT Hub')
 
 ### **Task 2: Integrate with Sentinel**
+**Note**: Please ensure you have completed Task 6 in the "Before HOL" prior to working through these instructions.
+
+Step 2: Enabling IoT to Integrate with Sentinel
+Ensure your IoT Hub is configured to send Security Alerts to Sentinel.
+
+Navigate to your IoT Hub > Security > Settings > Data Collection
+
+![Data Collection](./images/data-collection.png 'Data Collection')
+
+Once you are in the Data Collection Blade, ensure the following is enabled:
+1.	Enable Azure Defender for IoT
+ 
+Task 3:
+After all the flags are enabled, go to “Sentinel > Configuration > Data Connectors > Search ‘Azure Defender for IoT” to connect IoT to Sentinel.
+ 
+Click the ‘Open Connector Page’
+ 
+
+
+
+
+
+
+Review the instructions and click the “Connect” button to connect Azure Defender for IoT to Sentinel.
+ 
+If connected correctly you should expect to see the Status change to “Connected” and the link light up green.
+ 
+
+
+Use the next steps tab to enable Out of the Box alerts. For example, click the create rule and follow the instructions to turn on the rule.
+ 
+
+
+
+
+
+Fill in the “Name” and click “Review and Create”. This is enabling incidents to be created based on the Azure Defender IoT alerts that are ingested into Sentinel.
+ 
+
+
+Create rule templates 
+
+Additionally, you can create the rule not only on the data connectors page but also on the “Analytics” blade. See an example below when you go to the “Rule Templates” tab and filter data sources by “Azure Defender for IoT (Preview)”.
+ 
+Task 3: Acknowledge Alerts and Re-run PCAPs
+Go back to your browser interface and acknowledge all of the alerts. The reason we are doing this is so we can re-run the alerts to show how they are sent and analyzed by Sentinel.
+1.	Navigate to the Alerts Page
+2.	Click the double check box
+3.	Click “Ok” to acknowledge the alerts
+ 
+ 
+4.	Now go to the System Setting tab
+5.	Click the “Play All” on the PCAP Files to replay simulating the alerts.
+
+ 
+
+Task 4: Sentinel interaction with IoT alerts/incidents 
+Go back to the Sentinel console and under the “Threat Management” section, select the “Incidents” tab.  Filter by Product Name “Azure Defender for IoT”.
+
+  
+Select one of the alerts and click “View full details”
+ 
+It will take you to this screen to get all the information relative to the incident. This allows analyst to get more details on the entity including what other alerts made up the incident, playbooks to enrich the context of the alert, and comments section to leave details on what the analyst discovered during review or how they came to the determination to dismiss the incident.
+ 
+Task 5: Kusto Query Language to Find Alert Details
+Navigate to the “Logs” tab and run this query. Querying the data will provide the ability to join tables and datasets to curate data from multiple sources. KQL is a similar language to SQL but will take some research and some dedicated time to become familiar with.
+Here are two basic examples:
+SecurityAlert | where ProviderName contains "IoTSecurity"
+ 
+
+
+
+
+
+
+
+
+
+
+SecurityAlert | where CompromisedEntity == "adt4iothub"
+ 
+
 
 ### **Task 3: Alerts - Intelligent Thread.**
 
