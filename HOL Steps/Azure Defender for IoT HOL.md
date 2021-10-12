@@ -533,7 +533,7 @@ To modify our sensor to be an online sensor, we will use the same virtual machin
 ### **Task 2: Integrate with Sentinel**
 **Note**: Please ensure you have completed Task 6 in the [Before HOL](#https://github.com/mpram/Azure-Defender-for-IoT/blob/main/Before%20HOL/Azure%20Defender%20for%20IoT%20BHOL.md#task-6-sentinel-prep-work) prior to working through these instructions.
 
-Step 1: Enabling IoT to Integrate with Sentinel
+*Step 1*: Enabling IoT to Integrate with Sentinel
 Ensure your IoT Hub is configured to send Security Alerts to Sentinel.
 
 Navigate to your IoT Hub > Security > Settings > Data Collection
@@ -546,7 +546,7 @@ Once you are in the Data Collection Blade, ensure the following is enabled:
  
 ![Data Collection DIoT](./images/Data-Collection-DIot.png 'Data Collection DIoT')
 
-Step 2: Data Connectors
+*Step 2*: Data Connectors
 After all the flags are enabled, go to “Sentinel > Configuration > Data Connectors > Search ‘Azure Defender for IoT” to connect IoT to Sentinel.
  
 ![Data Connectors Sentinel](./images/Data-Connectors-Sentinel.png 'Data Connectors Sentinel')
@@ -571,13 +571,11 @@ Fill in the “Name” and click “Review and Create”. This is enabling incid
  
 ![Sentinel Rule Submission](./images/Sentinel-Rule-Submission.png 'Sentinel Rule Submission')
 
-Create rule templates 
-
 Additionally, you can create the rule not only on the data connectors page but also on the “Analytics” blade. See an example below when you go to the “Rule Templates” tab and filter data sources by “Azure Defender for IoT (Preview)”.
 
 ![Sentinel Analytics Screen](./images/Sentinel-Analytics-Screen.png 'Sentinel Rule Submission')
  
-Task 3: Acknowledge Alerts and Re-run PCAPs
+*Step 3*: Acknowledge Alerts and Re-run PCAPs
 Go back to your browser interface and acknowledge all of the alerts. The reason we are doing this is so we can re-run the alerts to show how they are sent and analyzed by Sentinel.
 1.	Navigate to the Alerts Page
 2.	Click the double check box
@@ -590,7 +588,7 @@ Go back to your browser interface and acknowledge all of the alerts. The reason 
 
 ![Rerun pcaps](./images/Rerun-pcaps.png 'Rerun pcaps')
 
-Task 4: Sentinel interaction with IoT alerts/incidents 
+*Step 4*: Sentinel interaction with IoT alerts/incidents 
 Go back to the Sentinel console and under the “Threat Management” section, select the “Incidents” tab.  Filter by Product Name “Azure Defender for IoT”.
 
 ![Sentinel Filter Alerts](./images/Sentinel-Filter-Alerts.png 'Sentinel Filter Alerts')
@@ -601,9 +599,9 @@ Select one of the alerts and click “View full details”
  
 It will take you to this screen to get all the information relative to the incident. This allows analyst to get more details on the entity including what other alerts made up the incident, playbooks to enrich the context of the alert, and comments section to leave details on what the analyst discovered during review or how they came to the determination to dismiss the incident.
 
-![Incident full details](./images/Incident-full-details.png 'Incident full details')
+![Incident guts](./images/Incident-guts.png 'Incident guts')
  
-Task 5: Kusto Query Language to Find Alert Details
+*Step 5*: Kusto Query Language to Find Alert Details
 
 Navigate to the “Logs” tab and run this query. Querying the data will provide the ability to join tables and datasets to curate data from multiple sources. KQL is a similar language to SQL but will take some research and some dedicated time to become familiar with.
 Here are two basic examples:
