@@ -244,7 +244,6 @@ In order to connect your IoT Security Alerts to Sentinel, you will need the foll
 
 3.	You will need contributor access to the IoT hub. Go to Access Control (IAM) in IoT Hub and grant contributor access to the individual that will be connecting Sentinel to IoT hub.
 
-
  ![Sentinel 4](./images/Enable%20Sentinel%20%234.png 'Sentinel 4') 
  
 If you are unfamiliar, please follow these instructions: ['Enable Azure Sentinel'](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard#:~:text=process%20these%20rules.-,Enable%20Azure%20Sentinel,-Sign%20in%20to 'Enable Azure Sentinel')  
