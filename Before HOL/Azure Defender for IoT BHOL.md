@@ -242,7 +242,7 @@ In order to connect your IoT Security Alerts to Sentinel, you will need the foll
  
  ![Sentinel 3](./images/Enable%20Sentinel%20%233.png 'Sentinel 3') 
 
-3.	You will need contributor access to the IoT hub. Go to Access Control (IAM) in IoT Hub and grant contributor access to the individual that will be connecting Sentinel to IoT hub.
+3.	You will need contributor access at the subscription level where the IoT hub you created lives. Go to Access Control (IAM) in the subscription blade and grant contributor access to the individual that will be connecting Sentinel to IoT hub.
 
  ![Sentinel 4](./images/Enable%20Sentinel%20%234.png 'Sentinel 4') 
  
