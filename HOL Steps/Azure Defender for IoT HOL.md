@@ -336,7 +336,7 @@ Below, a ***sample*** screen, your parameters will be different.
 3. In the new window on the left side, scroll down until you see **Pcaps**, click there. Now on the right side scroll all the way down and we will modify three parameters as shown below:
     - **player_max_amount=200**
     - **enabled=1**
-    - **player.params=-M 2**
+    - **player.params=-M 3**
 
 
   ![system settings pcaps](./images/enabling-pcaps.png 'System settings Pcaps')
