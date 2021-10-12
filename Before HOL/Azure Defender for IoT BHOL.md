@@ -24,10 +24,21 @@ Previous to this workshop, after registration, you will receive an Azure Pass to
 
 Go to this link: https://www.microsoftazurepass.com/
 
-Click on **START**, make sure you set up this pass with a personal email or just create an outlook email account for this training. After you login and valicate the account. You will ask to **Enter the Promo Code**, here you will copy the Azure Pass Code you receive by email and then click on **Claim Promo Code**.
+Click on **START**, make sure you set up this pass with a personal email or just create an outlook email account for this training. After you login and validate the account. You will ask to **Enter the Promo Code**, here you will copy the Azure Pass Code you receive by email and then click on **Claim Promo Code**.
 
 
-After a few minutes you should have a Subscription available to start setting up your servicces in the next exercises. 
+Next, fill the form with your name, after a few minutes you should have a Subscription available to start setting up your servicces in the next exercises. 
+
+To validate your subscription is active, go to Azure Portal: https://portal.azure.com/
+
+Right in the home portal you should see the icon for **Subscriptions** click on it you sould see a new Subscription available, also the same subscription could be available in the **Recent Resources** list.
+
+ ![New Subscription](./images/nre-subs.png 'New Subscription')
+
+
+If you don't see your subscription, validate you are accessing the right directory. Go to the top right corner menu, select **Directories+Subscriptions** icon and **Switch** button to change and validate again.
+
+  ![Directory](./images/azure-directory.png 'Directory')
 
 
 
@@ -65,7 +76,7 @@ In the next window, select your subscription, assign a name to the resource grou
     | Availability Options | Select **No infrastructure redundancy required** |
     | Image | Select **Windows 10 Pro, Version 20H2 - Gen2** |
     | Azure Spot instance | Select **No** |
-    | Size | **Standard_D4s_v3 - 4 vcpus, 16 GiB memory** |
+    | Size | **D4s_v3 - 4 vcpus, 16 GiB memory**, see image below |
     | **Administrator Account** | **Use the following Credentials** |
     | Username | **ADefenderlab** |
     | Password | **Learningmode123!** |
@@ -76,13 +87,17 @@ In the next window, select your subscription, assign a name to the resource grou
     | I confirm I have an eligible Windows 10 license with multi-tenant hosting rights. | **Check the box**. |
 
 
-3. Go to the **Management**, in the **Monitoring** section, select **Disable** for **Boot Diagnostics**
+3. In the Size section, select **See all Images**, look for the **D-Series v3** open that section, then you will find the right VM.
 
-4. At the bottom click on **Review + Create**. Once the validation is complete, select **Create**
+![Create VM size](./images/vm-size.png 'Create VM size')
+
+4. Go to the **Management**, in the **Monitoring** section, select **Disable** for **Boot Diagnostics**
+
+5. At the bottom click on **Review + Create**. Once the validation is complete, select **Create**
     
 ![Create VM](./images/Create-VM-Basic.PNG 'Create VM')
 
-5. It will take a few minutes to deploy. At the end you should see your resources deployed.
+6. It will take a few minutes to deploy. At the end you should see your resources deployed.
 
 
     ![Create VM](./images/Create-VM-Deployment.PNG 'Create VM')
@@ -105,7 +120,13 @@ In the next window, select your subscription, assign a name to the resource grou
 
 ![Bastion Connect](./images/Connect-VM-Bastion.PNG 'Bastion Connect')
 
-4. In the **Bastion** page, click on **Use Bastion** then enter the username and password for the virtual machine.
+4. If you select **Bastion** you will be ask to set it up in 3 steps, **Step 1** it is completed, for **Step 2**, click on **Create Subnet**, after step 2 is completed, **Step 3** will set up a public ip, scroll down and click on **Create Azure Bastion using defaults**
+
+![Bastion Connect](./images/set-up-bastion.png 'Bastion Connect')
+
+After a few minutes you will be able to login
+
+In the **Bastion** page, click on **Use Bastion** then enter the username and password for the virtual machine.
 
     | Field | Enter |
     |-------|-------|
