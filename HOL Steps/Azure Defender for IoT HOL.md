@@ -544,7 +544,7 @@ Once you are in the Data Collection Blade, ensure the following is enabled:
 
 	1.	Enable Azure Defender for IoT
  
-![Data Collection DIoT](/images/Data-Collection-Diot.png 'Data Collection DIot')
+![Data Collection DIoT](/images/Data-Collection-DIot.png 'Data Collection DIot')
 
 Step 2: Data Connectors
 After all the flags are enabled, go to “Sentinel > Configuration > Data Connectors > Search ‘Azure Defender for IoT” to connect IoT to Sentinel.
