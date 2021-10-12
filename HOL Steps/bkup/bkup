@@ -6,3 +6,20 @@
  ![Default Switch](./images/default-switch-ip.png 'Default Switch IP')
 
 7. Click on **Ok** you will receive a warning message to change IPs, answer **No** and then apply **Ok**
+
+
+
+
+
+
+
+---------------
+.	You will need contributor access at the subscription level where the IoT hub you created lives. Go to Access Control (IAM) in the subscription blade and grant contributor access to the individual that will be connecting Sentinel to IoT hub.
+
+ ![Sentinel 4](./images/Enable%20Sentinel%20%234.png 'Sentinel 4') 
+ 
+If you are unfamiliar, please follow these instructions: ['Enable Azure Sentinel'](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard#:~:text=process%20these%20rules.-,Enable%20Azure%20Sentinel,-Sign%20in%20to 'Enable Azure Sentinel')  
+
+**WHY**: This will create the backend data repository where all the IoT security alerts will be feed so that Sentinel can be analyzed and further investigated.
+
+**Caution**: Sentinel has a 30-day free trial similar to Defender for IoT. If you plan to discard your test IoT environment after this lab, please remove Sentinel and Log Analytics. Here are the instructions: ['Remove Azure Sentinel'](https://docs.microsoft.com/en-us/azure/sentinel/offboard#:~:text=Remove%20Azure%20Sentinel%20from%20Workspace%201%20Go%20to,Remove%20Azure%20Sentinel%20from%20your%20workspace.%20See%20More. 'Remove Azure Sentinel') 
