@@ -538,11 +538,13 @@ Ensure your IoT Hub is configured to send Security Alerts to Sentinel.
 
 Navigate to your IoT Hub > Security > Settings > Data Collection
 
-![Data Collection](./images/data-collection.png 'Data Collection')
+![Data Collection](./images/Data-Collection.png 'Data Collection')
 
 Once you are in the Data Collection Blade, ensure the following is enabled:
 1.	Enable Azure Defender for IoT
  
+![Data Collection DIoT](/images/Data-Collection-Diot.png 'Data Collection DIot')
+
 Task 3:
 After all the flags are enabled, go to “Sentinel > Configuration > Data Connectors > Search ‘Azure Defender for IoT” to connect IoT to Sentinel.
  
