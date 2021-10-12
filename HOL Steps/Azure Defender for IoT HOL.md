@@ -544,78 +544,77 @@ Once you are in the Data Collection Blade, ensure the following is enabled:
 
 	1.	Enable Azure Defender for IoT
  
-![Data Collection DIoT](/images/Data-Collection-DIot.png 'Data Collection DIot')
+![Data Collection DIoT](./images/Data-Collection-DIot.png 'Data Collection DIoT')
 
 Step 2: Data Connectors
 After all the flags are enabled, go to “Sentinel > Configuration > Data Connectors > Search ‘Azure Defender for IoT” to connect IoT to Sentinel.
  
-![Data Connectors Sentinel](/images/Data-Connectors-Sentinel.png 'Data Connectors Sentinel')
+![Data Connectors Sentinel](./images/Data-Connectors-Sentinel.png 'Data Connectors Sentinel')
 
 Click the ‘Open Connector Page’
  
-![Data Connectors iot](/images/iot-data-connectors.png 'Data Connectors iot')
-
-
+![Data Connectors iot](./images/iot-data-connectors.png 'Data Connectors iot')
 
 Review the instructions and click the “Connect” button to connect Azure Defender for IoT to Sentinel.
+
+![Sentinel Connect](./images/Sentinel-Connect.png 'Sentinel Connect')
  
 If connected correctly you should expect to see the Status change to “Connected” and the link light up green.
  
-
+![Sentinel Connect 2](./images/Sentinel-Connect-2.png 'Sentinel Connect 2')
 
 Use the next steps tab to enable Out of the Box alerts. For example, click the create rule and follow the instructions to turn on the rule.
  
-
-
-
-
+![Sentinel Rule Creation](./images/Sentinel-Rule-Creation.png 'Sentinel Rule Creation')
 
 Fill in the “Name” and click “Review and Create”. This is enabling incidents to be created based on the Azure Defender IoT alerts that are ingested into Sentinel.
  
-
+![Sentinel Rule Submission](./images/Sentinel-Rule-Submission.png 'Sentinel Rule Submission')
 
 Create rule templates 
 
 Additionally, you can create the rule not only on the data connectors page but also on the “Analytics” blade. See an example below when you go to the “Rule Templates” tab and filter data sources by “Azure Defender for IoT (Preview)”.
+
+![Sentinel Analytics Screen](./images/Sentinel-Analytics-Screen.png 'Sentinel Rule Submission')
  
 Task 3: Acknowledge Alerts and Re-run PCAPs
 Go back to your browser interface and acknowledge all of the alerts. The reason we are doing this is so we can re-run the alerts to show how they are sent and analyzed by Sentinel.
 1.	Navigate to the Alerts Page
 2.	Click the double check box
 3.	Click “Ok” to acknowledge the alerts
- 
- 
+
+![iot portal acknowledge alerts](./images/iot-portal-acknowledge-alerts.png 'iot-portal-acknowledge-alerts')
+
 4.	Now go to the System Setting tab
 5.	Click the “Play All” on the PCAP Files to replay simulating the alerts.
 
- 
+![Rerun pcaps](./images/Rerun-pcaps.png 'Rerun pcaps')
 
 Task 4: Sentinel interaction with IoT alerts/incidents 
 Go back to the Sentinel console and under the “Threat Management” section, select the “Incidents” tab.  Filter by Product Name “Azure Defender for IoT”.
 
+![Sentinel Filter Alerts](./images/Sentinel-Filter-Alerts.png 'Sentinel Filter Alerts')
   
 Select one of the alerts and click “View full details”
+
+![Incident full details](./images/Incident-full-details.png 'Incident full details')
  
 It will take you to this screen to get all the information relative to the incident. This allows analyst to get more details on the entity including what other alerts made up the incident, playbooks to enrich the context of the alert, and comments section to leave details on what the analyst discovered during review or how they came to the determination to dismiss the incident.
+
+![Incident full details](./images/Incident-full-details.png 'Incident full details')
  
 Task 5: Kusto Query Language to Find Alert Details
+
 Navigate to the “Logs” tab and run this query. Querying the data will provide the ability to join tables and datasets to curate data from multiple sources. KQL is a similar language to SQL but will take some research and some dedicated time to become familiar with.
 Here are two basic examples:
+
 SecurityAlert | where ProviderName contains "IoTSecurity"
  
-
-
-
-
-
-
-
-
-
+![kusto query](./images/kusto-query.png 'kusto query')
 
 SecurityAlert | where CompromisedEntity == "adt4iothub"
  
-
+![kusto query 2](./images/kusto-query-2.png 'kusto query 2')
 
 ### **Task 3: Alerts - Intelligent Thread.**
 
