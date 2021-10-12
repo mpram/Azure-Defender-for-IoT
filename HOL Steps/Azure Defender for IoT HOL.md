@@ -555,7 +555,7 @@ Click the ‘Open Connector Page’
  
 ![Data Connectors iot](./images/iot-data-connectors.png 'Data Connectors iot')
 
-Review the instructions and click the “Connect” button to connect Azure Defender for IoT to Sentinel.
+Review the instructions and click the “Connect” button to connect Azure Defender for IoT to Sentinel. If the connection continues to fail, this will most likely be due to the user not having the "Contributor" permissions and you may have missed the access step in the prerequisites. 
 
 ![Sentinel Connect](./images/Sentinel-Connect.png 'Sentinel Connect')
  
