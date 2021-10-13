@@ -34,10 +34,11 @@ During this workshop we will be focusing on setting up our Azure Defender sensor
 	- [Task 5: Data Mining](#Task-5-Data-Mining)
 - [Exercise 5: Online Sensor](#Exercise-5-Online-Sensor)
 	- [Task 1:  Reconfiguring sensor](#Task-1-reconfiguring-sensor)
+- [Exercise 6: Integration with Sentinel](#Exercise-6-Integration-with-Sentinel)
 	- [Task 2: Integrate with Sentinel](#Task-2-Integrate-with-Sentinel)
 	- [Task 3: Alerts - Intelligent Thread](#Task-3-Alerts-Intelligent-Thread)
 
-- [Exercise 6: Clean Up](#Exercise-6-Clean-Up)
+- [Exercise 7: Clean Up](#Exercise-6-Clean-Up)
 	- [Task 1: Delete resources](#Task-1-Delete-resources)
 - [Appendix: Troubleshooting](Appendix-Troubleshooting)
 
