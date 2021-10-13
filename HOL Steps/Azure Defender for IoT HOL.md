@@ -74,7 +74,7 @@ Before selecting your subscription make sure you select the option to **+ Start 
 
    ![Trial Selection](./images/trial-selection.png 'Trial Selection')
 
-5. Then, select your subscription and keep the devices selection to 1000, that is the minimum amount of devices configuration. These devices represents all those equipments/sensors connected to your network in the facility you are analyzing. This configuration allows you for a 30 days trial for free. Select **Evaluate** to continue.
+5. Then, select your subscription and keep the devices selection to 1000, that is the minimum amount of devices configuration. These devices represents all those equipments/sensors connected to your network in the facility you are analyzing. This configuration allows you for a 30 days trial for free. Select **Evaluate** to continue, last **Confirm**.
 
 
 
@@ -101,7 +101,6 @@ Before onboarding your sensors we will need to create an IoT Hub for your online
 
 4. Last, click **Review + create**, once validation is completed, click **Create**.
 
-
 ### **Task 3 - Onboarding sensors** ###
 
 For the hands-on lab we will work with two type of sensors, one offline and one online connectected to Azure. In the next steps we will onboard both, starting with the offline sensor.
@@ -109,7 +108,7 @@ For the hands-on lab we will work with two type of sensors, one offline and one 
 
 1. Go back to Azure Defender for IoT to create the sensors. You can go back through **Security Center**, **Cloud Security**, **Defender** then in the right side, under **Advanced Protection**, click on **IoT Security**.
 
-2. In the **Getting Started** section, select **Sensor**, then pick the **10.3.1 (Stable) and above - Recommended** version, and click **Download**.
+2. **!NOTE:** You are dowunloading the iso image here, you ***alreadid did this step*** in the **Before HOL Section** the iso file is already in your VM so we don't have to wait BUT you need to learn where it is, so we are **SKIPING** this step. In the **Getting Started** section, select **Sensor**, then pick the **10.3.1 (Stable) and above - Recommended** version, and click **Download**.
 
 ![Onboard sensor](./images/onboard-sensor.png 'Onboard Sensor')
 
