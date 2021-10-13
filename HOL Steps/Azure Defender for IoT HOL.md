@@ -541,11 +541,12 @@ To modify our sensor to be an online sensor, we will use the same virtual machin
 ![Data Collection](./images/Data-Collection.png 'Data Collection')
 
 	- Once you are in the Data Collection blade, ensure you have "Enable Azure Defender for IoT" in tact. 
+
  
 ![Data Collection DIoT](./images/Data-Collection-DIot.png 'Data Collection DIoT')
 
 2. Connecting Data Connectors
-
+	
 	- After all the flags are enabled, go to “Sentinel > Configuration > Data Connectors > Search ‘Azure Defender for IoT” to connect IoT to Sentinel.
  
 ![Data Connectors Sentinel](./images/Data-Connectors-Sentinel.png 'Data Connectors Sentinel')
