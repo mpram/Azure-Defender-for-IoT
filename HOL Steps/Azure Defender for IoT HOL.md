@@ -121,7 +121,7 @@ Fill the contact info window and then wait for a few minutes to complete the dow
 
 
 
-4. Assign a name to the sensor **myofflinesensor**, select your subscription and **An operational network(On premises)**. Click **Register**.
+4. Assign a name to the sensor **myofflinesensor**, select your subscription and **An operational network(On premises)** or disable **Cloud Connected**. Click **Register**.
 
 ![Onboard sensor](./images/adfonboard-sensor.png 'Onboard Sensor')
 
@@ -140,11 +140,13 @@ Fill the contact info window and then wait for a few minutes to complete the dow
   - **Sensor name**: myonlinesensor
   - **Subscription**: Select the subscription you are using for this lab.
   - **Cloud Connected**: keep it as Enabled
-  - **Deploy for**: An Operational network(Cloud Connected)
+  - **Automatic Threat Intelligence Updates (Preview)**: keep it as Enabled.
+  - **Deploy for**: An Operational network(Cloud Connected). this option might or not appear.
   
   **Site** Section
   - **Hub**: Select the IoT Hub created in previous step.
   - **Display Name**: AD4IoTHub, usually this name will represent the site you will be analyze such as Plant I.
+  - **Zone**: Default.
 
   
   ![Onboard Online Sensor](./images/onboard-online-sensor.png 'Onboard Online Sensor')
@@ -165,7 +167,7 @@ Fill the contact info window and then wait for a few minutes to complete the dow
 
   ![Storage Explorer](./images/sa-subs-login.png 'Subscription')
 
-14. Next, click on **Azure**, **Next**. Now **Sign in** to Azure. Once you are signed in, close the browser, in the Storage explorer you you should see your subscription.
+14. Next, click on **Azure**, **Next**. Now **Sign in** to Azure. Once you are signed in, close the browser, in the Storage explorer you you should see your subscription. You might need to select multiple directories, in the Account section to see your subscription. thne **Open Explorer** to see your storage accounts.
 
 15. On the left panel, select **Storage Accounts** under your Subscription.
 
