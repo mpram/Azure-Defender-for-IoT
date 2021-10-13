@@ -186,11 +186,11 @@ During this exercise we will set up the Virtual Machine created before with Azur
 
 ### **Task 1: Set up your Virtual Machine**
 
-1. On the Windows 10 Virtual machine created previously, login with Bastion or RDP. Open a command prompt and run the command "ipconfig".
+1. On the Windows 10 Virtual machine created previously, login with Bastion or RDP. Open a command prompt and run the command "ipconfig". **NOTE: Ignore the (Default Switch)**
 
 ![Command Prompt](./images/command-prompt-ipconfig-output.png 'Command Prompt')
 
-2. Take note of the IP address used on your Windows 10 Host's Ethernet Adapter.
+2. Take note of the IP address used on your Windows 10 Host's Ethernet Adapter. **NOTE: Ignore the (Default Switch)**
 
 **NOTE: In this example, the Win10 host Ethernet Adapter is assigned an IP of 10.0.0.5, therefore we will use 192.168.0.0/24 as the network scope of the “NATSwitch”.  If your primary adapter is already using 192.168.x.x, then use 172.27.0.0/24 for your “NATSwitch”.**
 
@@ -198,7 +198,7 @@ During this exercise we will set up the Virtual Machine created before with Azur
 
 ![PowerShell Admin](./images/run-powershell-as-admin.png 'PowerShell Admin')
 
-4. Run the next two commands in the PowerShell window
+4. Run the next two commands in the PowerShell window.
 
 ```powershell
 New-VMSwitch -SwitchName "NATSwitch" -SwitchType Internal
@@ -207,17 +207,16 @@ New-VMSwitch -SwitchName "NATSwitch" -SwitchType Internal
 New-VMSwitch -SwitchName "MySwitch" -SwitchType Internal
 ```
 
-5. Run "Get-NetAdapter" and take note of the "ifIndex" of the "vEthernet (NATSwitch)"
+5. Run the following command to store the network adapter information to a local variable.
 ```powershell
-Get-NetAdapter
+$s1 = Get-NetAdapter -name "vEthernet (NATSwitch)"
 ```
 
+6.  Assign an IP address to the NATSwitch (either 192.168.0.1 or 172.27.0.1) depending on your network address based on step 1.
 
-![ifIndex](./images/get-ifindex.png 'ifIndex')
-
-6.  Assign an IP address to the NATSwitch (either 192.168.0.1 or 172.27.0.1) depending on your network address based on step 1, and the ifIndex number noted from above.
-
-`New-NetIPAddress -IPAddress 192.168.0.1 -PrefixLength 24 -InterfaceIndex 60`
+```powershell
+New-NetIPAddress -IPAddress 192.168.0.1 -PrefixLength 24 -InterfaceIndex $s1.ifIndex
+```
 
 7. Create the new NAT network.  Again, your IP address space will either be 192.168.0.0/24 or 172.27.0.0/24 depending on step 1.
 
