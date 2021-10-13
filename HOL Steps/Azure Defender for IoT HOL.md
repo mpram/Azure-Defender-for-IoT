@@ -38,8 +38,8 @@ During this workshop we will be focusing on setting up our Azure Defender sensor
 	- [Task 1: Enabling IoT to Integrate with Sentinel](#Task-1-Enabling-IoT-to-Integrate-with-Sentinel)
 	- [Task 2: Connecting Data Connectors](#Task-2-Connecting-Data-Connectors)
 	- [Task 3: Acknowledge Alerts and Re-run PCAPs](#Task-3-Acknowledge-Alerts-and-Re-run-PCAPs)
-	- [Task 4: Sentinel interaction with IoT alerts/incidents](#Task-2-Sentinel-interaction-with-IoT-alerts/incidents)
-	- [Task 5: Kusto Query Language to Find Alert Details](#Task-2-Kusto-Query-Language-to-Find-Alert-Details)
+	- [Task 4: Sentinel interaction with IoT alerts/incidents](#Task-4-Sentinel-interaction-with-IoT-alerts/incidents)
+	- [Task 5: Kusto Query Language to Find Alert Details](#Task-5-Kusto-Query-Language-to-Find-Alert-Details)
 
 - [Exercise 7: Clean Up](#Exercise-6-Clean-Up)
 	- [Task 1: Delete resources](#Task-1-Delete-resources)
