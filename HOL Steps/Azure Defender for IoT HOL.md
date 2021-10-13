@@ -535,77 +535,75 @@ To modify our sensor to be an online sensor, we will use the same virtual machin
 
 ### **Task 1**: Enabling IoT to Integrate with Sentinel
 
-Ensure your IoT Hub is configured to send Security Alerts to Sentinel.
-Navigate to your IoT Hub > Security > Settings > Data Collection
+1. Ensure your IoT Hub is configured to send Security Alerts to Sentinel.
+2. Navigate to your IoT Hub > Security > Settings > Data Collection
 
 ![Data Collection](./images/Data-Collection.png 'Data Collection')
 
-Once you are in the Data Collection blade, ensure you have "Enable Azure Defender for IoT" in tact. 
+3. Once you are in the Data Collection blade, ensure you have "Enable Azure Defender for IoT" in tact. 
 
  
 ![Data Collection DIoT](./images/Data-Collection-DIot.png 'Data Collection DIoT')
 
-2. Connecting Data Connectors
+### **Task 2**: Connecting Data Connectors
 	
-After all the flags are enabled, go to “Sentinel > Configuration > Data Connectors > Search ‘Azure Defender for IoT” to connect IoT to Sentinel.
+1. After all the flags are enabled, go to “Sentinel > Configuration > Data Connectors > Search ‘Azure Defender for IoT” to connect IoT to Sentinel.
  
 ![Data Connectors Sentinel](./images/Data-Connectors-Sentinel.png 'Data Connectors Sentinel')
 
-Click the ‘Open Connector Page’
+2. Click the ‘Open Connector Page’
  
 ![Data Connectors iot](./images/iot-data-connectors.png 'Data Connectors iot')
 
-Review the instructions and click the “Connect” button to connect Azure Defender for IoT to Sentinel. If the connection continues to fail, this will most likely be due to the user not having the "Contributor" permissions and you may have missed the access step in the prerequisites. 
+3. Review the instructions and click the “Connect” button to connect Azure Defender for IoT to Sentinel. If the connection continues to fail, this will most likely be due to the user not having the "Contributor" permissions and you may have missed the access step in the prerequisites. 
 
 ![Sentinel Connect](./images/Sentinel-Connect.png 'Sentinel Connect')
  
-If connected correctly you should expect to see the Status change to “Connected” and the link light up green.
+4. If connected correctly you should expect to see the Status change to “Connected” and the link light up green.
  
 ![Sentinel Connect 2](./images/Sentinel-Connect-2.png 'Sentinel Connect 2')
 
-Use the next steps tab to enable Out of the Box alerts. For example, click the create rule and follow the instructions to turn on the rule.
+5. Use the next steps tab to enable Out of the Box alerts. For example, click the create rule and follow the instructions to turn on the rule.
  
 ![Sentinel Rule Creation](./images/Sentinel-Rule-Creation.png 'Sentinel Rule Creation')
 
-Fill in the “Name” and click “Review and Create”. This is enabling incidents to be created based on the Azure Defender IoT alerts that are ingested into Sentinel.
+6. Fill in the “Name” and click “Review and Create”. This is enabling incidents to be created based on the Azure Defender IoT alerts that are ingested into Sentinel.
  
 ![Sentinel Rule Submission](./images/Sentinel-Rule-Submission.png 'Sentinel Rule Submission')
 
-Additionally, you can create the rule not only on the data connectors page but also on the “Analytics” blade. See an example below when you go to the “Rule Templates” tab and filter data sources by “Azure Defender for IoT (Preview)”.
+7. Additionally, you can create the rule not only on the data connectors page but also on the “Analytics” blade. See an example below when you go to the “Rule Templates” tab and filter data sources by “Azure Defender for IoT (Preview)”.
 
 ![Sentinel Analytics Screen](./images/Sentinel-Analytics-Screen.png 'Sentinel Rule Submission')
  
-3. Acknowledge Alerts and Re-run PCAPs
+### **Task 3**: Acknowledge Alerts and Re-run PCAPs
 
-Go back to your browser interface and acknowledge all of the alerts. The reason we are doing this is so we can re-run the alerts to show how they are sent and analyzed by Sentinel.
+1. Go back to your browser interface and acknowledge all of the alerts. The reason we are doing this is so we can re-run the alerts to show how they are sent and analyzed by Sentinel.
 	1. Navigate to the Alerts Page
 	2. Click the double check box
-	3. Click “Ok” to acknowledge the alerts
-
-![iot portal acknowledge alerts](./images/iot-portal-acknowledge-alerts.png 'iot-portal-acknowledge-alerts')
-
+	3. Click “Ok” to acknowledge the alerts ![iot portal acknowledge alerts](./images/iot-portal-acknowledge-alerts.png 'iot-portal-acknowledge-alerts')
 	4. Now go to the System Setting tab
 	5. Click the “Play All” on the PCAP Files to replay simulating the alerts.
 
 ![Rerun pcaps](./images/Rerun-pcaps.png 'Rerun pcaps')
 
-4. Sentinel interaction with IoT alerts/incidents
+### **Task 4**: Sentinel interaction with IoT alerts/incidents
 
-Go back to the Sentinel console and under the “Threat Management” section, select the “Incidents” tab.  Filter by Product Name “Azure Defender for IoT”.
+1. Go back to the Sentinel console and under the “Threat Management” section, select the “Incidents” tab.  Filter by Product Name “Azure Defender for IoT”.
 
 ![Sentinel Filter Alerts](./images/Sentinel-Filter-Alerts.png 'Sentinel Filter Alerts')
   
-Select one of the alerts and click “View full details”
+2. Select one of the alerts and click “View full details”
 
 ![Incident full details](./images/Incident-full-details.png 'Incident full details')
  
-It will take you to this screen to get all the information relative to the incident. This allows analyst to get more details on the entity including what other alerts made up the incident, playbooks to enrich the context of the alert, and comments section to leave details on what the analyst discovered during review or how they came to the determination to dismiss the incident.
+3. It will take you to this screen to get all the information relative to the incident. This allows analyst to get more details on the entity including what other alerts made up the incident, playbooks to enrich the context of the alert, and comments section to leave details on what the analyst discovered during review or how they came to the determination to dismiss the incident.
 
 ![Incident guts](./images/Incident-guts.png 'Incident guts')
  
-5. Kusto Query Language to Find Alert Details
+### **Task 5**: Kusto Query Language to Find Alert Details
 
-Navigate to the “Logs” tab and run this query. Querying the data will provide the ability to join tables and datasets to curate data from multiple sources. KQL is a similar language to SQL but will take some research and some dedicated time to become familiar with.
+1. Navigate to the “Logs” tab and run this query. Querying the data will provide the ability to join tables and datasets to curate data from multiple sources. KQL is a similar language to SQL but will take some research and some dedicated time to become familiar with.
+
 Here are two basic examples:
 
 	SecurityAlert | where ProviderName contains "IoTSecurity"
