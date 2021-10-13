@@ -38,7 +38,7 @@ During this workshop we will be focusing on setting up our Azure Defender sensor
 	- [Task 1: Enabling IoT to Integrate with Sentinel](#Task-1-Enabling-IoT-to-Integrate-with-Sentinel)
 	- [Task 2: Connecting Data Connectors](#Task-2-Connecting-Data-Connectors)
 	- [Task 3: Acknowledge Alerts and Re-run PCAPs](#Task-3-Acknowledge-Alerts-and-Re-run-PCAPs)
-	- [Task 4: Sentinel interaction with IoT alerts/incidents](#Task-4-Sentinel-interaction-with-IoT-alerts/incidents)
+	- [Task 4: Sentinel interaction with IoT Incidents](#Task-4-Sentinel-interaction-with-IoT-Incidents)
 	- [Task 5: Kusto Query Language to Find Alert Details](#Task-5-Kusto-Query-Language-to-Find-Alert-Details)
 
 - [Exercise 7: Clean Up](#Exercise-6-Clean-Up)
@@ -590,7 +590,7 @@ To modify our sensor to be an online sensor, we will use the same virtual machin
 
 ![Rerun pcaps](./images/Rerun-pcaps.png 'Rerun pcaps')
 
-### **Task 4**: Sentinel interaction with IoT alerts/incidents
+### **Task 4**: Sentinel interaction with IoT Incidents
 
 1. Go back to the Sentinel console and under the “Threat Management” section, select the “Incidents” tab.  Filter by Product Name “Azure Defender for IoT”.
 
