@@ -530,13 +530,13 @@ To modify our sensor to be an online sensor, we will use the same virtual machin
 
 ![IoT Hub Azure](./images/hub-security-alerts.png 'IoT Hub')
 
-### **Task 2: Integrate with Sentinel**
+## **Exercise 6: Integrate with Sentinel**
 **Note**: Please ensure you have completed Task 6 in the ['Before HOL'](https://github.com/mpram/Azure-Defender-for-IoT/blob/main/Before%20HOL/Azure%20Defender%20for%20IoT%20BHOL.md#task-6-sentinel-prep-work/ 'Before HOL') prior to working through these instructions.
 
-1. Enabling IoT to Integrate with Sentinel
+### **Task 1**: Enabling IoT to Integrate with Sentinel
 
-	- Ensure your IoT Hub is configured to send Security Alerts to Sentinel.
-	- Navigate to your IoT Hub > Security > Settings > Data Collection
+Ensure your IoT Hub is configured to send Security Alerts to Sentinel.
+Navigate to your IoT Hub > Security > Settings > Data Collection
 
 ![Data Collection](./images/Data-Collection.png 'Data Collection')
 
@@ -624,7 +624,7 @@ Here are two basic examples:
 
 </br>
 
-## **Exercise 6: Clean Up**
+## **Exercise 7: Clean Up**
 
 ### **Task 1: Delete resources**
 
