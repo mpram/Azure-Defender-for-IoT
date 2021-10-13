@@ -48,22 +48,29 @@ During this workshop we will be focusing on setting up our Azure Defender sensor
 
 ### **Task 1: Enabling Azure Defender for IoT**
 
-[In Azure Portal](#https://ms.portal.azure.com/) open **Security Center**, on the left panel under **Cloud Security** select **Azure Defender**
+1. [In Azure Portal](#https://ms.portal.azure.com/) open **Security Center**. The first opening Azure Security Center you will need to click on **Upgrade**, this buttom will appear at the bottom of the screen, scroll down.
+
+
+
+  ![Security Center](./images/security-center-enable.png 'Security Center')
+
+
+ 2. Once enabled, on the left panel under **Cloud Security** select **Azure Defender**
 
   ![Security Center](./images/security-center.png 'Security Center')
 
-Next, select **IoT Security** under **Advanced Protection** section as shown below:
+3. Next, select **IoT Security** under **Advanced Protection** section as shown below:
 
    ![IoT security Access](./images/iot-security.png 'IoT security Access')
 
-Next in the **Getting Started** section, select **Onboard Subscription**.
+4. Next in the **Getting Started** section, select **Onboard Subscription**.
 
 
 Before selecting your subscription make sure you select the option to **+ Start with Trial** as shown below:
 
    ![Trial Selection](./images/trial-selection.png 'Trial Selection')
 
-Then, select your subscription and keep the devices selection to 1000, that is the minimum amount of devices configuration. These devices represents all those equipments/sensors connected to your network in the facility you are analyzing. This configuration allows you for a 30 days trial for free. Select **Evaluate** to continue.
+5. Then, select your subscription and keep the devices selection to 1000, that is the minimum amount of devices configuration. These devices represents all those equipments/sensors connected to your network in the facility you are analyzing. This configuration allows you for a 30 days trial for free. Select **Evaluate** to continue.
 
 
 
