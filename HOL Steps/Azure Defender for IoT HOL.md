@@ -90,7 +90,7 @@ Before onboarding your sensors we will need to create an IoT Hub for your online
  - **Subscription**: Select the Subscription you are woking on.
  - **Resource Group**: Should be the resource group created in previous step.
  - **IoT Hub Name**: adt4iothub+SUFFIX
- - **Region**: East US
+ - **Region**: East US.
 
 
 ![IoT Hub Create](./images/iot-hub-create.png 'IoT Hub Create')
@@ -570,7 +570,7 @@ To modify our sensor to be an online sensor, we will use the same virtual machin
 
 ### **Task 2**: Connecting Data Connectors
 	
-1. After all the flags are enabled, go to “Sentinel > Configuration > Data Connectors > Search **Azure Defender for IoT** to connect IoT to Sentinel.
+1. After all the flags are enabled, go to **Sentinel** > Configuration > Data Connectors > Search **Azure Defender for IoT** to connect IoT to Sentinel.
  
 ![Data Connectors Sentinel](./images/Data-Connectors-Sentinel.png 'Data Connectors Sentinel')
 
