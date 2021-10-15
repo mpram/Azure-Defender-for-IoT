@@ -101,6 +101,20 @@ Before onboarding your sensors we will need to create an IoT Hub for your online
 
 4. Last, click **Review + create**, once validation is completed, click **Create**.
 
+5. While the IoT Hub is creating , in Azure Portal look for the Subscription, click on **Access Control(IAM)**, then select **+ Add**, a new window will open on your right, select the following:
+    - **Role**: Contributor
+    - **Assign access to**: User, group or service principal
+    - **Select**: search for the email you are using in this subscription. Select that email.
+    Last, **Save**.
+
+Azure Sentinel will need this access to collect the alerts in further exercises when your sensor is online.
+
+</br>
+
+![IoT Hub Access](./images/subs-access.png 'IoT Hub Access')
+
+
+
 ### **Task 3 - Onboarding sensors** ###
 
 For the hands-on lab we will work with two type of sensors, one offline and one online connectected to Azure. In the next steps we will onboard both, starting with the offline sensor.
@@ -250,13 +264,16 @@ New-NetNat -Name MyNATnetwork -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 7. Right click on your Virtual machine just created, select **Settings** in the **Add Hardware** section select **Network Adapter**, click on **Add**, select the virtual switch created previously **My Switch**, click **Apply**.  Increase the Processor from **1** to **4** Virtual Processors, click **Apply** and click **Ok**.
 
 
-8. Back to the Hyper-V, right click on the VM and select **Connect**, then in the console click **Start**.
+8. Back to the Hyper-V, right click on the VM and select **Start**, then in the console click **Connect**.
 
-9. When you connect to the Ubuntu VM you should see the following screen to start the configuration process.
+9. When you connect to the Ubuntu VM you should see the following screen to start the configuration process. 
+
+**Note!**: If you don't see that screen below, your installation timed out or you pressed enter selecting a different configuration by mistake, delete the virtual machine and start this task over.
+
 
  ![Connect to  Sensor](./images/connect-to-sensor.png 'Connect to Sensor')
 
-**Note!**: If you don't see that screen above, your installation timed out or you pressed enter selecting a different configuration by mistake, delete the virtual machine and start this task over.
+
 
 </br>
 
@@ -313,15 +330,21 @@ Below, a ***sample*** screen, your parameters will be different.
 
 ***Note: At this stage your IPs should look similar to the example below, if you can't reach the portal validate the IPs. If you restarted your VM there is a chance your IPs changed so you will need to go back and reconfigure them, if that is the case use the command in step 3.***
 
+In the next steps you will be prompt to enter the password capture above, some characteres look alike but they are not, this image will help you to identify some of them.
+
+![Defender characteres](./images/characteres.png 'Defender characteres')
+
 </br>
+
+6. Login with the credentials provided in step **4**.
 
 ![Defender IP](./images/validate-ip.png 'Defender IP')
 
 </br>
 
 
-6. Login with the credentials provided in step **4**.
-7. Next, you will be ask to activate the product, click **Upload**, then **Browse Files**, in your dowloads folder select the file you downloaded from the Storage Explorer, in this example **myofflinesensor.zip**.
+
+7. Next, you will be ask to activate the product, click **Upload**, then **Browse Files**, in your downloads folder select the file you downloaded from the Storage Explorer, in this example **myofflinesensor.zip**.
 
 ![Defender Login](./images/activation.png 'Defender Login')
 
@@ -380,25 +403,14 @@ Below, a ***sample*** screen, your parameters will be different.
   
 ### **Task 2: Pcap Files**
 
-In this exercise your instructor will share the SAS token with you to download Pcap files to analyze and explorer further based on different scenarios and industries. 
+
+1. In previous steps you already downloaded a  **holpcaps.zip** file from the Storage account. It should be in the Virtual Machine **Downloads** folder, unzip that file.
 
 
-1. Go to your Virtual Machine acting like a sensor, open **Microsoft Azure Storage Explorer** on the left side panel select the connect icon, an screen will pop up **Connect to Azure Storage** then click on **Use a shared access signature (SAS) URI**, **Next**
-
-
-  ![Pcap Files](./images/connect-to-container.png 'Pcap files')
-
-
-2. In the next screen your instructor will share the SAS Token with the class to connect to the container and download the files needed. 
-
-
-3. Once you are connected to the Container, select all the files and click **Download**. Now you have all the files available locally and you can upload them to Azure Defender.
-
-
-4. Go back to Azure Defender, Click on **System Settings**, then **PCAP Player** now select **Upload**,
+2.  Go back to Azure Defender, Click on **System Settings**, then **PCAP Player** now select **Upload**,
 **Browse Files**, browse to the folder where you download the files in the previous step, select all the files and click **Open**. This operation will take a few minutes to upload all the files.
 
-5. At this point you should see all the files uploaded.
+3. At this point you should see all the files uploaded.
 
 
 
@@ -406,7 +418,7 @@ In this exercise your instructor will share the SAS token with you to download P
 
 </br>
 
-6. Click on **Play All**, in a few minutes you will receive a message saying all the files has been played. 
+4. Click on **Play All**, in a few minutes you will receive a message saying all the files has been played. 
 
 
 ## **Exercise 4: Analyzing the Data**
@@ -552,18 +564,18 @@ To modify our sensor to be an online sensor, we will use the same virtual machin
 
 ![Data Collection](./images/Data-Collection.png 'Data Collection')
 
-3. Once you are in the Data Collection blade, ensure you have "Enable Azure Defender for IoT" in tact. 
+3. Double check that Data Collection blade, is enabled for  **Enable Azure Defender for IoT**
 
  
 ![Data Collection DIoT](./images/Data-Collection-DIot.png 'Data Collection DIoT')
 
 ### **Task 2**: Connecting Data Connectors
 	
-1. After all the flags are enabled, go to “Sentinel > Configuration > Data Connectors > Search ‘Azure Defender for IoT” to connect IoT to Sentinel.
+1. After all the flags are enabled, go to “Sentinel > Configuration > Data Connectors > Search **Azure Defender for IoT** to connect IoT to Sentinel.
  
 ![Data Connectors Sentinel](./images/Data-Connectors-Sentinel.png 'Data Connectors Sentinel')
 
-2. Click the ‘Open Connector Page’
+2. Click the **Open Connector Page**
  
 ![Data Connectors iot](./images/iot-data-connectors.png 'Data Connectors iot')
 
@@ -579,7 +591,7 @@ To modify our sensor to be an online sensor, we will use the same virtual machin
  
 ![Sentinel Rule Creation](./images/Sentinel-Rule-Creation.png 'Sentinel Rule Creation')
 
-6. Fill in the “Name” and click “Review and Create”. This is enabling incidents to be created based on the Azure Defender IoT alerts that are ingested into Sentinel.
+6. Fill in the “Name” and click **Review and Create**. This is enabling incidents to be created based on the Azure Defender IoT alerts that are ingested into Sentinel.
  
 ![Sentinel Rule Submission](./images/Sentinel-Rule-Submission.png 'Sentinel Rule Submission')
 
@@ -592,19 +604,25 @@ To modify our sensor to be an online sensor, we will use the same virtual machin
 1. Go back to your browser interface and acknowledge all of the alerts. The reason we are doing this is so we can re-run the alerts to show how they are sent and analyzed by Sentinel.
 	1. Navigate to the Alerts Page
 	2. Click the double check box
-	3. Click “Ok” to acknowledge the alerts ![iot portal acknowledge alerts](./images/iot-portal-acknowledge-alerts.png 'iot-portal-acknowledge-alerts')
-	4. Now go to the System Setting tab
-	5. Click the “Play All” on the PCAP Files to replay simulating the alerts.
+	3. Click **Ok** to acknowledge the alerts 
+    
+    </br>
+  ![iot portal acknowledge alerts](./images/iot-portal-acknowledge-alerts.png 'iot-portal-acknowledge-alerts')
+
+</br>
+
+  4. Now go to the System Setting tab.
+  5. Click the **Play All** on the PCAP Files to replay simulating the alerts.
 
 ![Rerun pcaps](./images/Rerun-pcaps.png 'Rerun pcaps')
 
 ### **Task 4**: Sentinel interaction with IoT Incidents
 
-1. Go back to the Sentinel console and under the “Threat Management” section, select the “Incidents” tab.  Filter by Product Name “Azure Defender for IoT”.
+1. Go back to the Sentinel console and under the **Threat Management** section, select the **Incidents** tab.  Filter by Product Name **Azure Defender for IoT**.
 
 ![Sentinel Filter Alerts](./images/Sentinel-Filter-Alerts.png 'Sentinel Filter Alerts')
   
-2. Select one of the alerts and click “View full details”
+2. Select one of the alerts and click **View full details**
 
 ![Incident full details](./images/Incident-full-details.png 'Incident full details')
  
@@ -625,11 +643,6 @@ Here are two basic examples:
 	SecurityAlert | where CompromisedEntity == "adt4iothub"
  
 ![kusto query 2](./images/kusto-query-2.png 'kusto query 2')
-
-### **Task 3: Alerts - Intelligent Thread.**
-
-
-
 
 
 </br>
