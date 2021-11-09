@@ -430,23 +430,19 @@ Your first interaction with Devices map you will see a similar map like the belo
 
    ![Pcap Files Uploaded](./images/devices-map.png 'Pcap files uploaded')
 1. Use the four icon bar on the left to select **Layout by Purdue**. In this model you will see the different layers between Corporate IT and site operations.
-
+![purdue-layout](https://user-images.githubusercontent.com/60540284/140969899-b83965cc-0900-4f45-95df-e944856d99d3.gif)
 
 2. Check your notifications available and you can take action at this point.
+![notifications](https://user-images.githubusercontent.com/60540284/140969923-5634ea88-6d74-4b7b-9e13-c278e0cce20f.gif)
 
 3. For each device right click to analyze properties, show events, reports and simulate attack vectors.
-
+![device-right-click](https://user-images.githubusercontent.com/60540284/140969957-1f51fa73-1e20-4930-8c8d-3271ecb68149.gif)
 
 4. In the hamburguer menu on the left, click the highlights and select one of the **OT Protocols** i.e. **MODBUS** and click on **Filter**. Now your map will show those devices only
-
-
-  ![Pcap Files Uploaded](./images/device-map-filtering.png 'Pcap files uploaded')
-
+![modbus](https://user-images.githubusercontent.com/60540284/140970027-dad74aba-4d88-45cb-8505-830c62b3ecc0.gif)
 
 5. Then filter your devices by **CIP** OT Protocol, at the bottom of your map you will see a PLC, where the Vendor is Rockwell Automation, has already 3 alerts activated. Right click on the device, **View Properties**. In this view you will be able to analyze the Backbone of your PLCs, take actions and analyze the Alerts.
-
-
-  ![PLC](./images/plc.png 'PLC')
+![cip](https://user-images.githubusercontent.com/60540284/140970072-7db949da-f87c-41ef-88c0-45cea6da0f62.gif)
 
 ### **Task 2: Alerts**
 
