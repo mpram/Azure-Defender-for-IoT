@@ -403,13 +403,14 @@ In the next steps you will be prompt to enter the password capture above, some c
 ### **Task 2: Pcap Files**
 
 
-1. In previous steps you already downloaded a  **holpcaps.zip** file from the Storage account. It should be in the Virtual Machine **Downloads** folder, unzip that file.
+1. In previous steps you already downloaded a  **holpcaps.zip** file from the Storage account. It should be in the Virtual Machine **Downloads** folder.
 
+2. Unzip **holpcaps.zip**
 
-2.  Go back to Azure Defender, Click on **System Settings**, then **PCAP Player** now select **Upload**,
+3.  Go back to Azure Defender, Click on **System Settings**, then **PCAP Player** now select **Upload**,
 **Browse Files**, browse to the folder where you download the files in the previous step, select all the files and click **Open**. This operation will take a few minutes to upload all the files.
 
-3. At this point you should see all the files uploaded.
+4. At this point you should see all the files uploaded.
 
 
 
@@ -417,7 +418,7 @@ In the next steps you will be prompt to enter the password capture above, some c
 
 </br>
 
-4. Click on **Play All**, in a few minutes you will receive a message saying all the files has been played. 
+5. Click on **Play All**, in a few minutes you will receive a message saying all the files has been played. 
 
 
 ## **Exercise 4: Analyzing the Data**
