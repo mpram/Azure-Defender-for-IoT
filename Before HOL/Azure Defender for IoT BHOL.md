@@ -204,7 +204,7 @@ Then **Review + Create** after the validation is complete, click **Create**
 
 3. Once the Storage account is created, click on it. Under **Data Storage** select **Containers**, then on the right side select **+ Container**.
 
-4. A new window will open on the right, assign a name **acitvationfiles** and then click **Create**.
+4. A new window will open on the right, assign a name **activationfiles** and then click **Create**.
 
   ![SA container](./images/create-container.png
  'SA Container')
