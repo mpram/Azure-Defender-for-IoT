@@ -1,8 +1,6 @@
 
 # **Before Hands-on Lab**
 
-
-
 During this time, we will set up the environment that is required for the Hands-on Lab.
 
 
