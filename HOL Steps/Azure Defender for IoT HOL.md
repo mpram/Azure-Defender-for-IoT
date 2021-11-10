@@ -450,13 +450,12 @@ Your first interaction with Devices map you will see a similar map like the belo
 1. Once you click Alerts in your PLC you will see a new window pop up showing three different types of alerts.
     - Operational(high Alert and lower alert)
     - Policy Violation
-
 For each of these alerts you will be able to analyze the pcap file, export a report, analyze the timeline or mute the alert.
+![ex4-t2-1](https://user-images.githubusercontent.com/60540284/141076357-ef22ec24-1d94-462b-8076-a3077cbca2a7.gif)
 
 2. If we remove the device filter from the top of the screen, then click **Confirm** you will see 20 Alerts in process.
-
-
 3. Apply **Custom Groups** to filter different scenarios, such as **Unclassified subnets** then **Confirm**
+![ex4-t2-2-3](https://user-images.githubusercontent.com/60540284/141076383-99aff3ba-877d-4dab-b1ba-380d213a4517.gif)
 
 
 ### **Task 3: Device Inventory**
