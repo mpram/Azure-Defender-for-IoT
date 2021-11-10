@@ -459,6 +459,7 @@ For each of these alerts you will be able to analyze the pcap file, export a rep
 
 ### **Task 3: Device Inventory**
 1. In this view, filter all your devices by **Is Authorized**, True or False are possible values.
+NOTE: if you don't see the column "Is Authorized", click on the "Device Inventory Settings" gear icon (upper-right corner) and add it to the view.
 ![ex4-t3-st1](https://user-images.githubusercontent.com/60540284/141078788-04910c9d-6dfe-4a03-bc93-42c26d08d778.gif)
 
 2. Organize your devices based on filters.
