@@ -455,8 +455,7 @@ For each of these alerts you will be able to analyze the pcap file, export a rep
 
 2. If we remove the device filter from the top of the screen, then click **Confirm** you will see 20 Alerts in process.
 3. Apply **Custom Groups** to filter different scenarios, such as **Unclassified subnets** then **Confirm**
-![ex4-t2-2-3](https://user-images.githubusercontent.com/60540284/141076383-99aff3ba-877d-4dab-b1ba-380d213a4517.gif)
-
+![ex4-t2-2-3](https://user-images.githubusercontent.com/60540284/141076872-1b8350d6-ad56-4444-995d-256ce0785c81.gif)
 
 ### **Task 3: Device Inventory**
 1. In this view, filter all your devices by **Is Authorized**, True or False are possible values.
