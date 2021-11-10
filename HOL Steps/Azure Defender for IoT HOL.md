@@ -1,7 +1,6 @@
 # Internet of Things - Azure Defender for IoT  HOL
 
 
-
 Before starting this Lab make sure you completed the steps specified in **Azure Defender for IoT BHOL.md** File in this repository.
 
 ## Architecture Diagram ## 
