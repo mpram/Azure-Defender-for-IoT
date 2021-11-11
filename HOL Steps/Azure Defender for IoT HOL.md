@@ -504,30 +504,45 @@ As an example we will create a Report based on firmware updates versions.
 To modify our sensor to be an online sensor, we will use the same virtual machine but we will reactivate the sensor using **System settings**
 
 ### **Task 1: Reconfiguring sensor**
+To modify your sensor to be connected with Azure, we will need to modify the network configuration.
+
+1. Login into the "ad4iotsensoroffline" VM using the "cyberx" credentials (task 2, step 4).
+
+NOTE: the "ad4iotsensoroffline" VM's keyboard layout is US by default, and it may not match the layout of your physical keyboard. To avoid issues when entering the password, you may use the windows 10 on-screen keyboard. To run it, type "osk" in the search box and click on "On-Screen Keyboard":
+
+![1](./images/osk.png)
+
+...and use it to enter the credentials:
+
+![1](./images/keyboard.png)
+
+2. If you test your sensor using by pinging the google dns:
+```bash
+ping 8.8.8.8
+```
+you will receive a message as **network unreacheable** your sensor needs connectivity before changing the activation mode.
 
 
-1. To modify your sensor to be connected with Azure, we will need to modify the network configuration. If you test your sensor using:
+3. In the Ubuntu sensor we will need to reconfigure the gateway to bring it online and allow it to reach Azure IoT Hub, type the following:
 
-    - **ping 8.8.8.8** google dns, you will receive a message as **network unreacheable** your sensor needs connectivity before changing the activation mode.
+```bash
+sudo cyberx-xsense-network-reconfigure
+```
 
 
-2. In the Ubuntu sensor we will need to reconfigure the gateway to bring it online and allow it to reach Azure IoT Hub, type the following:
-
-`sudo cyberx-xsense-network-reconfigure`
-
-3. You will ask to login, then you can start to reconfigure the network settings, you will only change **one** value, **configure default gateway IP address** you will assign the IP Address of the NATSwitch value configured in previous steps, either 192.168.0.**1** or 172.27.0.**1**, you will keep all the other values as before.
+4. You will ask to login, then you can start to reconfigure the network settings, you will only change **one** value, **configure default gateway IP address** you will assign the IP Address of the NATSwitch value configured in previous steps, either 192.168.0.**1** or 172.27.0.**1**, you will keep all the other values as before.
 
 
 ![Changing IP to online](./images/defender-config-online.png 'Changing IP')
 </br>
 
-4. Type **Y** at the end of the process to apply the change, it will run a reconfiguration and reboot. 
+5. Type **Y** at the end of the process to apply the change, it will run a reconfiguration and reboot. 
 
-5. After logging back in, test that you have external connectivity: **ping 8.8.8.8.8** in the Ubuntu sensor, you should now receive a different message  containing "...icmp...".  Note: hit Cntrl-C to stop the pinging.
+6. After logging back in, test that you have external connectivity: **ping 8.8.8.8.8** in the Ubuntu sensor, you should now receive a different message  containing "...icmp...".  Note: hit Cntrl-C to stop the pinging.
 
-6. Now that your sensor has connectivity, go to the Azure Defender Portal, select **System Settings** and then, **Reactivation**.
+7. Now that your sensor has connectivity, go to the Azure Defender Portal, select **System Settings** and then, **Reactivation**.
 
-7. In the new window, select **Upload**, **Browse File**, select the zip file you downloaded from the storage account in previous steps **myonlinesensor.zip**, then **Open** and **Activate**, **Ok** to the instructions
+8. In the new window, select **Upload**, **Browse File**, select the zip file you downloaded from the storage account in previous steps **myonlinesensor.zip**, then **Open** and **Activate**, **Ok** to the instructions
 
 </br>
 
