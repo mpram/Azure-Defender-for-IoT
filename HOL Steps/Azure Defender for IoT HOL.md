@@ -516,11 +516,11 @@ NOTE: the "ad4iotsensoroffline" VM's keyboard layout is US by default, and it ma
 
 ![1](./images/keyboard.png)
 
-2. If you test your sensor using by pinging the google dns:
+2. You will receive a **network unreacheable** error messgae if you try to ping the google dns:
 ```bash
 ping 8.8.8.8
 ```
-you will receive a message as **network unreacheable**. 
+
 Your sensor needs connectivity before changing the activation mode.
 
 
