@@ -520,7 +520,8 @@ NOTE: the "ad4iotsensoroffline" VM's keyboard layout is US by default, and it ma
 ```bash
 ping 8.8.8.8
 ```
-you will receive a message as **network unreacheable** your sensor needs connectivity before changing the activation mode.
+you will receive a message as **network unreacheable**. 
+Your sensor needs connectivity before changing the activation mode.
 
 
 3. In the Ubuntu sensor we will need to reconfigure the gateway to bring it online and allow it to reach Azure IoT Hub, type the following:
