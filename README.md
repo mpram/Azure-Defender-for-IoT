@@ -1,7 +1,7 @@
-# Azure Defender for IoT/OT Security
+# Microsoft Defender for IoT/OT Security
 
 
-**Hands-on lab workshop, Azure Defender for IoT/OT Security.**
+**Hands-on lab workshop, Microsoft Defender for IoT/OT Security.**
 
 
 
