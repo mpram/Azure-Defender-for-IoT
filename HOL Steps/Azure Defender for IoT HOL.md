@@ -1,12 +1,12 @@
-# Internet of Things - Azure Defender for IoT  HOL
+# Internet of Things - Microsoft Defender for IoT  HOL
 
 
-Before starting this Lab make sure you completed the steps specified in **Azure Defender for IoT BHOL.md** File in this repository.
+Before starting this Lab make sure you completed the steps specified in **Microsoft Defender for IoT BHOL.md** File in this repository.
 
 ## Architecture Diagram ## 
 
 
-During this workshop we will be focusing on setting up our Azure Defender sensors, for online alerts and also offline scenarios, you will learn how to configure your environment, assess the results, and integrate with SIEM systems like Azure Sentinel. This hands-on lab will be focus on Securing your facilities, this will cover brownfield and greenfield devices. The scenario below is one of many you would apply these lessons, other scenarios are Oil, Gas, Utility, and Energy companies.
+During this workshop we will be focusing on setting up our Microsoft Defender for IoT sensors, for online alerts and also offline scenarios, you will learn how to configure your environment, assess the results, and integrate with SIEM systems like Microsoft Sentinel. This hands-on lab will be focus on Securing your facilities, this will cover brownfield and greenfield devices. The scenario below is one of many you would apply these lessons, other scenarios are Oil, Gas, Utility, and Energy companies.
 
 </br>
 
@@ -15,13 +15,13 @@ During this workshop we will be focusing on setting up our Azure Defender sensor
 
 ## **Content:** ##
 - [Exercise #1: Enabling Defender](#Exercise-1-Enabling-Defender)
-  - [Task 1: Enabling Azure Defender for IoT](#Task-1-Enabling-Azure-Defender-for-IoT)
+  - [Task 1: Enabling Microsoft Defender for IoT](#Task-1-Enabling-Azure-Defender-for-IoT)
   - [Task 2: Create an IoT Hub:](#Task-2-Create-an-IoT-Hub)
   - [Task 3: Onboarding sensors](#Task-3-Onboarding-sensors)
 - [Exercise #2: Setting up your offline sensor](#Exercise-2-Setting-up-your-offline-sensor)
   - [Task 1: Set up your offline sensor](#Task-1-Set-up-your-offline-sensor)
   - [Task 2: Collect Information](#Task-2-Collect-Information)
-  - [Task 3: Configure Azure Defender](#Task-3-Configure-Azure-Defender)
+  - [Task 3: Configure Microsoft Defender](#Task-3-Configure-Azure-Defender)
 - [Exercise 3: Enabling system settings](#exercise-1-enabling-setting-settings)
    - [Task 1: System Properties](#task-1-System-properties)
   - [Task 2: Pcap Files](#task-2-Pcap-Files)
@@ -106,7 +106,7 @@ Before onboarding your sensors we will need to create an IoT Hub for your online
     - **Select**: search for the email you are using in this subscription. Select that email.
     Last, **Save**.
 
-Azure Sentinel will need this access to collect the alerts in further exercises when your sensor is online.
+Microsoft Sentinel will need this access to collect the alerts in further exercises when your sensor is online.
 
 </br>
 
@@ -119,9 +119,9 @@ Azure Sentinel will need this access to collect the alerts in further exercises 
 For the hands-on lab we will work with two type of sensors, one offline and one online connectected to Azure. In the next steps we will onboard both, starting with the offline sensor.
 
 
-1. Go back to Azure Defender for IoT to create the sensors. You can go back through **Security Center**, **Cloud Security**, **Defender** then in the right side, under **Advanced Protection**, click on **IoT Security**.
+1. Go back to Microsoft Defender for IoT to create the sensors. You can go back through **Security Center**, **Cloud Security**, **Defender** then in the right side, under **Advanced Protection**, click on **IoT Security**.
 
-2. **!NOTE:** You are dowunloading the iso image here, you ***alreadid did this step*** in the **Before HOL Section** the iso file is already in your VM so we don't have to wait BUT you need to learn where it is, so we are **SKIPING** this step. In the **Getting Started** section, select **Sensor**, then pick the **10.3.1 (Stable) and above - Recommended** version, and click **Download**.
+2. **!NOTE:** You are downloading the iso image here, you ***already did this step*** in the **Before HOL Section**. The iso file is already in your VM so you don't have to wait BUT you need to learn where it is, so we are **SKIPING** this step. In the **Getting Started** section, select **Sensor**, then pick the **10.5.3 (Stable) and above - Recommended** version, and click **Download**.
 
 ![Onboard sensor](./images/onboard-sensor.png 'Onboard Sensor')
 
@@ -169,7 +169,7 @@ Fill the contact info window and then wait for a few minutes to complete the dow
  9. In the next step **Download activation file** and click **Finish**.
  10. Check again your **Sites and sensors** section you should see both sensors onboarded.
 
-11. At this point you have 3 files downloaded locally (two zips licenses sensors and the iso file) we will upload them to the Storage account created in the section **Azure Defender for IoT BHOL**, this way we will be able to make them available to download in the Virtual Machine. Another option could be to download the files directly in the Virtual Machine, if you are login in the Azure Portal inside the VM. However, sometimes you will have policies on place not allowing this, so the storage account route will make this feasible.
+11. At this point you have 3 files downloaded locally (two zips licenses sensors and the iso file) we will upload them to the Storage account created in the section **Microsoft Defender for IoT BHOL**, this way we will be able to make them available to download in the Virtual Machine. Another option could be to download the files directly in the Virtual Machine, if you are login in the Azure Portal inside the VM. However, sometimes you will have policies on place not allowing this, so the storage account route will make this feasible.
 
 
 12. To Upload the Files, go to the Storage Account you created before in the Azure Portal. On the left panel select **Containers**, on the right side, click on **acitvationfiles**, next on the top menu click **Upload** browse to the location where you download the files, select all of them and click **Upload**.
@@ -195,7 +195,7 @@ Fill the contact info window and then wait for a few minutes to complete the dow
 
 ## **Exercise #2: Setting up your offline sensor**
 
-During this exercise we will set up the Virtual Machine created before with Azure Defender acting as a sensor offline.
+During this exercise we will set up the Virtual Machine created before with Microsoft Defender for IoT acting as a sensor offline.
 
 ### **Task 1: Set up your Virtual Machine**
 
@@ -276,7 +276,7 @@ New-NetNat -Name MyNATnetwork -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 </br>
 
 
- ### **Task 2: Configure Azure Defender**
+ ### **Task 2: Configure a Microsoft Defender for IoT offline sensor**
 
 During this task we will configure Azure Defender based on the IPs highlighted before, this first configuration will be based on an offline sensor.
 
