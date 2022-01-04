@@ -6,8 +6,8 @@ During this time, we will set up the environment that is required for the Hands-
 
 ## **Content:** ##
 
-- [Exercise 1: Azure Passes](#exercise-1-azure-passes)
-- [Exercise 2: Set up Environment](#exercise-2-set-up-environment)
+- [Action A: Azure Passes](#exercise-1-azure-passes)
+- [Action B: Set up Environment](#exercise-2-set-up-environment)
    - [Task 1: Resources](#task-1-resources)
    - [Task 2: Virtual Machine](#task-2-virtual-machine)
    - [Task 3: Connect to Virtual Machine](#task-3-connect-to-virtual-machine)
@@ -16,7 +16,7 @@ During this time, we will set up the environment that is required for the Hands-
    - [Task 6: Azure Sentinel](#task-6-Azure-Sentinel)
 
 
-## **Exercise 1: Azure Passes** ##
+## **Action A: Azure Passes** ##
 
 Previous to this workshop, after registration, you will receive an Azure Pass to configure with your personal email account, this step will be coordinated with your instructors.
 
@@ -41,7 +41,7 @@ If you don't see your subscription, validate you are accessing the right directo
 
 
 
-## **Exercise 2: Set up Environment** ##
+## **Action B: Set up Environment** ##
 
 Once your Azure Pass is activated and you have a new subscription to work with we will move to this exercise to create a resource group for all the services we will use to build our architecture.
 
@@ -69,7 +69,7 @@ In the next window, select your subscription, assign a name to the resource grou
     | Subscription | Select your Azure subscription |
     | Resource Group | Select Your Resource Group |
     | **Instance details** |  |
-    | Virtual machine name | Enter **myofflinesensor** |
+    | Virtual machine name | Enter **myVM1** |
     | Region | Select **(US) East US** |
     | Availability Options | Select **No infrastructure redundancy required** |
     | Image | Select **Windows 10 Pro, Version 20H2 - Gen2** |
@@ -251,7 +251,7 @@ Then **Review + Create** after the validation is complete, click **Create**
 ## **Task 6: Azure Sentinel** ##
 
 
-1.	Go to Azure Portal, in the top search box, type **Azure Sentinel**, then select it from the list.
+1.	Go to Azure Portal, in the top search box, type **Microsoft Sentinel**, then select it from the list.
 
  
  ![Sentinel search](./images/search-sentinel.png 'Sentinel search') 
