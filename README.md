@@ -5,7 +5,7 @@
 
 
 
-August 2021.
+Jaunary 2022.
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
 
@@ -16,7 +16,6 @@ The names of manufacturers, products, or URLs are provided for informational pur
 © 2021 Microsoft Corporation. All rights reserved.
 
 Microsoft and the trademarks listed at https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
-
 
 </br>
 
@@ -51,8 +50,12 @@ Teams working in projects related to Connected Devices, Smart Places, Factory of
 - Americas: Oct/21/2021
 - Time: 9am to 5pm EST Time
 
+- EMEA: Feb/01/2022
+- Time: 9am to 5pm CET Time
+
 This workshop is **by invitation only**, Azure Passes will be provided as part of the training to make sure all the attendees can complete the labs without issues.
 
+</br>
 
 ## **Contact Info:** ##
 
@@ -60,7 +63,6 @@ For any questions please send an email to:
 iotacademy@microsoft.com
 
 This workshop is delivered by SMEs in IoT and Cybersecurity at Microsoft.
-
 
 </br>
 
@@ -85,10 +87,10 @@ This workshop is delivered by SMEs in IoT and Cybersecurity at Microsoft.
     - Level 2 - Supervisory Control
     - Level 3 - Site operations, computers such as linux providing site information to operators
     - Level 4/5 - IT Environments
+  
+  </br>
 
-
-
-      ![Purdue model](./images/ot-deployments.png 'Purdue Model')
+  ![Purdue model](./images/ot-deployments.png 'Purdue Model')
 
 
 
