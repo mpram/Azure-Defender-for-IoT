@@ -15,6 +15,7 @@ During this time, we will set up the environment that is required for the Hands-
    - [Task 5: Create a Storage Account](#task-5-create-a-storage-account)
    - [Task 6: Azure Sentinel](#task-6-Azure-Sentinel)
 
+</br>
 
 ## **Action A: Azure Passes** ##
 
@@ -38,28 +39,30 @@ If you don't see your subscription, validate you are accessing the right directo
 
   ![Directory](./images/azure-directory.png 'Directory')
 
-
-
+</br>
 
 ## **Action B: Set up Environment** ##
 
 Once your Azure Pass is activated and you have a new subscription to work with we will move to this exercise to create a resource group for all the services we will use to build our architecture.
-
+ </br>
 
 ### **Task 1: Resources** ###
 
-1. In Azure Portal, create a new Resource Group, from the home Page, select **+ Create a Resource** in the search box type **Resource Group**, then select **Create**.
+1. In Azure Portal, create a new Resource Group. From the home Page, select **+ Create a Resource**, in the search box type **Resource Group**, then select **Create**.
 
-In the next window, select your subscription, assign a name to the resource group **adt4iot+SUFFIX**, select a location and click on **Review + Create**, once you passed the validation, click **create** again
+In the next window, select your subscription, assign a name to the resource group **rg-mdt4iot+SUFFIX**, select a location near you and click on **Review + Create**. Once you passed the validation, click **create** again. Note, the resource group name needs to be unique within your subscription. That is why we suggest to add a suffix, for instance your initials followed by a number.
 
- ![Resource Group](./images/rg-create.png 'Resource Group')
+![Resource Group](./images/Ab-T01-01-rg-create.png 'Create a Resource Group')
 
+</br>
 
 ### **Task 2: Virtual Machine** ###
 
 1. On the upper-left side of the portal, select: **Create a resource** > **Compute** > **Virtual machine** >> **Create**
 
-![Deploy VM](./images/Create-VM.PNG 'Deploy VM')
+![Deploy VM](./images/Ab-T02-01-vm-create.PNG 'Create a resource')
+
+</br>
 
 2. In **Create a virtual machine**, type or select the values in the **Basics** tab:
 
@@ -67,38 +70,44 @@ In the next window, select your subscription, assign a name to the resource grou
     |-----------------------|----------------------------------|
     | **Project Details** |  |
     | Subscription | Select your Azure subscription |
-    | Resource Group | Select Your Resource Group |
+    | Resource Group | Select your just created Resource Group |
     | **Instance details** |  |
-    | Virtual machine name | Enter **myVM1** |
-    | Region | Select **(US) East US** |
+    | Virtual machine name | Enter **vm-md4iot-host** |
+    | Region | Select **(EUROPE) West Europe** or a region near your location |
     | Availability Options | Select **No infrastructure redundancy required** |
     | Image | Select **Windows 10 Pro, Version 20H2 - Gen2** |
     | Azure Spot instance | Select **No** |
     | Size | **D4s_v3 - 4 vcpus, 16 GiB memory**, see image below |
     | **Administrator Account** | **Use the following Credentials** |
-    | Username | **ADefenderlab** |
+    | Username | **MDefenderLab** |
     | Password | **Learningmode123!** |
     | Confirm password | **Learningmode123!** |
     | **Inbound port rules** |    |
-    | Public inbound ports | Select **3389**. |
-     | **Licensing** |    |
+    | Public inbound ports | Select **3389**. </br> Note: If you plan to use Azure Bastion to connect to your VM, you can leave public inbound ports blank. |
+    | **Licensing** |    |
     | I confirm I have an eligible Windows 10 license with multi-tenant hosting rights. | **Check the box**. |
 
+</br>
+
+![Create VM](./images/Ab-T02-02-vm-create.PNG 'Create a new Virtual Machine')
+
+</br>
 
 3. In the Size section, select **See all Images**, look for the **D-Series v3** open that section, then you will find the right VM.
 
-![Create VM size](./images/vm-size.png 'Create VM size')
+![Create VM size](./images/Ab-T02-03-vm-size.png 'Select VM size')
+
+</br>
 
 4. Go to the **Management**, in the **Monitoring** section, select **Disable** for **Boot Diagnostics**
 
 5. At the bottom click on **Review + Create**. Once the validation is complete, select **Create**
     
-![Create VM](./images/Create-VM-Basic.PNG 'Create VM')
-
 6. It will take a few minutes to deploy. At the end you should see your resources deployed.
 
+![Deploy VM](./images/Ab-T02-04-vm-deployed.PNG 'VM deployment complete')
 
-    ![Create VM](./images/Create-VM-Deployment.PNG 'Create VM')
+</br>
 
 ### **Task 3: Connect to Virtual Machine** ###
 
@@ -106,21 +115,27 @@ In the next window, select your subscription, assign a name to the resource grou
 
 2. Make sure that the Virtual Machine status is **Running**.
 
+![Running VM](./images/Ab-T03-01-vm-running.PNG 'Running VM')
 
-![Running VM](./images/VM-status-running.PNG 'Running VM')
+</br>
 
+> **TIP:** You will not be able to connect if your Virtual Machines is not in **Running** status. So give it a minute or two to finish updating.
 
->[!TIP]
-> You will not be able to connect if your Virtual Machines is not in **Running** status. So give it a minute or two to finish updating.
-
+ </br>
 
 3. In the VM menu, select **Connect**, then select **Bastion** or **RDP**.
 
-![Bastion Connect](./images/Connect-VM-Bastion.PNG 'Bastion Connect')
+![Bastion Connect](./images/Ab-T03-02-vm-connect.PNG 'Virtual Machine Connection options')
 
-4. If you select **Bastion** you will be ask to set it up in 3 steps, **Step 1** it is completed, for **Step 2**, click on **Create Subnet**, after step 2 is completed, **Step 3** will set up a public ip, scroll down and click on **Create Azure Bastion using defaults**
+</br>
 
-![Bastion Connect](./images/set-up-bastion.png 'Bastion Connect')
+4. If you select **Bastion** you will be ask to set it up in 3 steps, **Step 1** is already completed, for **Step 2**, click on **Create Subnet**. After step 2 is completed, **Step 3** will set up a public ip, scroll down and click on **Create Azure Bastion using defaults**
+
+> **NOTE:** Bastion is a paid Azure Service. However, it allows you to connect securely and seamlessly to VMs inside your Azure Virtual Network.
+
+![Bastion Connect](./images/Ab-T03-03-vm-bastion-setup.png 'Setting up Azure Bastion Service')
+
+</br>
 
 After a few minutes you will be able to login
 
@@ -128,125 +143,126 @@ In the **Bastion** page, click on **Use Bastion** then enter the username and pa
 
   | Field | Enter |
   |-------|-------|
-  | **Username** | *ADefenderlab* |
+  | **Username** | *MDefenderLab* |
   | **Password** | *Learningmode123!* |
 
-![Bastion Connect](./images/Connect-VM-Bastion-Connect.PNG 'Bastion Connect')
+![Bastion Connect](./images/Ab-T03-04-vm-bastion-connect.PNG 'Bastion Connect')
+
+</br>
 
 5. Select **Connect**.
-
-
 
 6. A new tab should open, and you should be connected to your virtual machine.
 
 7. **Accept** the default settings.
 
-
 ![Bastion Connect](./images/VM-Bastion-Settings.PNG 'Bastion Connect')
 
+</br>
 
 ### **Task 4: Enable Hyper-V** ###
-We are going to enable Hyper-V via PowerShell in the newly created VM.
+We are going to enable Hyper-V via PowerShell in the newly created VM. This allows us to create additional virtual machines inside this virtual machine (a.k.a nested Hyper-v). This is one of the reasons why the VM we created is a relatively large one.
 
 1. Search for **PowerShell** and right click to select **Run as Administrator**.
 
+![PowerShell](./images/Ab-T04-01-Windows-PowerShell.PNG 'Run Windows PowerShell as Administrator')
 
-    ![PowerShell](./images/PowerShell-Admin.PNG 'PowerShell')
+</br>
 
+2. Run the following command in the PowerShell Window:
 
-2. Run the following command:
-
-  ```powershell
-  Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+  ``` powershell
+      Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
   ```
 
-  If the command couldn't be found, make sure you're running PowerShell as an **Administrator**.
+  If the command couldn't be found, make sure you're running PowerShell as **Administrator**.
 
 3. When the installation has completed, reboot the VM by typing in **Y**.
 
-
-
-     ![PowerShell](./images/Hyper-V-Enabled.PNG 'PowerShell')
+![PowerShell](./images/Ab-T04-02-Hyper-V-Enabled.PNG 'Enable Hyper-V')
 
 4. Reconnect to the VM.
 
->[!NOTE]
-> If you are not promoted to restart the VM within PowerShell. Please close the Bastion Host tab, and return to the Azure Portal, and select your VM. At this point you can either "restart your VM" and reconnect via Bastion. OR you can *STOP* the VM and *Start* the VM again.
+> **NOTE:** If you are not prompted to restart the VM within PowerShell, please close the Bastion Host tab, return to the Azure Portal and select your VM. At this point you can either "restart your VM" and reconnect via Bastion or you can *STOP* the VM and *Start* the VM again.
 
 
-5. Login back to the Virtual Machine, using RDP or Bastion, open **Microsoft Edge** and download the ['Storage Explorer'](https://azure.microsoft.com/en-us/features/storage-explorer/ 'Storage Explorer') click **Download**.
+5. Login back to the Virtual Machine, using RDP or Bastion, open **Microsoft Edge** and download the ['Storage Explorer'](https://azure.microsoft.com/en-us/features/storage-explorer/ 'Storage Explorer') click **Download now**.
+
+![StorageExplorer](./images/Ab-T04-03-download-storage-explorer.png 'Downloading Azure Storage Explorer')
+
+</br>
 
 6. Once the download is completed run the installation selecting **Install for me only (recommended)** option. Next, click on **I accept the agreement**, and **Install**, you will ask a few additional questions, select **Next** each time, the installation will run for a few seconds.
 
-
+</br>
 
 ## **Task 5: Create a Storage Account**
 
+You will execute this task on your physical machine, not in the Virtual Machine you created in the previous steps.
 
-1. In Azure Portal, click on **+ Create a Resource**. In the marketplace look for **Storage Account**, then click create.
+1. In Azure Portal, click on **+ Create a Resource**. In the marketplace look for **Storage Account**, then click **create**.
 
 2. Fill the form:
 
     ***Basics Tab:***
     - **Subscriptions**: Select the subscription you are using for this workshop.
-    - **Resource Group**: Select the resource group created for this workshop in previous step.
-    - **Storage Account Name**: adfiles+Suffix.
-    - **Region**: East US
+    - **Resource Group**: Select the resource group created for this workshop in one of the previous steps.
+    - **Storage Account Name**: mdfiles+Suffix.
+    - **Region**: *(EUROPE) West Europe* or a region near your location
+    - **Performance**: Standard
     - **Redundancy**: Locally-redundant storage(LRS)
 
 Then **Review + Create** after the validation is complete, click **Create**
 
-  ![SA](./images/sa-create.png
- 'SA Create')
+  ![SA](./images/Ab-T05-01-sa-create.png 'Create Storage Account')
 
+</br>
 
 3. Once the Storage account is created, click on it. Under **Data Storage** select **Containers**, then on the right side select **+ Container**.
 
 4. A new window will open on the right, assign a name **activationfiles** and then click **Create**.
 
-  ![SA container](./images/create-container.png
- 'SA Container')
+  ![SA container](./images/Ab-T05-02-sa-create-container.png 'Add Container to Storage Account')
 
+</br>
 
+5. Login to the Windows Virtual Machine you created earlier with Bastion or RDP. In the search box on the desktop enter **Microsoft Storage Explorer**. 
 
+  ![SA](./images/storage-explorerbol.png 'Find Azure Storage Explorer')
 
-5. Login to the Windows virtual machine, in the search box enter Microsoft Storage Explorer 
-
-  ![SA](./images/storage-explorerbol.png
- 'SA Open app')
+</br>
 
 6. You will be prompt to login, use the personal email you are using to set up your Azure Pass for this training.
 
 7.  Once you are login, go to the connect icon on the left bar, then select **Storage account or service**.
 
+![SA](./images/connect-to-sa.png 'Select Azure Storage Explorer Resource') 
 
-
-![SA](./images/connect-to-sa.png
- 'SA Open app') 
-
+</br>
 
 9. In the next step select **Shared Access Signature URL(SAS)** and then **Next**
 
-![SA](./images/sas-url.png
- 'SA Open app') 
+![SA](./images/sas-url.png  'Select Azure Storage Explorer Connection Method') 
 
+</br>
 
-10. In the Enter Connection Info window, you wil assign a name to the connection **HOLFiles** and you will paste below the Blob SAS URL (service URL) you received by email previous to this training.
+10. In the Enter Connection Info window, you wil assign a name to the connection **HOLFiles** and you will paste below the Blob SAS URL (service URL) you received by email prior to this training.
 
-![SA](./images/sas-url-input.png
- 'SA Open app') 
+![SA](./images/sas-url-input.png  'Enter Azure Storage Explorer Connection Info') 
 
+</br>
 
 11. Once the storage account is connected you should select the container on the left side **attendeefiles** then **Labfiles** now in the right side you will see the two files you need to download locally. Select the files and click **Download**
 
-![SA](./images/files-ready.png
- 'SA Open app') 
+![SA](./images/files-ready.png  'SA Open app') 
 
+</br>
 
  12. Once this download is complete, go to the Azure Portal select your Virtual Machine and click **Stop**. Now you are all set for your training session. 
 
- ![Stop VM](./images/stop-machine.png
- 'Stop VM') 
+ ![Stop VM](./images/stop-machine.png 'Stop VM') 
+
+</br>
 
 ## **Task 6: Azure Sentinel** ##
 
