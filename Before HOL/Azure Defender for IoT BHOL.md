@@ -172,7 +172,7 @@ We are going to enable Hyper-V via PowerShell in the newly created VM. This allo
 
 1. Search for **PowerShell** and right click to select **Run as Administrator**.
 
-![PowerShell](./images/ABT04-01-Start-PowerShell.png 'Run Windows PowerShell as Administrator')
+![SearchPS](./images/ABT04-01-Start-Powershell.png 'Run PowerShell as Admin')
 
 </br>
 
@@ -292,7 +292,7 @@ You will execute this task on your physical machine, not in the Virtual Machine 
   - **Name**: Mylogworkspace+SUFFIX
   - **Regions**: West Europe (or another region close to you).
  
- ![SentinelCreateWS](./images/ABT06-03-create-workspace.png 'Sentinel create workspace') 
+ ![SentinelCreateWS](./images/ABT06-03-create-log-analytics-ws.png 'Sentinel create workspace') 
 
  4. Click **Review and create**, after validation is completed, click **create**
 
