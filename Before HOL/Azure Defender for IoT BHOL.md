@@ -172,7 +172,7 @@ We are going to enable Hyper-V via PowerShell in the newly created VM. This allo
 
 1. Search for **PowerShell** and right click to select **Run as Administrator**.
 
-![SearchPS](./images/ABT04-01-Start-PowerShell.png 'Run PowerShell as Admin')
+![SearchPS](./images/ABT04-01-Start-Powershell.png 'Run PowerShell as Admin')
 
 </br>
 
