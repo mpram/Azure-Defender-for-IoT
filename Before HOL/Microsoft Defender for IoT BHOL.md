@@ -201,7 +201,7 @@ We are going to enable Hyper-V via PowerShell in the newly created VM. This allo
 
 You will execute this task on your physical machine, not in the Virtual Machine you created in the previous steps.
 
-1. In Azure Portal, click on **+ Create a Resource**. In the marketplace look for **Storage Account**, then click **create**.
+1. In Azure Portal, click on **+ Create a Resource**. In the marketplace look for **Storage Account**, then click **Create**.
 
 2. Fill the form:
 

@@ -112,7 +112,7 @@ You will execute this task on your physical machine, not in the Virtual Machine 
 
     - **Subscription**: Select the Subscription you are woking on.
     - **Resource Group**: Should be the resource group created in previous step.
-    - **IoT Hub Name**: adt4iothub+SUFFIX
+    - **IoT Hub Name**: hub-md44iot+SUFFIX
     - **Region**: A region close to your physical location (e.g. West Europe).
 
     </br>
@@ -155,9 +155,11 @@ You will execute most of this task on your physical machine, not in the Virtual 
 
     ![Onboard sensor](./images/E01T03-01-download-sensor-iso.png 'Download Sensor ISO')
 
-</br>
+    </br>
 
-3. Next go to **Sites and Sensors** and click on **+ Onboard sensor**.
+    > **NOTE:** At this moment, you might see a Window asking for contact details. You don't have to provide your contact details. Just go to the bottom of the windows and click on **Continue without submitting**. 
+
+3. Next go to **Sites and Sensors** and click on **+ Onboard OT sensor**.
 
     ![Onboard sensor](./images/E01T03-02-onboard-sensor.png 'Onboard Sensor')
 
@@ -205,13 +207,13 @@ You will execute most of this task on your physical machine, not in the Virtual 
 
 10. Check again your **Sites and sensors** section. You should now see both sensors onboarded.
 
-11. At this point you have 3 files downloaded locally (two zips licenses sensors and the iso file) we will upload them to the Storage account created in the section **Microsoft Defender for IoT BHOL**. In this way we will be able to make those files available to download in the Virtual Machine. Another option could be to download the files directly in the Virtual Machine, if you are login in the Azure Portal inside the VM. However, sometimes you will have policies on place not allowing this, so the storage account route will make this feasible.
+11. At this point you have 3 files downloaded locally (two zips licenses sensors and the iso file) we will upload them to the Storage account created in the section **Microsoft Defender for IoT BHOL**. In this way we will be able to make those files available to download in the Virtual Machine. Another option could be to download the files directly in the Virtual Machine, if you are logged in into the Azure Portal inside the VM. However, sometimes you will have policies on place not allowing this, so the storage account route will make this feasible.
 
     The next steps will be executed in the Virtual Machine that we created as part of the pre-requisites.
 
 12. To Upload the Files, go to the Storage Account you created before in the Azure Portal. On the left panel select **Containers**, on the right side, click on **acitvationfiles**, next on the top menu click **Upload** browse to the location where you download the files, select all of them and click **Upload**.
 
-    You will execute this task on your Virtual Machine. Make sure to start it from the Azure portal and connect to it using RDP or Bastion. You should use the same credentials to login to your VM that you used when you created the VM (**Username**: *MDefenderLab*, **Password**: *Learningmode123!*). You might need to allow popups in your browser when using Bastion to connect to your VM. 
+    You will execute this task on your Virtual Machine. Make sure to start it from the Azure portal and connect to it using RDP. You should use the same credentials to login to your VM that you used when you created the VM (**Username**: *MDefenderLab*, **Password**: *Learningmode123!*). 
 
 13. In your Virtual Machine, open **Storage Explorer**. You will be ask to login to your Azure account where you just upload the files. Then select 
 **Subscription**.
@@ -232,11 +234,11 @@ You will execute most of this task on your physical machine, not in the Virtual 
 
 ## **Exercise #2: Setting up your offline sensor**
 
-During this exercise we will set up a new nested Virtual Machine inside the Virtual Machine that you created as part of the pre-requisites.
+During this exercise you will set up a new nested Virtual Machine inside the Virtual Machine that you created as part of the pre-requisites.
 
 ### **Task 1: Set up your Virtual Machine**
 
-1. On the Windows 10 Virtual machine created previously, login with Bastion or RDP. Open a command prompt and run the command "ipconfig". **NOTE: Ignore the (Default Switch)**
+1. On the Windows 10 Virtual machine created previously, login with with RDP. Open a command prompt and run the command "ipconfig". **NOTE: Ignore the (Default Switch)**
 
     ![Command Prompt](./images/E02T01-01-ipconfig.png 'Command Prompt inside VM')
 
@@ -280,7 +282,7 @@ During this exercise we will set up a new nested Virtual Machine inside the Virt
 
 </br>
 
-8. Inside the VM in the windows search box, type **Hyper-V** and enter. This should open a new window with Hyper-V console. Select **New** on the left side will open multiple options, select **Virtual Machine**
+8. Inside the VM, in the windows search box, type **Hyper-V** and enter. This should open a new window with the Hyper-V console. Select **New** on the left side. This will show multiple options, select **Virtual Machine**.
 
     ![Create nested vm](./images/E02T01-03-create-nested-vm.png 'New Virtual Machine')
 
@@ -302,35 +304,34 @@ During this exercise we will set up a new nested Virtual Machine inside the Virt
 
 </br>
 
-7. Right click on your Virtual machine just created, select **Settings** in the **Add Hardware** section select **Network Adapter**, click on **Add**, select the virtual switch created previously **My Switch**, click **Apply**.  Increase the Processor from **1** to **4** Virtual Processors, click **Apply** and click **Ok**.
-
-8. Back to the Hyper-V, right click on the VM and select **Start**, then in the console click **Connect**.
-
-9. When you connect to the Ubuntu VM you should see the following screen to start the configuration process. 
-
-    > **Note!**: If you don't see the screen below, your installation timed out or you pressed enter, selecting a different configuration by mistake, delete the virtual machine and start this task over. The timeout period is relatively short so make sure you connect immediately to the nested VM and select the language and the sensor type (in Task 2).
-
-    </br>
-
-    ![Connect to Sensor](./images/E02T01-05-connect-to-sensor.png 'Initial connect to offline Sensor')
-
-</br>
+9. Right click on the Virtual machine that you just created, select **Settings** in the **Add Hardware** section and select **Network Adapter**, followed by clicking on **Add**. Now select the virtual switch created previously with the name **My Switch**, and click **Apply**.  Increase the Processor number from **1** to **4** Virtual Processors, click **Apply** and click **Ok**.
 
 ### **Task 2: Configure a Microsoft Defender for IoT offline sensor**
 
 During this task we will configure Azure Defender based on the IPs highlighted before, this first configuration will be based on an offline sensor.
 
-1. Press **Enter** for English.
+1. In the Hyper-V Manager, right click on the VM and select **Start**, then in the console click **Connect**.
 
-2. Select the third option (Office 4CPUs)and press **Enter**.
+2. When you connect to the Ubuntu VM you should see the following screen to start the configuration process. 
 
+    > **Note!**: If you don't see the screen below, your installation timed out or you pressed enter, selecting a different configuration by mistake, delete the virtual machine and start this task over. The timeout period is relatively short so make sure you connect immediately to the nested VM and select the language and the sensor type (in Task 2).
 
-  ![Setting up  Sensor](./images/setting-up-sensor-version.png 'Setting up Sensor')
+    </br>
+
+    ![Connect to Sensor](./images/E02T02-01-connect-to-sensor.png 'Initial connect to offline Sensor')
 
 </br>
 
-3. You will be ask to fulfill some parameters, it is ***VERY IMPORTANT*** you pay attention to the previous task because you will use the network information you captured before, this is unique to each Virtual Machine. So the following is an **EXAMPLE**.
+3. Press **Enter** for English.
 
+4. Select the third option *(Office 4CPUs)* and press **Enter**.
+
+
+    ![Setting up Sensor](./images/E02T02-02-sensor-type.png 'Setting up the offline Sensor')
+
+</br>
+
+5. You will be ask to fulfill some parameters, it is ***VERY IMPORTANT*** you pay attention to the previous task because you will use the network information you captured before, this is unique to each Virtual Machine. So the following is an **EXAMPLE**.
 
 - **configure hardware profile**: **office**, then press enter. 
 - **Configure network interface**, type **eth0**
@@ -342,27 +343,26 @@ During this task we will configure Azure Defender based on the IPs highlighted b
 - **Configure bridge interface**: Just press Enter
 - Then type **Y** to apply the changes and click **Enter**.
 
-Now the installation will run for 10-15 minutes.
+    Now the installation will run for 10-15 minutes.
 
-***Troubleshooting Note: Once the installation is complete, you will be able to access Azure Defender Console, check if you can open a cmd window, ping the IP Address  you enter in the step 'Configure management network interface'
-If the request times out, you will need to reconfigure this step again, for that review the IPs one more time and use the command below to start over:***
+    ***Troubleshooting Note: Once the installation is complete, you will be able to access Azure Defender Console, check if you can open a cmd window, ping the IP Address  you entered in the step 'Configure management network interface'.
+    If the request times out, you will need to reconfigure this step again, for that review the IPs one more time and use the command below to start over:***
 
-`sudo cyberx-xsense-network-reconfigure`
+    `sudo cyberx-xsense-network-reconfigure`
 
-Below, a ***sample*** screen, your parameters will be different.
+    Below, a ***sample*** screen, your parameters will be different.
 
- ![Setting up  Sensor](./images/defender-config.png 'Setting up Sensor')
+    ![Configuring Sensor](./images/E02T02-03-defender-config.png 'Configuring the offline Sensor')
+
+    </br>
+
+6. ***IMPORTANT STEP!!!*** Once the installation is complete, you will have the login information availabe in the screen **TAKE A SCREENSHOT!!** before continuing, press **Enter**. Now you will have the support account, again **TAKE THE SCREENSHOT!!** press **Enter** to continue. If you fail to capture the credentials, you will need to start over.
 
 </br>
 
-4. ***IMPORTANT STEP!!!*** Once the installation is complete, you will have the login information availabe in the screen **TAKE THE PRTSCRN!!** before continuing, press **Enter**. Now you will have the support account, again **TAKE THE PRTSCRN!!** press **Enter** to continue. If you fail to capture the credentials, you will need to start over.
+![Sensor Credentials](./images/E02T02-04-credentials.png 'Saving Sensor Credentials')
 
-</br>
-
-
-![Setting up  Sensor](./images/login-info.png 'Setting up Sensor')
-
-5. Once the installation finished you will ask to login, enter the credentials from previous step. In this screen you can also validate the IP, you will use that IP in your browser.
+7. Once the installation finished you will ask to login, enter the credentials from previous step. In this screen you can also validate the IP, you will use that IP in your browser.
 
 </br>
 
@@ -370,31 +370,33 @@ Below, a ***sample*** screen, your parameters will be different.
 
 In the next steps you will be prompt to enter the password capture above, some characteres look alike but they are not, this image will help you to identify some of them.
 
-![Defender characteres](./images/characteres.png 'Defender characteres')
+![Defender characteres](./images/E02T02-05-characters.png 'Different defender characteres')
 
 </br>
 
-6. Login with the credentials provided in step **4**.
+8. Login with the credentials provided in step **4**.
 
-![Defender IP](./images/validate-ip.png 'Defender IP')
+![Defender IP](./images/E02T02-06-AzureDefenderForIoTSensor.png 'Defender IP Address')
 
 </br>
 
+9. Next, you will be ask to activate the product, click **Upload**, then **Browse Files**, in your downloads folder select the file you downloaded from the Storage Explorer, in this example **myofflinesensor.zip**.
 
+![Defender Login](./images/E02T02-07-offline-sensor-activation.png 'Defender Login Screen')
 
-7. Next, you will be ask to activate the product, click **Upload**, then **Browse Files**, in your downloads folder select the file you downloaded from the Storage Explorer, in this example **myofflinesensor.zip**.
+</br>
 
-![Defender Login](./images/activation.png 'Defender Login')
+10. Click **Approve these terms and Conditions**, then **Activate**.
 
-8. Click **Approve these terms and Conditions**, then **Activate**.
+11. You will be prompted to select **SSL/TLS Certificates | Onboarding 1/2** for this lab will use the second option **Use a locally generated self signed certificate(..)**. Then click **I CONFIRM**, **Next**.
 
-9. You will be prompted to select **SSL/TLS Certificates | Onboarding 1/2** for this lab will use the second option **Use a locally generated self signed certificate(..)**. Then click **I CONFIRM**, **Next**.
+![Certificate selection](./images/E02T02-08-offline-sensor-certificate.png 'Defender certificate selection')
 
-![Certificate selection](./images/Certificate.png 'Certificate selection')
+</br>
  
- 10. For this lab in the next step we will **Disable** the system wide validation. **Finish**.
+12. For this lab in the next step we will **Disable** the system wide validation. **Finish**.
 
- 11. Let's analyze together what information we already have available before moving forward.
+13. Let's analyze together what information we already have available before moving forward.
 
 ## **Exercise 3: Enabling system settings**
 
