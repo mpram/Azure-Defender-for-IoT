@@ -25,13 +25,13 @@ The scenario below is one of many you would apply these lessons to, other scenar
     - [Task 1: Set up your offline sensor](#Task-1-Set-up-your-offline-sensor)
     - [Task 2: Collect Information](#Task-2-Collect-Information)
     - [Task 3: Configure Microsoft Defender](#Task-3-Configure-Azure-Defender)
-- [Exercise 3: Enabling system settings](#exercise-1-enabling-setting-settings)
+- [Exercise 3: Enabling system settings](#exercise-3-enabling-system-settings)
     - [Task 1: System Properties](#task-1-System-properties)
     - [Task 2: Pcap Files](#task-2-Pcap-Files)
 - [Exercise 4: Analyzing the Data](#Exercise-4-Analyzing-the-Data)
     - [Task 1: Devices Map](#Task-1-Devices-Map)
     - [Task 2: Alerts](#Task-2-Alerts)
-    - [Task 3: Device Inventory](#Task-2-Device-Inventory)
+    - [Task 3: Device Inventory](#Task-3-Device-Inventory)
     - [Task 4: Event Timeline](#Task-4-Event-Timeline)
     - [Task 5: Data Mining](#Task-5-Data-Mining)
 - [Exercise 5: Online Sensor](#Exercise-5-Online-Sensor)
@@ -42,7 +42,7 @@ The scenario below is one of many you would apply these lessons to, other scenar
     - [Task 3: Acknowledge Alerts and Re-run PCAPs](#Task-3-Acknowledge-Alerts-and-Re-run-PCAPs)
     - [Task 4: Sentinel interaction with IoT Incidents](#Task-4-Sentinel-interaction-with-IoT-Incidents)
     - [Task 5: Kusto Query Language to Find Alert Details](#Task-5-Kusto-Query-Language-to-Find-Alert-Details)
-- [Exercise 7: Clean Up](#Exercise-6-Clean-Up)
+- [Exercise 7: Clean Up](#Exercise-7-Clean-Up)
     - [Task 1: Delete resources](#Task-1-Delete-resources)
 - [Appendix: Troubleshooting](Appendix-Troubleshooting)
 
@@ -358,31 +358,33 @@ During this task we will configure Azure Defender based on the IPs highlighted b
 
 6. ***IMPORTANT STEP!!!*** Once the installation is complete, you will have the login information availabe in the screen **TAKE A SCREENSHOT!!** before continuing, press **Enter**. Now you will have the support account, again **TAKE THE SCREENSHOT!!** press **Enter** to continue. If you fail to capture the credentials, you will need to start over.
 
-</br>
+    </br>
 
-![Sensor Credentials](./images/E02T02-04-credentials.png 'Saving Sensor Credentials')
+    ![Sensor Credentials](./images/E02T02-04-credentials.png 'Saving Sensor Credentials')
+
+    </br>
 
 7. Once the installation finished you will ask to login, enter the credentials from previous step. In this screen you can also validate the IP, you will use that IP in your browser.
 
-</br>
+    </br>
 
-***Note: At this stage your IPs should look similar to the example below, if you can't reach the portal validate the IPs. If you restarted your VM there is a chance your IPs changed so you will need to go back and reconfigure them, if that is the case use the command in step 3.***
+    ***Note: At this stage your IPs should look similar to the example below, if you can't reach the portal validate the IPs. If you restarted your VM there is a chance your IPs changed so you will need to go back and reconfigure them, if that is the case use the command in step 3.***
 
-In the next steps you will be prompt to enter the password capture above, some characteres look alike but they are not, this image will help you to identify some of them.
+    In the next steps you will be prompt to enter the password capture above, some characteres look alike but they are not, this image will help you to identify some of them.
 
-![Defender characteres](./images/E02T02-05-characters.png 'Different defender characteres')
+    ![Defender characteres](./images/E02T02-05-characters.png 'Different defender characteres')
 
 </br>
 
 8. Login with the credentials provided in step **4**.
 
-![Defender IP](./images/E02T02-06-AzureDefenderForIoTSensor.png 'Defender IP Address')
+    ![Defender IP](./images/E02T02-06-AzureDefenderForIoTSensor.png 'Defender IP Address')
 
 </br>
 
 9. Next, you will be ask to activate the product, click **Upload**, then **Browse Files**, in your downloads folder select the file you downloaded from the Storage Explorer, in this example **myofflinesensor.zip**.
 
-![Defender Login](./images/E02T02-07-offline-sensor-activation.png 'Defender Login Screen')
+    ![Defender Login](./images/E02T02-07-offline-sensor-activation.png 'Defender Login Screen')
 
 </br>
 
@@ -390,7 +392,7 @@ In the next steps you will be prompt to enter the password capture above, some c
 
 11. You will be prompted to select **SSL/TLS Certificates | Onboarding 1/2** for this lab will use the second option **Use a locally generated self signed certificate(..)**. Then click **I CONFIRM**, **Next**.
 
-![Certificate selection](./images/E02T02-08-offline-sensor-certificate.png 'Defender certificate selection')
+    ![Certificate selection](./images/E02T02-08-offline-sensor-certificate.png 'Defender certificate selection')
 
 </br>
  
@@ -398,53 +400,67 @@ In the next steps you will be prompt to enter the password capture above, some c
 
 13. Let's analyze together what information we already have available before moving forward.
 
+</br>
+
 ## **Exercise 3: Enabling system settings**
 
 ### **Task 1: System Properties**
 
 1. In your offline sensor you will find **System Settings** on the left side of the Azure Defender portal, click there as shown below.
 
-  ![system settings](./images/defender-system-settings.png 'System settings')
+    ![Select System Settings](./images/E03T01-01-System-Settings.png 'Defender for IoT Select System Settings')
 
-2. Next, look for the icon **System Properties** on the right side. Click in the icon, you will see a pop up warning, select **Ok**.
+</br>
+
+2. Next, look for the icon **System Properties** on the right side. Click on the icon. You you will see a pop up warning, select **Ok**.
 
 3. In the new window on the left side, scroll down until you see **Pcaps**, click there. Now on the right side scroll all the way down and we will modify three parameters as shown below:
+
     - **player_max_amount=200**
     - **enabled=1**
     - **player.params=-M 3**
 
+    </br>
 
-  ![system settings pcaps](./images/enabling-pcaps.png 'System settings Pcaps')
+    ![Set PCAPS](./images/E03T01-02-Enable-PCAPs.png 'Enable PCAP Settings')
+
+</br>
 
 4. Click **Save** and then **Ok**.
 
 5. Continue in the System Properties window, scroll up and select **Horizon** on the left side select, scroll down and modify the following parameter:
+
     - **ui.enabled=true**
 
+    </br>
 
-  ![Horizon Enable UI](./images/horizon-ui-enabled.png 'Horizon enable ui')
+    ![Set System Settings Horizon](./images/E03T01-03-Horizon-UI-Enabled.png 'System Settings Horizon ui-enabled')
+
+</br>
 
 6. Click **Save** and then **Ok**.
 
 7. In System Properties, look for **Global** and modify the following parameter:
+
     - **auto_discovery.enabled=1**
 
+    <br>
 
-  ![Global Settings](./images/global-settings.png 'global settings')
+    ![Set System Settings Global](./images/E03T01-04-Global-Auto-Discovery.png 'System Settigns Global Auto Discovery')
+
+</br>
 
 8. Click on **Save** and then **OK**.
 
-9. At this point you should see the Pcap Player available:
+9. At this point you should see the Pcap Player available (you can close the **Edit System Properties** screen now by clicking the **Cancel** button):
 
-  ![Pcap Player](./images/pcap-player.png 'Pcap player')
-
+    ![Pcap Player](./images/E03T01-05-PCAP-Player.png 'Pcap player')
 
 </br>
   
 ### **Task 2: Pcap Files**
 
-
-1. In previous steps you already downloaded a  **holpcaps.zip** file from the Storage account. It should be in the Virtual Machine **Downloads** folder.
+1. In a previous step you already downloaded a  **holpcaps.zip** file from the Storage account. It should be in your Azure Virtual Machine's **Downloads** folder.
 
 2. Unzip **holpcaps.zip**
 
@@ -453,14 +469,13 @@ In the next steps you will be prompt to enter the password capture above, some c
 
 4. At this point you should see all the files uploaded.
 
-
-
-    ![Pcap Files Uploaded](./images/pcap-files-uploaded.png 'Pcap files uploaded')
+    ![Pcap Files Ready](./images/E03T02-01-PCAP-Files-Uploaded.png 'PCAP Files Uploaded')
 
 </br>
 
 5. Click on **Play All**, in a few minutes you will receive a message saying all the files has been played. 
 
+</br>
 
 ## **Exercise 4: Analyzing the Data**
 
