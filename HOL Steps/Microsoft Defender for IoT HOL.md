@@ -18,13 +18,12 @@ The scenario below is one of many you would apply these lessons to, other scenar
 
 ## **Content:** ##
 - [Exercise #1: Enabling Defender](#Exercise-1-Enabling-Defender)
-    - [Task 1: Enabling Microsoft Defender for IoT](#Task-1-Enabling-Azure-Defender-for-IoT)
+    - [Task 1: Enabling Microsoft Defender for IoT](#Task-1-Enabling-Microsoft-Defender-for-IoT)
     - [Task 2: Create an IoT Hub:](#Task-2-Create-an-IoT-Hub)
     - [Task 3: Onboarding sensors](#Task-3-Onboarding-sensors)
 - [Exercise #2: Setting up your offline sensor](#Exercise-2-Setting-up-your-offline-sensor)
-    - [Task 1: Set up your offline sensor](#Task-1-Set-up-your-offline-sensor)
-    - [Task 2: Collect Information](#Task-2-Collect-Information)
-    - [Task 3: Configure Microsoft Defender](#Task-3-Configure-Azure-Defender)
+    - [Task 1: Set up your offline sensor](#Task-1-Set-up-your-nested-Virtual-Machine)
+    - [Task 2: Collect Information](#Task-2-Configure-a-Microsoft-Defender-for-IoT-offline-sensor)
 - [Exercise 3: Enabling system settings](#exercise-3-enabling-system-settings)
     - [Task 1: System Properties](#task-1-System-properties)
     - [Task 2: Pcap Files](#task-2-Pcap-Files)
@@ -51,7 +50,7 @@ The scenario below is one of many you would apply these lessons to, other scenar
 
 ## **Exercise #1: Enabling Defender**
 
-### **Task 1: Enabling Azure Defender for IoT**
+### **Task 1: Enabling Microsoft Defender for IoT**
 
 You will execute this task on your physical machine, not on the Virtual Machine that you will use later in this HOL to host your Microsoft Defender for IoT sensors.
 
@@ -141,7 +140,7 @@ You will execute this task on your physical machine, not in the Virtual Machine 
 
 </br>
 
-### **Task 3 - Onboarding sensors** ###
+### **Task 3: Onboarding sensors** ###
 
 For the hands-on lab we will work with two type of sensors, an offline sensor that does not need to be connected to the public Internet and an online sensor that is connectected to Azure.
 In the next steps we will begin by onboarding the offline sensor.
@@ -236,7 +235,7 @@ You will execute most of this task on your physical machine, not in the Virtual 
 
 During this exercise you will set up a new nested Virtual Machine inside the Virtual Machine that you created as part of the pre-requisites.
 
-### **Task 1: Set up your Virtual Machine**
+### **Task 1: Set up your nested Virtual Machine**
 
 1. On the Windows 10 Virtual machine created previously, login with with RDP. Open a command prompt and run the command "ipconfig". **NOTE: Ignore the (Default Switch)**
 
@@ -348,7 +347,9 @@ During this task we will configure Azure Defender based on the IPs highlighted b
     ***Troubleshooting Note: Once the installation is complete, you will be able to access Azure Defender Console, check if you can open a cmd window, ping the IP Address  you entered in the step 'Configure management network interface'.
     If the request times out, you will need to reconfigure this step again, for that review the IPs one more time and use the command below to start over:***
 
-    `sudo cyberx-xsense-network-reconfigure`
+    ```bash
+    sudo cyberx-xsense-network-reconfigure
+    ```
 
     Below, a ***sample*** screen, your parameters will be different.
 
@@ -483,23 +484,41 @@ After Azude Defender learnt about your environment it will be able to share insi
 
 ### **Task 1: Devices Map**
 
-Your first interaction with Devices map you will see a similar map like the below
+Your first interaction with Devices map you will see a similar map like the one below (details of what you actually see may vary):
 
-   ![Pcap Files Uploaded](./images/devices-map.png 'Pcap files uploaded')
+![Pcap Files Uploaded](./images/devices-map.png 'Pcap files uploaded')
+
+</br>
+
 1. Use the four icon bar on the left to select **Layout by Purdue**. In this model you will see the different layers between Corporate IT and site operations.
-![purdue-layout](https://user-images.githubusercontent.com/60540284/140969899-b83965cc-0900-4f45-95df-e944856d99d3.gif)
+
+    ![purdue-layout](https://user-images.githubusercontent.com/60540284/140969899-b83965cc-0900-4f45-95df-e944856d99d3.gif)
+
+</br>
 
 2. Check your notifications available and you can take action at this point.
-![notifications](https://user-images.githubusercontent.com/60540284/140969923-5634ea88-6d74-4b7b-9e13-c278e0cce20f.gif)
+
+    ![notifications](https://user-images.githubusercontent.com/60540284/140969923-5634ea88-6d74-4b7b-9e13-c278e0cce20f.gif)
+
+</br>
 
 3. For each device right click to analyze properties, show events, reports and simulate attack vectors.
-![device-right-click](https://user-images.githubusercontent.com/60540284/140969957-1f51fa73-1e20-4930-8c8d-3271ecb68149.gif)
+
+    ![device-right-click](https://user-images.githubusercontent.com/60540284/140969957-1f51fa73-1e20-4930-8c8d-3271ecb68149.gif)
+
+</br>
 
 4. In the hamburguer menu on the left, click the highlights and select one of the **OT Protocols** i.e. **MODBUS** and click on **Filter**. Now your map will show those devices only
-![modbus](https://user-images.githubusercontent.com/60540284/140970027-dad74aba-4d88-45cb-8505-830c62b3ecc0.gif)
+
+    ![modbus](https://user-images.githubusercontent.com/60540284/140970027-dad74aba-4d88-45cb-8505-830c62b3ecc0.gif)
+
+</br>
 
 5. Then filter your devices by **CIP** OT Protocol, at the bottom of your map you will see a PLC, where the Vendor is Rockwell Automation, has already 3 alerts activated. Right click on the device, **View Properties**. In this view you will be able to analyze the Backbone of your PLCs, take actions and analyze the Alerts.
-![cip](https://user-images.githubusercontent.com/60540284/140970072-7db949da-f87c-41ef-88c0-45cea6da0f62.gif)
+
+    ![cip](https://user-images.githubusercontent.com/60540284/140970072-7db949da-f87c-41ef-88c0-45cea6da0f62.gif)
+
+</br>
 
 ### **Task 2: Alerts**
 
@@ -522,13 +541,15 @@ NOTE: if you don't see the column "Is Authorized", click on the "Device Inventor
 
 3. Export the list to a csv files.
 
-
 ### **Task 4: Event Timeline**
 
 This view will allow you a Forensic analysis of your alerts.
 
-1. Choose **Advanced Filers**, filter the timeline by **CIP**, let's analyze the alert timeline.
+1. Choose **Advanced Filters**, filter the timeline by **CIP**, let's analyze the alert timeline.
 
+    ![Event-Time-Line-by-CIP](./gifs/MD4IoT-EventTimeline.gif)
+
+</br>
 
 ### **Task 5: Data Mining**
 
