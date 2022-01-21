@@ -369,7 +369,7 @@ During this task we will configure Azure Defender based on the IPs highlighted b
 
     </br>
 
-    ***Note: At this stage your IPs should look similar to the example below, if you can't reach the portal validate the IPs. If you restarted your VM there is a chance your IPs changed so you will need to go back and reconfigure them, if that is the case use the command in step 3.***
+    ***Note:** At this stage your IPs should look similar to the example below, if you can't reach the portal validate the IPs. If you restarted your VM there is a chance your IPs changed so you will need to go back and reconfigure them, if that is the case use the command in step 3.***
 
     In the next steps you will be prompt to enter the password capture above, some characteres look alike but they are not, this image will help you to identify some of them.
 
@@ -380,6 +380,20 @@ During this task we will configure Azure Defender based on the IPs highlighted b
 8. Login with the credentials provided in step **4**.
 
     ![Defender IP](./images/E02T02-06-AzureDefenderForIoTSensor.png 'Defender IP Address')
+
+    </br>
+
+    > **NOTE:** the "md4iotsensoroffline" VM's keyboard layout is US by default, and it may not match the layout of your physical keyboard. To avoid issues when entering the password, you may use the windows 10 on-screen keyboard. To run it, type "osk" in the search box and click on "On-Screen Keyboard"
+
+    </br>
+
+    ![Start-OSK](./images/E05T01-01-Start-OSK.png)
+
+    </br>
+
+    ...and use it to enter the credentials:
+
+    ![OSK-Keyboard-Logon](./images/keyboard.png)
 
 </br>
 
@@ -508,7 +522,7 @@ Your first interaction with Devices map you will see a similar map like the one 
 
 </br>
 
-4. In the hamburguer menu on the left, click the highlights and select one of the **OT Protocols** i.e. **MODBUS** and click on **Filter**. Now your map will show those devices only
+4. In the hamburger menu on the left, click the highlights and select one of the **OT Protocols** i.e. **MODBUS** and click on **Filter**. Now your map will show those devices only
 
     ![modbus](https://user-images.githubusercontent.com/60540284/140970027-dad74aba-4d88-45cb-8505-830c62b3ecc0.gif)
 
@@ -523,23 +537,39 @@ Your first interaction with Devices map you will see a similar map like the one 
 ### **Task 2: Alerts**
 
 1. Once you click Alerts in your PLC you will see a new window pop up showing three different types of alerts.
+
     - Operational(high Alert and lower alert)
     - Policy Violation
-For each of these alerts you will be able to analyze the pcap file, export a report, analyze the timeline or mute the alert.
-![ex4-t2-1](https://user-images.githubusercontent.com/60540284/141076357-ef22ec24-1d94-462b-8076-a3077cbca2a7.gif)
+
+    For each of these alerts you will be able to analyze the pcap file, export a report, analyze the timeline or mute the alert.
+
+    ![ex4-t2-1](https://user-images.githubusercontent.com/60540284/141076357-ef22ec24-1d94-462b-8076-a3077cbca2a7.gif)
+    
+    </br>
 
 2. If we remove the device filter from the top of the screen, then click **Confirm** you will see 20 Alerts in process.
+
 3. Apply **Custom Groups** to filter different scenarios, such as **Unclassified subnets** then **Confirm**
-![ex4-t2-2-3](https://user-images.githubusercontent.com/60540284/141076872-1b8350d6-ad56-4444-995d-256ce0785c81.gif)
+
+    ![ex4-t2-2-3](https://user-images.githubusercontent.com/60540284/141076872-1b8350d6-ad56-4444-995d-256ce0785c81.gif)
+
+    </br>
 
 ### **Task 3: Device Inventory**
+
 1. In this view, filter all your devices by **Is Authorized**, True or False are possible values.
-NOTE: if you don't see the column "Is Authorized", click on the "Device Inventory Settings" gear icon (upper-right corner) and add it to the view.
-![ex4-t3-st1](https://user-images.githubusercontent.com/60540284/141078788-04910c9d-6dfe-4a03-bc93-42c26d08d778.gif)
+
+    > **NOTE:** if you don't see the column "Is Authorized", click on the "Device Inventory Settings" gear icon (upper-right corner) and add it to the view.
+
+    ![ex4-t3-st1](https://user-images.githubusercontent.com/60540284/141078788-04910c9d-6dfe-4a03-bc93-42c26d08d778.gif)
+
+    </br>
 
 2. Organize your devices based on filters.
 
 3. Export the list to a csv files.
+
+<br>
 
 ### **Task 4: Event Timeline**
 
@@ -560,7 +590,9 @@ As an example we will create a Report based on firmware updates versions.
 
 2. Assign a name to your report. Then go to Filters, **add** and select **Firmware version(generic)**
 
-  ![PLC](./images/dm-firmware.png 'PLC')
+    ![Create-New-Report](./images/E04T05-01-Create-New-Report.png 'Create PLC Firmware Version Report')
+
+</br>
 
 3. In the new field added **Firmware Version(GENERIC)** add **0.4.1**, then **Save**.
 
@@ -568,39 +600,47 @@ As an example we will create a Report based on firmware updates versions.
 
 5. Export you report(pdf, csv) for further actions. 
 
+</br>
 
 ### **Task 6: Risk Assessment**
 
 1. Go to the Risk assessment, run the assessment. During this task we will show you how to analyze the assessment. 
 
-***IMPORTANT***, after completing this workshop you will have a period of two weeks to run the risk assessment in your evironment and schedule an appointment with our Cybersecurity team to guide you through analysis, best practices, and vulnerabilities in your facilities.
+> **IMPORTANT:**, after completing this workshop you will have a period of two weeks to run the risk assessment in your evironment and schedule an appointment with our Cybersecurity team to guide you through analysis, best practices, and vulnerabilities in your facilities.
 
 </br>
 
 ## **Exercise 5: Online Sensor**
 
-To modify our sensor to be an online sensor, we will use the same virtual machine but we will reactivate the sensor using **System settings**
+To modify our sensor to be an online sensor, we will use the same virtual machine, but we will reactivate the sensor using **System settings**. In a real scenario you probably would create a new sensor, running in its own virtual machine or physical appliance.
 
 ### **Task 1: Reconfiguring sensor**
+
 To modify your sensor to be connected with Azure, we will need to modify the network configuration.
 
-1. Login into the "ad4iotsensoroffline" VM using the "cyberx" credentials (task 2, step 4).
+1. Login into the "md4iotsensoroffline" VM using the "cyberx" credentials (task 2, step 4).
 
-NOTE: the "ad4iotsensoroffline" VM's keyboard layout is US by default, and it may not match the layout of your physical keyboard. To avoid issues when entering the password, you may use the windows 10 on-screen keyboard. To run it, type "osk" in the search box and click on "On-Screen Keyboard":
+    > **NOTE:** the "md4iotsensoroffline" VM's keyboard layout is US by default, and it may not match the layout of your physical keyboard. To avoid issues when entering the password, you may use the windows 10 on-screen keyboard. To run it, type "osk" in the search box and click on "On-Screen Keyboard":
 
-![1](./images/osk.png)
+    </br>
 
-...and use it to enter the credentials:
+    ![OSK](./images/E05T01-01-Start-OSK.png)
 
-![1](./images/keyboard.png)
+    </br>
 
-2. You will receive a **network unreacheable** error messgae if you try to ping the google dns:
-```bash
-ping 8.8.8.8
-```
+    ...and use it to enter the credentials:
 
-Your sensor needs connectivity before changing the activation mode.
+    ![OSK-Keyboard](./images/keyboard.png)
 
+</br>
+
+2. You will receive a **network unreacheable** error message if you try to ping the google dns:
+
+    ```bash
+    ping 8.8.8.8
+    ```
+
+    Your sensor needs connectivity before changing the activation mode.
 
 3. In the Ubuntu sensor we will need to reconfigure the gateway to bring it online and allow it to reach Azure IoT Hub, type the following:
 
@@ -608,42 +648,46 @@ Your sensor needs connectivity before changing the activation mode.
 sudo cyberx-xsense-network-reconfigure
 ```
 
-
 4. You will ask to login, then you can start to reconfigure the network settings, you will only change **one** value, **configure default gateway IP address** you will assign the IP Address of the NATSwitch value configured in previous steps, either 192.168.0.**1** or 172.27.0.**1**, you will keep all the other values as before.
 
+    ![Changing IP to online](./images/defender-config-online.png 'Changing IP')
 
-![Changing IP to online](./images/defender-config-online.png 'Changing IP')
 </br>
 
 5. Type **Y** at the end of the process to apply the change, it will run a reconfiguration and reboot. 
 
-6. After logging back in, test that you have external connectivity: **ping 8.8.8.8.8** in the Ubuntu sensor, you should now receive a different message  containing "...icmp...".  Note: hit Cntrl-C to stop the pinging.
+6. After logging back in, test that you have external connectivity: **ping 8.8.8.8** in the Ubuntu sensor, you should now receive a different message  containing "...icmp...".  Note: hit Cntrl-C to stop the pinging.
 
 7. Now that your sensor has connectivity, go to the Azure Defender Portal, select **System Settings** and then, **Reactivation**.
 
 8. In the new window, select **Upload**, **Browse File**, select the zip file you downloaded from the storage account in previous steps **myonlinesensor.zip**, then **Open** and **Activate**, **Ok** to the instructions
 
-</br>
+    ![ReactivateSensor](./images/E05T01-02-Sensor-Reactivation.png 'Reactivate')
 
-![Reactivate](./images/reactivate.png 'Reactivate')
+</br>
 
 8. Last, you should receive a message showing your sensor modified to **Connected**. 
 
 9. Close the screen, open again the **Reactivation** window and double check if your sensor is **Cloud Connected** as shown below:
 
-![Reactivate](./images/validate-reactivation.png 'Reactivate')
+    ![OnlineSensor](./images/E05T01-03-CloudConnected-Sensor.png 'Reactivate as Online Sensor')
 
-
+</br>
 
 10. Run the Pcap files again in your console, in a few minutes you can verify if IoT Hub in Azure Portal is receiving messages from your sensor:
 
-![IoT Hub Azure](./images/monitoring-iot-hub.png 'IoT Hub')
+    ![IoT Hub Azure](./images/E05T01-04-Monitoring-IoTHub.png 'Monitoring IoT Hub')
 
-11. In the same IoT Hub now you should see the alerts generated for Defender, scroll down to **Security**, select **Security Alerts**, on the right side you will see some alerts already available. (Note that this alert view will be deprecated soon and will be available in Azure's "Defender for IoT" Portal)
+</br>
 
-![IoT Hub Azure](./images/hub-security-alerts.png 'IoT Hub')
+11. In the same IoT Hub now you should see the alerts generated by Defender for IoT. Scroll down to **Defender for IoT**, select **Security Alerts**, on the right side you will see some alerts already available.
+
+    ![IoTHub](./images/E05T01-05-IoTHub-SecurityAlerts.png 'IoT Hub Security Alerts')
+
+</br>
 
 ## **Exercise 6: Integrate with Sentinel**
+
 **Note**: Please ensure you have completed Task 6 in the ['Before HOL'](https://github.com/mpram/Azure-Defender-for-IoT/blob/main/Before%20HOL/Azure%20Defender%20for%20IoT%20BHOL.md#task-6-sentinel-prep-work/ 'Before HOL') prior to working through these instructions.
 
 ### **Task 1**: Enabling IoT to Integrate with Sentinel
