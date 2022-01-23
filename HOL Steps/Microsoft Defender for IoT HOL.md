@@ -494,7 +494,7 @@ During this task we will configure Azure Defender based on the IPs highlighted b
 
 ## **Exercise 4: Analyzing the Data**
 
-After Azude Defender learnt about your environment it will be able to share insights pretty fast.
+After Defender for Cloud learnt about your environment it will be able to share insights pretty fast.
 
 ### **Task 1: Devices Map**
 
@@ -641,6 +641,8 @@ To modify your sensor to be connected with Azure, we will need to modify the net
     ```
 
     Your sensor needs connectivity before changing the activation mode.
+    
+    > **NOTE:** Hit Cntrl-C to stop the pinging.
 
 3. In the Ubuntu sensor we will need to reconfigure the gateway to bring it online and allow it to reach Azure IoT Hub, type the following:
 
@@ -656,9 +658,11 @@ sudo cyberx-xsense-network-reconfigure
 
 5. Type **Y** at the end of the process to apply the change, it will run a reconfiguration and reboot. 
 
-6. After logging back in, test that you have external connectivity: **ping 8.8.8.8** in the Ubuntu sensor, you should now receive a different message  containing "...icmp...".  Note: hit Cntrl-C to stop the pinging.
+6. After logging back in, test that you have external connectivity: **ping 8.8.8.8** in the Ubuntu sensor, you should now receive a different message  containing "...icmp...".  
 
-7. Now that your sensor has connectivity, go to the Azure Defender Portal, select **System Settings** and then, **Reactivation**.
+	> **NOTE:** Hit Cntrl-C to stop the pinging.
+
+7. Now that your sensor has connectivity, go to the Defender for IoT Portal, select **System Settings** and then, **Reactivation**.
 
 8. In the new window, select **Upload**, **Browse File**, select the zip file you downloaded from the storage account in previous steps **myonlinesensor.zip**, then **Open** and **Activate**, **Ok** to the instructions
 
@@ -693,18 +697,18 @@ sudo cyberx-xsense-network-reconfigure
 ### **Task 1**: Enabling IoT to Integrate with Sentinel
 
 1. Ensure your IoT Hub is configured to send Security Alerts to Sentinel.
-2. Navigate to your IoT Hub > Security > Settings > Data Collection
+2. Navigate to your IoT Hub > Defender for IoT > Settings > Data Collection
 
 ![Data Collection](./images/Data-Collection.png 'Data Collection')
 
-3. Double check that Data Collection blade, is enabled for  **Enable Azure Defender for IoT**
+3. Double check that Data Collection blade, is enabled for  **Enable Microsoft Defender for IoT**
 
  
 ![Data Collection DIoT](./images/Data-Collection-DIot.png 'Data Collection DIoT')
 
 ### **Task 2**: Connecting Data Connectors
 	
-1. After all the flags are enabled, go to **Sentinel** > Configuration > Data Connectors > Search **Azure Defender for IoT** to connect IoT to Sentinel.
+1. After all the flags are enabled, go to **Sentinel** > Configuration > Data Connectors > Search **Microsoft Defender for IoT** to connect IoT to Sentinel.
  
 ![Data Connectors Sentinel](./images/Data-Connectors-Sentinel.png 'Data Connectors Sentinel')
 
@@ -712,7 +716,7 @@ sudo cyberx-xsense-network-reconfigure
  
 ![Data Connectors iot](./images/iot-data-connectors.png 'Data Connectors iot')
 
-3. Review the instructions and click the “Connect” button to connect Azure Defender for IoT to Sentinel. If the connection continues to fail, this will most likely be due to the user not having the "Contributor" permissions and you may have missed the access step in the prerequisites. 
+3. Review the instructions and click the “Connect” button to connect Microsoft Defender for IoT to Sentinel. If the connection continues to fail, this will most likely be due to the user not having the "Contributor" permissions and you may have missed the access step in the prerequisites. 
 
 ![Sentinel Connect](./images/Sentinel-Connect.png 'Sentinel Connect')
  
@@ -724,11 +728,11 @@ sudo cyberx-xsense-network-reconfigure
  
 ![Sentinel Rule Creation](./images/Sentinel-Rule-Creation.png 'Sentinel Rule Creation')
 
-6. Fill in the “Name” and click **Review and Create**. This is enabling incidents to be created based on the Azure Defender IoT alerts that are ingested into Sentinel.
+6. Fill in the “Name” and click **Review and Create**. This is enabling incidents to be created based on the Microsoft Defender IoT alerts that are ingested into Sentinel.
  
 ![Sentinel Rule Submission](./images/Sentinel-Rule-Submission.png 'Sentinel Rule Submission')
 
-7. Additionally, you can create the rule not only on the data connectors page but also on the “Analytics” blade. See an example below when you go to the “Rule Templates” tab and filter data sources by “Azure Defender for IoT (Preview)”.
+7. Additionally, you can create the rule not only on the data connectors page but also on the “Analytics” blade. See an example below when you go to the “Rule Templates” tab and filter data sources by “Microsoft Defender for IoT (Preview)”.
 
 ![Sentinel Analytics Screen](./images/Sentinel-Analytics-Screen.png 'Sentinel Rule Submission')
  
@@ -751,7 +755,7 @@ sudo cyberx-xsense-network-reconfigure
 
 ### **Task 4**: Sentinel interaction with IoT Incidents
 
-1. Go back to the Sentinel console and under the **Threat Management** section, select the **Incidents** tab.  Filter by Product Name **Azure Defender for IoT**.
+1. Go back to the Sentinel console and under the **Threat Management** section, select the **Incidents** tab.  Filter by Product Name **Microsoft Defender for IoT**.
 
 ![Sentinel Filter Alerts](./images/Sentinel-Filter-Alerts.png 'Sentinel Filter Alerts')
   
@@ -792,7 +796,7 @@ Select Delete resource group on the top right side.
 
 Enter your-resource-group-name for **TYPE THE RESOURCE GROUP NAME** and select Delete. This operation will take a few minutes.
 
-After that is done go to Azure defender for IoT and deactivate the subscription.
+After that is done go to Microsoft Defender for IoT and deactivate the subscription.
 
 
 
