@@ -142,7 +142,7 @@ You will execute this task on your physical machine, not in the Virtual Machine 
 
 ### **Task 3: Onboarding sensors** ###
 
-For the hands-on lab we will work with two type of sensors, an offline sensor that does not need to be connected to the public Internet and an online sensor that is connectected to Azure.
+For the hands-on lab we will work with two type of sensors, an offline sensor that does not need to be connected to the public Internet and an online sensor that is connected to Azure.
 In the next steps we will begin by onboarding the offline sensor.
 You will execute most of this task on your physical machine, not in the Virtual Machine that we will use later in this HOL to host your Microsoft Defender for IoT sensors.
 
@@ -210,7 +210,7 @@ You will execute most of this task on your physical machine, not in the Virtual 
 
     The next steps will be executed in the Virtual Machine that we created as part of the pre-requisites.
 
-12. To Upload the Files, go to the Storage Account you created before in the Azure Portal. On the left panel select **Containers**, on the right side, click on **acitvationfiles**, next on the top menu click **Upload** browse to the location where you download the files, select all of them and click **Upload**.
+12. To Upload the Files, go to the Storage Account you created before in the Azure Portal. On the left panel select **Containers**, on the right side, click on **actvationfiles**, next on the top menu click **Upload** browse to the location where you download the files, select all of them and click **Upload**.
 
     You will execute this task on your Virtual Machine. Make sure to start it from the Azure portal and connect to it using RDP. You should use the same credentials to login to your VM that you used when you created the VM (**Username**: *MDefenderLab*, **Password**: *Learningmode123!*). 
 
@@ -494,7 +494,7 @@ During this task we will configure Azure Defender based on the IPs highlighted b
 
 ## **Exercise 4: Analyzing the Data**
 
-After Azude Defender learnt about your environment it will be able to share insights pretty fast.
+After Defender for Cloud learnt about your environment it will be able to share insights pretty fast.
 
 ### **Task 1: Devices Map**
 
@@ -641,6 +641,8 @@ To modify your sensor to be connected with Azure, we will need to modify the net
     ```
 
     Your sensor needs connectivity before changing the activation mode.
+    
+    > **NOTE:** Hit Cntrl-C to stop the pinging.
 
 3. In the Ubuntu sensor we will need to reconfigure the gateway to bring it online and allow it to reach Azure IoT Hub, type the following:
 
@@ -656,9 +658,11 @@ sudo cyberx-xsense-network-reconfigure
 
 5. Type **Y** at the end of the process to apply the change, it will run a reconfiguration and reboot. 
 
-6. After logging back in, test that you have external connectivity: **ping 8.8.8.8** in the Ubuntu sensor, you should now receive a different message  containing "...icmp...".  Note: hit Cntrl-C to stop the pinging.
+6. After logging back in, test that you have external connectivity: **ping 8.8.8.8** in the Ubuntu sensor, you should now receive a different message  containing "...icmp...".  
 
-7. Now that your sensor has connectivity, go to the Azure Defender Portal, select **System Settings** and then, **Reactivation**.
+	> **NOTE:** Hit Cntrl-C to stop the pinging.
+
+7. Now that your sensor has connectivity, go to the Defender for IoT Portal, select **System Settings** and then, **Reactivation**.
 
 8. In the new window, select **Upload**, **Browse File**, select the zip file you downloaded from the storage account in previous steps **myonlinesensor.zip**, then **Open** and **Activate**, **Ok** to the instructions
 
@@ -721,7 +725,7 @@ You will execute most of this task on your physical machine, not in the Virtual 
 
 </br>
 
-3. Review the instructions and click the “Connect” button to connect Azure Defender for IoT to Sentinel. If the connection continues to fail, this will most likely be due to the user not having the "Contributor" permissions and you may have missed the access step in the prerequisites. 
+3. Review the instructions and click the “Connect” button to connect Microsoft Defender for IoT to Sentinel. If the connection continues to fail, this will most likely be due to the user not having the "Contributor" permissions and you may have missed the access step in the prerequisites. 
 
     ![Sentinel Connect](./images/E06T02-03-Sentinel-Connect.png 'Sentinel Connect')
 
@@ -836,7 +840,7 @@ Select Delete resource group on the top right side.
 
 Enter your-resource-group-name for **TYPE THE RESOURCE GROUP NAME** and select Delete. This operation will take a few minutes.
 
-After that is done go to Azure defender for IoT and deactivate the subscription.
+After that is done go to Microsoft Defender for IoT and deactivate the subscription.
 
 
 ## **Appendix: Troubleshooting**
