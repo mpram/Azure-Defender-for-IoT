@@ -111,7 +111,7 @@ You will execute this task on your physical machine, not in the Virtual Machine 
 
     - **Subscription**: Select the Subscription you are woking on.
     - **Resource Group**: Should be the resource group created in previous step.
-    - **IoT Hub Name**: hub-md44iot+SUFFIX
+    - **IoT Hub Name**: hub-md4iot+SUFFIX
     - **Region**: A region close to your physical location (e.g. West Europe).
 
     </br>
@@ -688,80 +688,119 @@ sudo cyberx-xsense-network-reconfigure
 
 ## **Exercise 6: Integrate with Sentinel**
 
+You will execute most of this task on your physical machine, not in the Virtual Machine that hosts your your Microsoft Defender for IoT sensor.
+
 **Note**: Please ensure you have completed Task 6 in the ['Before HOL'](https://github.com/mpram/Azure-Defender-for-IoT/blob/main/Before%20HOL/Azure%20Defender%20for%20IoT%20BHOL.md#task-6-sentinel-prep-work/ 'Before HOL') prior to working through these instructions.
 
 ### **Task 1**: Enabling IoT to Integrate with Sentinel
 
 1. Ensure your IoT Hub is configured to send Security Alerts to Sentinel.
-2. Navigate to your IoT Hub > Security > Settings > Data Collection
+2. Navigate to your IoT Hub > Defender for IoT > Settings > Data Collection
 
-![Data Collection](./images/Data-Collection.png 'Data Collection')
+    ![Data Collection](./images/E06T01-01-Data-Collection.png 'IoTHub Data Collection')
 
-3. Double check that Data Collection blade, is enabled for  **Enable Azure Defender for IoT**
+</br>
 
+3. Double check that Data Collection blade, is enabled for  **Enable Microsoft Defender for IoT**
  
-![Data Collection DIoT](./images/Data-Collection-DIot.png 'Data Collection DIoT')
+    ![Data Collection DIoT](./images/E06T01-02-Data-Collection-D4IoT.png 'Data Collection D4IoT')
+
+</br>
 
 ### **Task 2**: Connecting Data Connectors
 	
-1. After all the flags are enabled, go to **Sentinel** > Configuration > Data Connectors > Search **Azure Defender for IoT** to connect IoT to Sentinel.
+1. With the *Microsoft Defender for IoT* switch enabled, go to **Microsoft Sentinel** > Configuration > Data Connectors > Search **Microsoft Defender for IoT** to connect Microsoft Defender for IoT to Microsoft Sentinel.
  
-![Data Connectors Sentinel](./images/Data-Connectors-Sentinel.png 'Data Connectors Sentinel')
+    ![DataConnectorsSentinel](./images/E06T02-01-Data-Connectors-Sentinel.png 'Data Connectors Sentinel')
+
+</br>
 
 2. Click the **Open Connector Page**
  
-![Data Connectors iot](./images/iot-data-connectors.png 'Data Connectors iot')
+    ![DataConnectorsIoT](./images/E06T02-02-Data-Connectors-IoT.png 'Data Connectors IoT')
+
+</br>
 
 3. Review the instructions and click the “Connect” button to connect Azure Defender for IoT to Sentinel. If the connection continues to fail, this will most likely be due to the user not having the "Contributor" permissions and you may have missed the access step in the prerequisites. 
 
-![Sentinel Connect](./images/Sentinel-Connect.png 'Sentinel Connect')
+    ![Sentinel Connect](./images/E06T02-03-Sentinel-Connect.png 'Sentinel Connect')
+
+</br>
  
 4. If connected correctly you should expect to see the Status change to “Connected” and the link light up green.
  
-![Sentinel Connect 2](./images/Sentinel-Connect-2.png 'Sentinel Connect 2')
+    ![Sentinel Connect 2](./images/E06T02-04-Sentinel-Connected.png 'Sentinel Connect 2')
+
+</br>
 
 5. Use the next steps tab to enable Out of the Box alerts. For example, click the create rule and follow the instructions to turn on the rule.
  
-![Sentinel Rule Creation](./images/Sentinel-Rule-Creation.png 'Sentinel Rule Creation')
+    ![SentinelRuleCreation](./images/E06T02-05-Create-OOB-Rule.png 'Sentinel Rule Creation')
 
-6. Fill in the “Name” and click **Review and Create**. This is enabling incidents to be created based on the Azure Defender IoT alerts that are ingested into Sentinel.
+</br>
+
+6. Fill in the “Name” and click **Review and Create**, followed by **Create**. This is enabling incidents to be created based on the Azure Defender IoT alerts that are ingested into Sentinel.
  
-![Sentinel Rule Submission](./images/Sentinel-Rule-Submission.png 'Sentinel Rule Submission')
+    ![SentinelRuleSubmission](./images/E06T02-06-OOB-Rule-Created.png 'Sentinel Rule Submission')
 
-7. Additionally, you can create the rule not only on the data connectors page but also on the “Analytics” blade. See an example below when you go to the “Rule Templates” tab and filter data sources by “Azure Defender for IoT (Preview)”.
+</br>
 
-![Sentinel Analytics Screen](./images/Sentinel-Analytics-Screen.png 'Sentinel Rule Submission')
+7. Additionally, you can create the rule not only on the data connectors page but also on the Microsoft Sentinel “Analytics” blade. See an example below when you go to the “Rule Templates” tab and filter data sources by “Microsoft Defender for IoT (Preview)”.
+
+    ![SentinelAnalyticsScreen](./images/E06T02-07-Sentinel-Analytics-Screen.png 'Sentinel Analytics Screen')
+
+</br>
  
 ### **Task 3**: Acknowledge Alerts and Re-run PCAPs
 
+You will execute most of this task on the Virtual Machine that hosts your your Microsoft Defender for IoT sensor.
+
 1. Go back to your browser interface and acknowledge all of the alerts. The reason we are doing this is so we can re-run the alerts to show how they are sent and analyzed by Sentinel.
+
 	1. Navigate to the Alerts Page
 	2. Click the double check box
 	3. Click **Ok** to acknowledge the alerts 
     
     </br>
-  ![iot portal acknowledge alerts](./images/iot-portal-acknowledge-alerts.png 'iot-portal-acknowledge-alerts')
+
+    ![iot-portal-acknowledge-alerts](./images/E06T03-01-IoT-Portal-Ack-Alerts.png 'IoT Portal Acknowledge alerts')
+
+    </br>
+
+    4. Now go to the System Setting tab.
+    5. Click the **Play All** on the PCAP Files to replay simulating the alerts.
+
+    ![Rerun-pcaps](./images/E06T03-02-Rerun-pcaps.png 'Rerun pcaps')
 
 </br>
 
-  4. Now go to the System Setting tab.
-  5. Click the **Play All** on the PCAP Files to replay simulating the alerts.
-
-![Rerun pcaps](./images/Rerun-pcaps.png 'Rerun pcaps')
-
 ### **Task 4**: Sentinel interaction with IoT Incidents
+
+You will execute most of this task on your physical machine, not in the Virtual Machine that hosts your your Microsoft Defender for IoT sensor.
 
 1. Go back to the Sentinel console and under the **Threat Management** section, select the **Incidents** tab.  Filter by Product Name **Azure Defender for IoT**.
 
-![Sentinel Filter Alerts](./images/Sentinel-Filter-Alerts.png 'Sentinel Filter Alerts')
+    ![SentinelFilterAlerts](./images/E06T04-01-Sentinel-Incidents.png 'Sentinel Filter Alerts')
+
+</br>
   
 2. Select one of the alerts and click **View full details**
 
-![Incident full details](./images/Incident-full-details.png 'Incident full details')
+    ![IncidentDetails](./images/E06T04-02-Sentinel-Incident-Details.png 'Incident Details')
+
+</br>
  
 3. It will take you to this screen to get all the information relative to the incident. This allows analyst to get more details on the entity including what other alerts made up the incident, playbooks to enrich the context of the alert, and comments section to leave details on what the analyst discovered during review or how they came to the determination to dismiss the incident.
 
-![Incident guts](./images/Incident-guts.png 'Incident guts')
+    ![IncidentFullDetails](./images/E06T04-03-Sentinel-Incident-FUllDetails.png 'Incident Full Details')
+
+</br>
+
+4. By clicking the **Investigate** button, you can dig deeper in the cause of the incident and the relation to other incidents.
+
+    ![IncidentInvestigate](./images/E06T04-03-Sentinel-Incident-FUllDetails.png 'Incident Investigate')
+
+</br>
  
 ### **Task 5**: Kusto Query Language to Find Alert Details
 
@@ -769,14 +808,19 @@ sudo cyberx-xsense-network-reconfigure
 
 Here are two basic examples:
 
+```sql
 	SecurityAlert | where ProviderName contains "IoTSecurity"
+```
  
-![kusto query](./images/kusto-query.png 'kusto query')
+![KustoQquery](./images/E06T05-01-FindAlerts-IoTSecurity.png 'kusto query')
 
-	SecurityAlert | where CompromisedEntity == "adt4iothub"
+</br>
+
+```sql
+	SecurityAlert | where CompromisedEntity == "hub-md4iot-mst01"
+```
  
-![kusto query 2](./images/kusto-query-2.png 'kusto query 2')
-
+![KustoQuery2](./images/E06T05-02-FindAlerts-IoTHub.png 'kusto query 2')
 
 </br>
 
@@ -793,7 +837,6 @@ Select Delete resource group on the top right side.
 Enter your-resource-group-name for **TYPE THE RESOURCE GROUP NAME** and select Delete. This operation will take a few minutes.
 
 After that is done go to Azure defender for IoT and deactivate the subscription.
-
 
 
 ## **Appendix: Troubleshooting**
