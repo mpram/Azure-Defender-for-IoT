@@ -142,7 +142,7 @@ You will execute this task on your physical machine, not in the Virtual Machine 
 
 ### **Task 3: Onboarding sensors** ###
 
-For the hands-on lab we will work with two type of sensors, an offline sensor that does not need to be connected to the public Internet and an online sensor that is connectected to Azure.
+For the hands-on lab we will work with two type of sensors, an offline sensor that does not need to be connected to the public Internet and an online sensor that is connected to Azure.
 In the next steps we will begin by onboarding the offline sensor.
 You will execute most of this task on your physical machine, not in the Virtual Machine that we will use later in this HOL to host your Microsoft Defender for IoT sensors.
 
@@ -210,7 +210,7 @@ You will execute most of this task on your physical machine, not in the Virtual 
 
     The next steps will be executed in the Virtual Machine that we created as part of the pre-requisites.
 
-12. To Upload the Files, go to the Storage Account you created before in the Azure Portal. On the left panel select **Containers**, on the right side, click on **acitvationfiles**, next on the top menu click **Upload** browse to the location where you download the files, select all of them and click **Upload**.
+12. To Upload the Files, go to the Storage Account you created before in the Azure Portal. On the left panel select **Containers**, on the right side, click on **actvationfiles**, next on the top menu click **Upload** browse to the location where you download the files, select all of them and click **Upload**.
 
     You will execute this task on your Virtual Machine. Make sure to start it from the Azure portal and connect to it using RDP. You should use the same credentials to login to your VM that you used when you created the VM (**Username**: *MDefenderLab*, **Password**: *Learningmode123!*). 
 
