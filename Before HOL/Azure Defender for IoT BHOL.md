@@ -13,7 +13,7 @@ During this time, we will set up the environment that is required for the Hands-
    - [Task 3: Connect to Virtual Machine](#task-3-connect-to-virtual-machine)
    - [Task 4: Enable Hyper-V](#task-4-enable-hyper-v)
    - [Task 5: Create a Storage Account](#task-5-create-a-storage-account)
-   - [Task 6: Azure Sentinel](#task-6-Azure-Sentinel)
+   - [Task 6: Microsoft Sentinel](#task-6-Microsoft-Sentinel)
 
 </br>
 
@@ -267,7 +267,7 @@ You will execute this task on your physical machine, not in the Virtual Machine 
 
 </br>
 
-## **Task 6: Azure Sentinel** ##
+## **Task 6: Microsoft Sentinel** ##
 
 You will execute this task on your physical machine, not in the Virtual Machine you should have stopped in the previous step.
 
