@@ -5,7 +5,7 @@
 
 
 
-Jaunary 2022.
+January 2022.
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
 
@@ -65,8 +65,8 @@ This workshop is delivered by SMEs in IoT and Cybersecurity at Microsoft.
 
 ## **Microsoft Defender for IoT Vocabulary** ## 
 
-- Sensor: Linux machine, physical hardware running Azure defender connected to the network. 
-- Manager: Linux machine, physical hardware running Azure defender connected to the network. It connects to multiple sensors to summarize data, alerts across multiples systems, carries the PCAP Configuration and new updates. Central Manager can be used to update the sensor's version and threat intelligence, can also connect to many SIEM systems if needed.
+- Sensor: Linux machine, physical hardware running Microsoft Defender for IoT connected to the network. 
+- Manager: Linux machine, physical hardware running Microsoft Defender for IoT connected to the network. It connects to multiple sensors to summarize data, alerts across multiples systems, carries the PCAP Configuration and new updates. Central Manager can be used to update the sensor's version and threat intelligence, can also connect to many SIEM systems if needed.
 - IoT: Internet of Things. Modern, new standard connected devices.
 - IIoT: Industrial IoT.
 - OT: Operational Technology, old equipment and technology (e.g, conveyer belts, PLCs).

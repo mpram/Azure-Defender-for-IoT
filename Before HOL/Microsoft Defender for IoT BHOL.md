@@ -51,7 +51,7 @@ Once your Azure Pass is activated and you have a new subscription to work with, 
 
 1. In the Azure Portal, create a new Resource Group. From the home Page, select **+ Create a Resource**, in the search box type **Resource Group**, then select **Create**.
 
-    In the next window, select your subscription, assign a name to the resource group **rg-md4iot+SUFFIX**, select a location near you and click on **Review + Create**. Once you passed the validation, click **create** again. Note, the resource group name needs to be unique within your subscription. That is why we suggest to add a suffix, for instance your initials followed by a number.
+    In the next window, select your subscription, assign a name to the resource group **rg-md4iot+SUFFIX**, select a location near you and click on **Review + Create**. Once you passed the validation, click **create**. Note, the resource group name needs to be unique within your subscription. That is why we suggest to add a suffix, for instance your initials followed by a number.
 
     ![RG Create](./images/ABT01-01-rg-create.png 'Create a Resource Group')
 
@@ -76,8 +76,9 @@ Once your Azure Pass is activated and you have a new subscription to work with, 
     | Virtual machine name | Enter **vm-md4iot-host** |
     | Region | Select **(EUROPE) West Europe** or a region near your location |
     | Availability Options | Select **No infrastructure redundancy required** |
+    | Security type | Select **Standard** |
     | Image | Select **Windows 10 Pro, Version 20H2 - Gen2** |
-    | Azure Spot instance | Select **No** |
+    | Azure Spot instance | Leave the checkbox unchecked |
     | Size | **D4s_v3 - 4 vcpus, 16 GiB memory**, see image below |
     | **Administrator Account** | **Use the following Credentials** |
     | Username | **MDefenderLab** |
@@ -247,7 +248,7 @@ You will execute this task on your physical machine, not in the Virtual Machine 
 
 </br>
 
-10. In the Enter Connection Info window, you wil assign a name to the connection **HOLFiles** and you will paste below the Blob SAS URL (service URL) you received by email prior to this training.
+10. In the Enter Connection Info window, you wil assign a name to the connection **HOLFiles** and you will paste below the Blob SAS URL (service URL) you received by email in the confirmation email that you received after registering for this HOL. If you didn't receive any confirmation mail (with subject *Microsoft Defender for IoT/OT Hands-on Lab: you are registered!*), please check your spam folder or send us an email at iotacademy@microsoft.com.  
 
     ![SAConnectInfo](./images/ABT05-06-sas-url-input.png  'Enter Azure Storage Explorer Connection Info') 
 

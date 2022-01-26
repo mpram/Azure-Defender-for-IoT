@@ -43,7 +43,7 @@ The scenario below is one of many you would apply these lessons to, other scenar
     - [Task 5: Kusto Query Language to Find Alert Details](#Task-5-Kusto-Query-Language-to-Find-Alert-Details)
 - [Exercise 7: Clean Up](#Exercise-7-Clean-Up)
     - [Task 1: Delete resources](#Task-1-Delete-resources)
-- [Appendix: Troubleshooting](Appendix-Troubleshooting)
+- [Appendix 1: Troubleshooting](#Appendix-1-Troubleshooting)
 
 </br>
 </br>
@@ -56,39 +56,27 @@ You will execute this task on your physical machine, not on the Virtual Machine 
 
 </br>
 
-1. In the [Azure Portal](https://portal.azure.com/#home "Microsoft Azure Home") open **Microsoft Defender for Cloud**. The first time you open Microsoft Defender for Cloud, you will need to click on **Upgrade**. This buttom will appear at the bottom of the screen, so make sure to scroll down.
+1. In the [Azure Portal](https://portal.azure.com/#home "Microsoft Azure Home"), search for **Microsoft Defender for IoT**. Select **Microsoft Defender for IoT** in the popup window, to open the Microsoft Defender for IoT Page.
 
-    ![Microsoft Defender for Cloud Getting Started](./images/E01T01-01-Microsoft-Defender4Cloud-Upgrade.png 'Microsoft Defender for Cloud')
-
-</br>
-
-2. Once enabled, on the left panel under **Cloud Security** select **Workload protections**
-
-    ![Microsoft Defender for Cloud](./images/E01T01-02-Microsoft-Defender4Cloud-Workload-Protections.png 'Security Center')
+    ![Microsoft Defender for Cloud Getting Started](./images/E01T01-01-Find-Microsoft-Defender4IoT.png 'Microsoft Defender for IoT')
 
 </br>
 
-3. Next, select **IoT Security** under **Advanced Protection** section as shown below:
-
-    ![Microsoft Defender for Cloud Workload Protections](./images/E01T01-03-Microsoft-Defender4Cloud-IoT-Security.png 'Workload protections')
-
-</br>
-
-4. Next in the **Getting Started** section, select **pricing**.
+2. On the Defender for IoT page, in the **Getting Started** section, select **pricing**.
  
-    ![Defender for IoT](./images/E01T01-04-Defender4IoT-GettingStarted.png 'Defender for IoT Pricing')
+    ![Defender for IoT](./images/E01T01-02-Defender4IoT-GettingStarted.png 'Defender for IoT Pricing')
 
 </br>
 
-5. On the **Pricing** page, select **Start with a trial**. 
+3. On the **Pricing** page, select **Start with a trial**. 
 
-    ![Defender for IoT Trial](./images/E01T01-05-Defender4IoT-OnboardSubscription.png 'Defender for IoT Free Trial')
+    ![Defender for IoT Trial](./images/E01T01-03-Defender4IoT-OnboardSubscription.png 'Defender for IoT Free Trial')
 
     </br>
 
     In the popup screen leave all defaults (make sure you are using the same subscription you have been using for this lab) and click **Evaluate**, followed by **Confirm**.
 
-    ![Defender for IoT Evaluate](./images/E01T01-06-Defender4IoT-Evaluate.png 'Defender for IoT Trial')
+    ![Defender for IoT Evaluate](./images/E01T01-04-Defender4IoT-Evaluate.png 'Defender for IoT Trial')
 
 </br>
 
@@ -373,7 +361,7 @@ During this task we will configure Azure Defender based on the IPs highlighted b
 
     In the next steps you will be prompt to enter the password capture above, some characteres look alike but they are not, this image will help you to identify some of them.
 
-    ![Defender characteres](./images/E02T02-05-characters.png 'Different defender characteres')
+    ![Defender characters](./images/E02T02-05-characters.png 'Different defender characteres')
 
 </br>
 
@@ -435,6 +423,8 @@ During this task we will configure Azure Defender based on the IPs highlighted b
     - **enabled=1**
     - **player.params=-M 3**
 
+    Amongst others, these settings enable the PCAP player and allow it to playback faster than real-time.
+
     </br>
 
     ![Set PCAPS](./images/E03T01-02-Enable-PCAPs.png 'Enable PCAP Settings')
@@ -443,33 +433,9 @@ During this task we will configure Azure Defender based on the IPs highlighted b
 
 4. Click **Save** and then **Ok**.
 
-5. Continue in the System Properties window, scroll up and select **Horizon** on the left side select, scroll down and modify the following parameter:
+5. At this point you should see the Pcap Player available (you can close the **Edit System Properties** screen now by clicking the **Cancel** button):
 
-    - **ui.enabled=true**
-
-    </br>
-
-    ![Set System Settings Horizon](./images/E03T01-03-Horizon-UI-Enabled.png 'System Settings Horizon ui-enabled')
-
-</br>
-
-6. Click **Save** and then **Ok**.
-
-7. In System Properties, look for **Global** and modify the following parameter:
-
-    - **auto_discovery.enabled=1**
-
-    <br>
-
-    ![Set System Settings Global](./images/E03T01-04-Global-Auto-Discovery.png 'System Settigns Global Auto Discovery')
-
-</br>
-
-8. Click on **Save** and then **OK**.
-
-9. At this point you should see the Pcap Player available (you can close the **Edit System Properties** screen now by clicking the **Cancel** button):
-
-    ![Pcap Player](./images/E03T01-05-PCAP-Player.png 'Pcap player')
+    ![Pcap Player](./images/E03T01-03-PCAP-Player.png 'Pcap player')
 
 </br>
   
@@ -843,7 +809,7 @@ Enter your-resource-group-name for **TYPE THE RESOURCE GROUP NAME** and select D
 After that is done go to Microsoft Defender for IoT and deactivate the subscription.
 
 
-## **Appendix: Troubleshooting**
+## **Appendix 1: Troubleshooting**
 
 1. If your Defender portal is not working properly run the following command to validate if the components are running properly
 
