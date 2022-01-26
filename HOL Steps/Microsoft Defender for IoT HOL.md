@@ -694,7 +694,7 @@ sudo cyberx-xsense-network-reconfigure
 
 You will execute most of this task on your physical machine, not in the Virtual Machine that hosts your your Microsoft Defender for IoT sensor.
 
-**Note**: Please ensure you have completed Task 6 in the ['Before HOL'](https://github.com/mpram/Azure-Defender-for-IoT/blob/main/Before%20HOL/Azure%20Defender%20for%20IoT%20BHOL.md#task-6-sentinel-prep-work/ 'Before HOL') prior to working through these instructions.
+**Note**: Please ensure you have completed Task 6 in the ['Before HOL'](../Before%20HOL/Microsoft%20Defender%20for%20IoT%20BHOL.md "Microsoft Defender for IoT Before Hands-on-Lab") prior to working through these instructions.
 
 ### **Task 1**: Enabling IoT to Integrate with Sentinel
 
