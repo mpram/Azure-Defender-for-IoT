@@ -41,7 +41,7 @@ Teams working in projects related to Connected Devices, Smart Places, Factory of
     **This session will not be recorded**
   </br>
 
-  - **IMPORTANT**: After the session, you will be able to configure Azure Defender in your facility to assess your own environment, you will have a period of 15 days to schedule a call with Microsoft cybersecurity teams to assess your findings and guide you through the process at no charge.
+  - **IMPORTANT**: After the session, you will be able to configure Microsoft Defender for IoT in your facility to assess your own environment, you will have a period of 15 days to schedule a call with Microsoft cybersecurity teams to assess your findings and guide you through the process at no charge.
 
 </br>
 
@@ -66,7 +66,7 @@ This workshop is delivered by SMEs in IoT and Cybersecurity at Microsoft.
 
 </br>
 
-## **Azure Defender Vocabulary** ## 
+## **Microsoft Defender for IoT Vocabulary** ## 
 
 - Sensor: Linux machine, physical hardware running Azure defender connected to the network. 
 - Manager: Linux machine, physical hardware running Azure defender connected to the network. It connects to multiple sensors to summarize data, alerts across multiples systems, carries the PCAP Configuration and new updates. Central Manager can be used to update the sensor's version and threat intelligence, can also connect to many SIEM systems if needed.
@@ -91,12 +91,4 @@ This workshop is delivered by SMEs in IoT and Cybersecurity at Microsoft.
   </br>
 
   ![Purdue model](./images/ot-deployments.png 'Purdue Model')
-
-
-
-
-
-
-
-
 
