@@ -136,9 +136,9 @@ You will execute most of this task on your physical machine, not in the Virtual 
 
 </br>
 
-1. Go back to Microsoft Defender for IoT to create the sensors. You can find it by going to **Microsoft Defender for Cloud**, **Workload protections** then on the lower right side of the screen, under **Advanced Protection**, click on **IoT Security**.
+1. Go back to Microsoft Defender for IoT to create the sensors. You can find it by searching for **Microsoft Defender for IoT** in the Azure Portal.
 
-2. You can download the latest sensor iso image here (from the **Sensor** section). You ***already did this step*** as a pre-requisite in the **Before HOL Section**. The iso file is already available in your VM so you don't have to download it to your VM right now. However, you need to know where to find the ISO file. In the **Getting Started** section, select **Sensor**, then pick the **10.5.5 (Stable) and above - Recommended** version. To download it, you would click **Download**. At this moment, download the iso file to your physical device.
+2. You can download the latest sensor iso image here (from the **Sensor** section). You ***already did this step*** as a prerequisite in the **Before HOL Section**. The iso file is already available in your VM so you don't have to download it to your VM right now. However, you need to know where to find the ISO file. In the **Getting Started** section, select **Sensor**, then pick the **10.5.5 (Stable) and above - Recommended** version. To download it, you would click **Download**. This results in the ISO file being downloaded to your physical device.
 
     ![Onboard sensor](./images/E01T03-01-download-sensor-iso.png 'Download Sensor ISO')
 
@@ -179,7 +179,7 @@ You will execute most of this task on your physical machine, not in the Virtual 
   
     **Site** Section
     - **Hub**: Select the IoT Hub you created in the previous step.
-    - **Display Name**: MD4IoTHub, usually this name will represent the site you will be analyze such as Plant I.
+    - **Name**: MD4IoTHub. Usually this name will represent the site you will be analyzing, such as *Plant I*.
     - **Zone**: Default.
     
     </br>
@@ -194,18 +194,19 @@ You will execute most of this task on your physical machine, not in the Virtual 
 
 10. Check again your **Sites and sensors** section. You should now see both sensors onboarded.
 
-11. At this point you have 3 files downloaded locally (two zips licenses sensors and the iso file) we will upload them to the Storage account created in the section **Microsoft Defender for IoT BHOL**. In this way we will be able to make those files available to download in the Virtual Machine. Another option could be to download the files directly in the Virtual Machine, if you are logged in into the Azure Portal inside the VM. However, sometimes you will have policies on place not allowing this, so the storage account route will make this feasible.
+11. At this point you have 2 files downloaded locally (the activation files for your sensor and optionally also the ISO file, if you decided to download it in Step 3 of Task 3). We will now upload the two activation (zip) files to the Storage account that you created in the [HOL prerequisites](../Before%20HOL/Microsoft%20Defender%20for%20IoT%20BHOL.md "Microsoft Defender for IoT Before Hands-on-Lab"). In this way we will be able to make those files available to download in the Virtual Machine. Another option could be to download the files directly in the Virtual Machine, if you are logged in into the Azure Portal inside the VM. However, sometimes you will have policies on place not allowing this, so the storage account route will make this feasible.
 
-    The next steps will be executed in the Virtual Machine that we created as part of the pre-requisites.
+12. To upload the activation files, go to the Storage Account you created before in the Azure Portal. On the left panel select **Containers**, on the right side, click on **actvationfiles**, next on the top menu click **Upload** browse to the location where you download the files, select all of them and click **Upload**.
 
-12. To Upload the Files, go to the Storage Account you created before in the Azure Portal. On the left panel select **Containers**, on the right side, click on **actvationfiles**, next on the top menu click **Upload** browse to the location where you download the files, select all of them and click **Upload**.
+    ![UploadActivationFiles](./images/E01T03-07-Upload-Activation-Files.png "Upload activation files")
 
-    You will execute this task on your Virtual Machine. Make sure to start it from the Azure portal and connect to it using RDP. You should use the same credentials to login to your VM that you used when you created the VM (**Username**: *MDefenderLab*, **Password**: *Learningmode123!*). 
+    </br>
 
-13. In your Virtual Machine, open **Storage Explorer**. You will be ask to login to your Azure account where you just upload the files. Then select 
-**Subscription**.
+    The next steps will be executed in the Virtual Machine that we created as part of the prerequisites. Make sure to start it from the Azure portal and connect to it using RDP. You should use the same credentials to login to your VM that you used when you created the VM (**Username**: *MDefenderLab*, **Password**: *Learningmode123!*).
 
-    ![Storage Explorer](./images/E01T03-07-ase-connect.png 'Subscription')
+13. In your Virtual Machine, open **Microsoft Azure Storage Explorer** and select **Subscription**. You will then be asked to login to your Azure account on which you just upload the files.
+
+    ![ASE-Select-Subscription](./images/E01T03-08-ASE-Connect.png 'Select Subscription')
 
 </br>
 
@@ -215,17 +216,17 @@ You will execute most of this task on your physical machine, not in the Virtual 
 
 16. Once you selected the container on the right side you should see the files, just select the files and click **Download**
 
-    ![Azure Storage Explorer](./images/E01T03-08-ase-storage-accounts.png 'Download activation files')
+    ![ASE-Download-Files](./images/E01T03-09-ASE-download-files.png 'Download activation files')
 
 </br>
 
 ## **Exercise #2: Setting up your offline sensor**
 
-During this exercise you will set up a new nested Virtual Machine inside the Virtual Machine that you created as part of the pre-requisites.
+During this exercise you will create a new nested Virtual Machine inside the Virtual Machine that you created as part of the prerequisites.
 
 ### **Task 1: Set up your nested Virtual Machine**
 
-1. On the Windows 10 Virtual machine created previously, login with with RDP. Open a command prompt and run the command "ipconfig". **NOTE: Ignore the (Default Switch)**
+1. On the Windows 10 Virtual machine created previously, login with with RDP if you have not done so before. Open a command prompt and run the command "ipconfig".
 
     ![Command Prompt](./images/E02T01-01-ipconfig.png 'Command Prompt inside VM')
 
@@ -285,7 +286,7 @@ During this exercise you will set up a new nested Virtual Machine inside the Vir
 
     - **Connect Virtual Hard Disk** tab, **Create a virtual hard disk** click **Next**.
 
-    - **Installation Options**, select **Install an operating system from a bootable CD/DVD-ROM** then select **Image file (.iso)** and browse to the Azure defender .iso file that you downloaded in the pre-requisites. Last **Finish**
+    - **Installation Options**, select **Install an operating system from a bootable CD/DVD-ROM** then select **Image file (.iso)** and browse to the Azure defender .iso file that you downloaded in the prerequisites. Last **Finish**
 
     ![Disk Size](./images/E02T01-04-select-os-image.png 'Disk Size')
 
@@ -297,7 +298,7 @@ During this exercise you will set up a new nested Virtual Machine inside the Vir
 
 During this task we will configure Azure Defender based on the IPs highlighted before, this first configuration will be based on an offline sensor.
 
-1. In the Hyper-V Manager, right click on the VM and select **Start**, then in the console click **Connect**.
+1. In the Hyper-V Manager, find the **Connect...** in the lower right hand of the screen and click on it, and in the newly opened VM connection window click **Start**.
 
 2. When you connect to the Ubuntu VM you should see the following screen to start the configuration process. 
 
@@ -313,12 +314,13 @@ During this task we will configure Azure Defender based on the IPs highlighted b
 
 4. Select the third option *(Office 4CPUs)* and press **Enter**.
 
-
     ![Setting up Sensor](./images/E02T02-02-sensor-type.png 'Setting up the offline Sensor')
 
-</br>
+    </br>
 
-5. You will be ask to fulfill some parameters, it is ***VERY IMPORTANT*** you pay attention to the previous task because you will use the network information you captured before, this is unique to each Virtual Machine. So the following is an **EXAMPLE**.
+    At this moment, the offline sensor will be installed (including its operating system). This installation takes some time, expect it to run for approximately 15 minutes.
+
+5. As part of the installation process, you will be asked to provide some parameters, it is ***VERY IMPORTANT*** you paid attention to the previous task because you will use the network information you captured before. This information is unique to each Virtual Machine. So the following is an **EXAMPLE**.
 
 - **configure hardware profile**: **office**, then press enter. 
 - **Configure network interface**, type **eth0**
@@ -330,20 +332,13 @@ During this task we will configure Azure Defender based on the IPs highlighted b
 - **Configure bridge interface**: Just press Enter
 - Then type **Y** to apply the changes and click **Enter**.
 
-    Now the installation will run for 10-15 minutes.
-
-    ***Troubleshooting Note: Once the installation is complete, you will be able to access Azure Defender Console, check if you can open a cmd window, ping the IP Address  you entered in the step 'Configure management network interface'.
-    If the request times out, you will need to reconfigure this step again, for that review the IPs one more time and use the command below to start over:***
-
-    ```bash
-    sudo cyberx-xsense-network-reconfigure
-    ```
-
-    Below, a ***sample*** screen, your parameters will be different.
+    Below, a ***sample*** screen, your parameters might be different.
 
     ![Configuring Sensor](./images/E02T02-03-defender-config.png 'Configuring the offline Sensor')
 
     </br>
+
+    Now the installation will continue running for another 10-15 minutes.
 
 6. ***IMPORTANT STEP!!!*** Once the installation is complete, you will have the login information availabe in the screen **TAKE A SCREENSHOT!!** before continuing, press **Enter**. Now you will have the support account, again **TAKE THE SCREENSHOT!!** press **Enter** to continue. If you fail to capture the credentials, you will need to start over.
 
@@ -357,7 +352,14 @@ During this task we will configure Azure Defender based on the IPs highlighted b
 
     </br>
 
-    ***Note:** At this stage your IPs should look similar to the example below, if you can't reach the portal validate the IPs. If you restarted your VM there is a chance your IPs changed so you will need to go back and reconfigure them, if that is the case use the command in step 3.***
+    ***Note:** At this stage your IPs should look similar to the example below, if you can't reach the portal validate the IPs. If you restarted your VM there is a chance your IPs changed so you will need to go back and reconfigure them, if that is the case follow the troubleshooting guidance below.***
+
+    ***Troubleshooting Note: Once the installation is complete, you will be able to access Azure Defender Console. Check if you can open a cmd window, ping the IP Address you entered in the step 'Configure management network interface'.
+    If the request times out, you will need to reconfigure this step again, for that review the IPs one more time and use the command below to start over:***
+
+    ```bash
+    sudo cyberx-xsense-network-reconfigure
+    ```
 
     In the next steps you will be prompt to enter the password capture above, some characteres look alike but they are not, this image will help you to identify some of them.
 
@@ -375,7 +377,7 @@ During this task we will configure Azure Defender based on the IPs highlighted b
 
     </br>
 
-    ![Start-OSK](./images/E05T01-01-Start-OSK.png)
+    ![Start-OSK](./images/E02T02-07-Start-OSK.png 'Start on-screen keybaord')
 
     </br>
 
@@ -572,87 +574,59 @@ As an example we will create a Report based on firmware updates versions.
 
 1. Go to the Risk assessment, run the assessment. During this task we will show you how to analyze the assessment. 
 
-> **IMPORTANT:**, after completing this workshop you will have a period of two weeks to run the risk assessment in your evironment and schedule an appointment with our Cybersecurity team to guide you through analysis, best practices, and vulnerabilities in your facilities.
-
 </br>
 
 ## **Exercise 5: Online Sensor**
 
-To modify our sensor to be an online sensor, we will use the same virtual machine, but we will reactivate the sensor using **System settings**. In a real scenario you probably would create a new sensor, running in its own virtual machine or physical appliance.
+To modify our sensor to become an online sensor, we will use the same virtual machine, but we will reactivate the sensor using **System settings**. In a real scenario you probably would create a new sensor, running in its own virtual machine or physical appliance.
 
 ### **Task 1: Reconfiguring sensor**
 
-To modify your sensor to be connected with Azure, we will need to modify the network configuration.
+To modify your sensor to be connected with Azure, you will need to modify the network configuration.
 
-1. Login into the "md4iotsensoroffline" VM using the "cyberx" credentials (task 2, step 4).
+1. In your sensor's Azure Defender for IoT Portal (in the Virtual Machine), select **System Settings** and **Network**.
 
-    > **NOTE:** the "md4iotsensoroffline" VM's keyboard layout is US by default, and it may not match the layout of your physical keyboard. To avoid issues when entering the password, you may use the windows 10 on-screen keyboard. To run it, type "osk" in the search box and click on "On-Screen Keyboard":
-
-    </br>
-
-    ![OSK](./images/E05T01-01-Start-OSK.png)
-
-    </br>
-
-    ...and use it to enter the credentials:
-
-    ![OSK-Keyboard](./images/keyboard.png)
+    ![NetworkSettings](./images/E05T01-01-SystemSettings-Networking.png 'Change Network Settings')
 
 </br>
 
-2. You will receive a **network unreacheable** error message if you try to ping the google dns:
-
-    ```bash
-    ping 8.8.8.8
-    ```
-
-    Your sensor needs connectivity before changing the activation mode.
-    
-    > **NOTE:** Hit Cntrl-C to stop the pinging.
-
-3. In the Ubuntu sensor we will need to reconfigure the gateway to bring it online and allow it to reach Azure IoT Hub, type the following:
-
-```bash
-sudo cyberx-xsense-network-reconfigure
-```
-
-4. You will ask to login, then you can start to reconfigure the network settings, you will only change **one** value, **configure default gateway IP address** you will assign the IP Address of the NATSwitch value configured in previous steps, either 192.168.0.**1** or 172.27.0.**1**, you will keep all the other values as before.
-
-    ![Changing IP to online](./images/defender-config-online.png 'Changing IP')
+2. Change the IP Address of the Default Gateway to 192.168.0.1 or 172.27.0.1, depending on the settings you used earlier in the HOL.
+ 
+    ![ChangeDefaultGatewayIP](./images/E05T01-02-Change-Default-Gateway.png 'Change Default Gateway IP') 
 
 </br>
 
-5. Type **Y** at the end of the process to apply the change, it will run a reconfiguration and reboot. 
+3. On the "md4iotsensoroffline" Virtual Machine Connection, select **Action** and **Ctrl+Alt+Delete** to reboot the sensor.
 
-6. After logging back in, test that you have external connectivity: **ping 8.8.8.8** in the Ubuntu sensor, you should now receive a different message  containing "...icmp...".  
-
-	> **NOTE:** Hit Cntrl-C to stop the pinging.
-
-7. Now that your sensor has connectivity, go to the Defender for IoT Portal, select **System Settings** and then, **Reactivation**.
-
-8. In the new window, select **Upload**, **Browse File**, select the zip file you downloaded from the storage account in previous steps **myonlinesensor.zip**, then **Open** and **Activate**, **Ok** to the instructions
-
-    ![ReactivateSensor](./images/E05T01-02-Sensor-Reactivation.png 'Reactivate')
+    ![RebootSensor](./images/E05T01-03-Reset-Sensor-VM.png 'Reboot Sensor VM')
 
 </br>
 
-8. Last, you should receive a message showing your sensor modified to **Connected**. 
+4. Login to your sensor's Azure Defender for IoT Portal (in the Virtual Machine) again, select **System Settings** and then, **Reactivation**.
 
-9. Close the screen, open again the **Reactivation** window and double check if your sensor is **Cloud Connected** as shown below:
+5. In the new window, select **Upload**, **Browse File**, select the zip file you downloaded from the storage account in previous steps **myonlinesensor.zip**, then **Open** and **Activate**, **Ok** to the instructions
 
-    ![OnlineSensor](./images/E05T01-03-CloudConnected-Sensor.png 'Reactivate as Online Sensor')
-
-</br>
-
-10. Run the Pcap files again in your console, in a few minutes you can verify if IoT Hub in Azure Portal is receiving messages from your sensor:
-
-    ![IoT Hub Azure](./images/E05T01-04-Monitoring-IoTHub.png 'Monitoring IoT Hub')
+    ![ReactivateSensor](./images/E05T01-04-Sensor-Reactivation.png 'Reactivate')
 
 </br>
 
-11. In the same IoT Hub now you should see the alerts generated by Defender for IoT. Scroll down to **Defender for IoT**, select **Security Alerts**, on the right side you will see some alerts already available.
+6. Last, you should receive a message showing your sensor modified to **Connected**. 
 
-    ![IoTHub](./images/E05T01-05-IoTHub-SecurityAlerts.png 'IoT Hub Security Alerts')
+7. Close the screen, open again the **Reactivation** window and double check if your sensor is **Cloud Connected** as shown below:
+
+    ![OnlineSensor](./images/E05T01-05-CloudConnected-Sensor.png 'Reactivate as Online Sensor')
+
+</br>
+
+8. Run the Pcap files again in your console. In a few minutes you can verify if IoT Hub in Azure Portal on your physical machine is receiving messages from your sensor:
+
+    ![IoT Hub Azure](./images/E05T01-06-Monitoring-IoTHub.png 'Monitoring IoT Hub')
+
+</br>
+
+9. In the same IoT Hub now you should see the alerts generated by Defender for IoT. Scroll down to **Defender for IoT**, select **Security Alerts**, on the right side you will see some alerts already available.
+
+    ![IoTHub](./images/E05T01-07-IoTHub-SecurityAlerts.png 'IoT Hub Security Alerts')
 
 </br>
 
