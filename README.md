@@ -59,27 +59,38 @@ This workshop is delivered by SMEs in IoT and Cybersecurity at Microsoft.
 
 ## **Microsoft Defender for IoT Vocabulary** ## 
 
-- Sensor: Linux machine, physical hardware running Microsoft Defender for IoT connected to the network. 
-- Manager: Linux machine, physical hardware running Microsoft Defender for IoT connected to the network. It connects to multiple sensors to summarize data, alerts across multiples systems, carries the PCAP Configuration and new updates. Central Manager can be used to update the sensor's version and threat intelligence, can also connect to many SIEM systems if needed.
-- IoT: Internet of Things. Modern, new standard connected devices.
-- IIoT: Industrial IoT.
-- OT: Operational Technology, old equipment and technology (e.g, conveyer belts, PLCs).
-- Brownfield devices: Type of legacy equipment and legacy software that performs discrete function in isolation, usually nobody is willing to modify existing, well-functioning legacy assets. 
-- ICS: Industrial Control systems
-- Greenfield devices: New and smart "cyber-physical systems", supporting new software landscapes such as open communication protocols and open standards such as MQTT, REST APIs, AMQP, OPC-UA, MTConnect and CodeSys.
-- SIEM: Security Information and Event Management
-- Section 52: Microsoft Team dedicated to search for threats in the IoT and OT World.
-- PCAP file: Packet Capture or PCAP (also known as libpcap) is an application programming interface (API) that captures live network packet data from OSI model Layers 2-7.
-- Zero Trust Principles: Assume breach, verify explicitly, use least privilege access (identity at network).
-- XDR: Cross detection and response
-- Purdue Model
-    - Level 0 - Process: Physical Machinery (actuators, pumps, cutters, mechanical arms, etc).
-    - Level 1 - Basic Control
-    - Level 2 - Supervisory Control
-    - Level 3 - Site operations, computers such as linux providing site information to operators
-    - Level 4/5 - IT Environments
-  
-  </br>
+**Sensor**: Linux machine, physical hardware running Microsoft Defender for IoT connected to the network.
 
+**Manager**: Linux machine, physical hardware running Microsoft Defender for IoT connected to the network. It connects to multiple sensors to summarize data, alerts across multiples systems, carries the PCAP Configuration and new updates. Central Manager can be used to update the sensor's version and threat intelligence, can also connect to many SIEM systems if needed.
+
+**IoT**: Internet of Things. Modern, new standard connected devices.
+
+**IIoT**: Industrial IoT.
+
+**OT**: Operational Technology, old equipment and technology (e.g, conveyer belts, PLCs).
+
+**Brownfield devices**: Type of legacy equipment and legacy software that performs discrete function in isolation, usually nobody is willing to modify existing, well-functioning legacy assets. 
+
+**ICS**: Industrial Control systems
+
+**Greenfield devices**: New and smart "cyber-physical systems", supporting new software landscapes such as open communication protocols and open standards such as MQTT, REST APIs, AMQP, OPC-UA, MTConnect and CodeSys.
+
+**SIEM**: Security Information and Event Management
+
+**Section 52**: Microsoft Team dedicated to search for threats in the IoT and OT World.
+
+**PCAP file**: Packet Capture or PCAP (also known as libpcap) is an application programming interface (API) that captures live network packet data from OSI model Layers 2-7.
+
+**Zero Trust Principles**: Assume breach, verify explicitly, use least privilege access (identity at network).
+
+**XDR**: Cross detection and response
+
+**Purdue Model**
+- Level 0 - Process: Physical Machinery (actuators, pumps, cutters, mechanical arms, etc).
+- Level 1 - Basic Control
+- Level 2 - Supervisory Control
+- Level 3 - Site operations, computers such as linux providing site information to operators
+- Level 4/5 - IT Environments
+  
   ![Purdue model](./images/ot-deployments.png 'Purdue Model')
 
