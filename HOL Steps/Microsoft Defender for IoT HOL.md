@@ -41,9 +41,9 @@ The scenario below is one of many you would apply these lessons to, other scenar
     - [Task 1: Delete resources](#Task-1-Delete-resources)
 - [Appendix 1: Troubleshooting](#Appendix-1-Troubleshooting)
 
-## **Exercise #1: Enabling Defender**
+## Exercise #1: Enabling Defender
 
-### **Task 1: Enabling Microsoft Defender for IoT**
+### Task 1: Enabling Microsoft Defender for IoT
 
 You will execute this task on your physical machine, not on the Virtual Machine that you will use later in this HOL to host your Microsoft Defender for IoT sensors.
 
@@ -65,7 +65,7 @@ You will execute this task on your physical machine, not on the Virtual Machine 
 
 You now have a valid Microsoft Defender for IoT Trial with 1000 committed devices. These devices represent all those equipments/sensors connected to your network in the facility you are analyzing. This configuration allows you for a 30 days trial for free.
 
-### **Task 2: Create an IoT Hub:**
+### Task 2: Create an IoT Hub:
 
 During this HOL you will work both with an online sensor and an offline sensor.
 The offline sensor can operate completely disconnected, but the online sensor needs to be connected to an Azure IoT Hub. 
@@ -99,7 +99,7 @@ You will execute this task on your physical machine, not in the Virtual Machine 
 
    ![Contributor Role](./images/E1T2-Subscription-Contributor-role.png)
 
-### **Task 3: Onboarding sensors** ###
+### Task 3: Onboarding sensors
 
 For the hands-on lab we will work with two type of sensors, an offline sensor that does not need to be connected to the public Internet and an online sensor that is connected to Azure.
 In the next steps we will begin by onboarding the offline sensor.
@@ -142,6 +142,7 @@ You will execute most of this task on your physical machine, not in the Virtual 
    - **Zone**: Default.
     
    ![Reg Online Sensor](./images/E1T3-register-online-sensor.png 'Online Sensor')
+
 1. Click **Register**.
 
 1. In the next step, save the activation file and click **Finish**.
@@ -168,192 +169,150 @@ You will execute most of this task on your physical machine, not in the Virtual 
 
    ![ASE-Download-Files](./images/E1T3-ASE-download-files.png 'Download activation files')
 
-## **Exercise #2: Setting up your offline sensor**
+## Exercise #2: Setting up your offline sensor
 
 During this exercise you will create a new nested Virtual Machine inside the Virtual Machine that you created as part of the prerequisites.
 
-### **Task 1: Set up your nested Virtual Machine**
+### Task 1: Set up your nested Virtual Machine
 
 1. On the Windows 10 Virtual machine created previously, login with with RDP if you have not done so before. Open a command prompt and run the command "ipconfig".
 
-    ![Command Prompt](./images/E02T01-01-ipconfig.png 'Command Prompt inside VM')
+   ![Command Prompt](./images/E2T1-ipconfig.png 'Command Prompt inside VM')
 
-</br>
+1. Take note of the IP address used on your Windows 10 Host's Ethernet Adapter. **NOTE: Ignore the (Default Switch)**
 
-2. Take note of the IP address used on your Windows 10 Host's Ethernet Adapter. **NOTE: Ignore the (Default Switch)**
+   > **NOTE:** In this example, the Win10 host Ethernet Adapter is assigned an IP of 10.0.0.4, therefore we will use 192.168.0.0/24 as the network scope of the “NATSwitch”.  If your primary adapter is already using 192.168.x.x, then use 172.27.0.0/24 for your “NATSwitch”.
 
-    > **NOTE:** In this example, the Win10 host Ethernet Adapter is assigned an IP of 10.0.0.4, therefore we will use 192.168.0.0/24 as the network scope of the “NATSwitch”.  If your primary adapter is already using 192.168.x.x, then use 172.27.0.0/24 for your “NATSwitch”.
+1. Open a PowerShell prompt as an Administrator by searching for PowerShell and right-clicking to "Run as administrator".
 
-3. Open a PowerShell prompt as an Administrator by searching for PowerShell and right-clicking to "Run as administrator".
+1. Run the next two commands in the PowerShell window.
 
-4. Run the next two commands in the PowerShell window.
+   ```powershell
+   New-VMSwitch -SwitchName "NATSwitch" -SwitchType Internal
+   ```
 
-    ```powershell
-    New-VMSwitch -SwitchName "NATSwitch" -SwitchType Internal
-    ```
+   ```powershell
+   New-VMSwitch -SwitchName "MySwitch" -SwitchType Internal
+   ```
 
-    ```powershell
-    New-VMSwitch -SwitchName "MySwitch" -SwitchType Internal
-    ```
+1. Run the following command to store the network adapter information to a local variable.
 
-5. Run the following command to store the network adapter information to a local variable.
+   ```powershell
+   $s1 = Get-NetAdapter -name "vEthernet (NATSwitch)"
+   ```
 
-    ```powershell
-    $s1 = Get-NetAdapter -name "vEthernet (NATSwitch)"
-    ```
+1. Assign an IP address to the NATSwitch (either 192.168.0.1 or 172.27.0.1) depending on your network address based on step 1.
 
-6.  Assign an IP address to the NATSwitch (either 192.168.0.1 or 172.27.0.1) depending on your network address based on step 1.
+   ```powershell
+   New-NetIPAddress -IPAddress 192.168.0.1 -PrefixLength 24 -InterfaceIndex $s1.ifIndex
+   ```
 
-    ```powershell
-    New-NetIPAddress -IPAddress 192.168.0.1 -PrefixLength 24 -InterfaceIndex $s1.ifIndex
-    ```
+1. Create the new NAT network.  Again, your IP address space will either be 192.168.0.0/24 or 172.27.0.0/24 depending on step 1.
 
-7. Create the new NAT network.  Again, your IP address space will either be 192.168.0.0/24 or 172.27.0.0/24 depending on step 1.
+   ```powershell
+   New-NetNat -Name MyNATnetwork -InternalIPInterfaceAddressPrefix 192.168.0.0/24
+   ```
 
-    ```powershell
-    New-NetNat -Name MyNATnetwork -InternalIPInterfaceAddressPrefix 192.168.0.0/24
-    ```
+   ![PowerShell Admin](./images/E2T1-switches-network.png 'Define switches and network')
 
-    ![PowerShell Admin](./images/E02T01-02-switches-network.png 'Define switches and network')
+1. Inside the VM, in the windows search box, type **Hyper-V** and enter. This should open a new window with the Hyper-V console. Select **New** on the left side. This will show multiple options, select **Virtual Machine**.
 
-</br>
+   ![Create nested vm](./images/E2T1-create-nested-vm.png 'New Virtual Machine')
 
-8. Inside the VM, in the windows search box, type **Hyper-V** and enter. This should open a new window with the Hyper-V console. Select **New** on the left side. This will show multiple options, select **Virtual Machine**.
+   - In the first tab, assign the name **md4iotsensoroffline** to your VM, then click **Next**
+   - **Specify Generation**, select **Generation 1**, click **Next** again.
+   - Change the memory to **8196MB**, click **Next**.
+   - **Configure Network** tab, select in **Connection**, **NATSwitch**, click **Next**.
+   - **Connect Virtual Hard Disk** tab, **Create a virtual hard disk** click **Next**.
+   - **Installation Options**, select **Install an operating system from a bootable CD/DVD-ROM** then select **Image file (.iso)** and browse to the Azure defender .iso file that you downloaded in the prerequisites. Click **Finish** <br> <br>
 
-    ![Create nested vm](./images/E02T01-03-create-nested-vm.png 'New Virtual Machine')
+   ![Disk Size](./images/E2T1-select-os-image.png 'Disk Size')
 
-    </br>
+1. Right click on the Virtual machine that you just created, select **Settings** in the **Add Hardware** section and select **Network Adapter**, followed by clicking on **Add**. Now select the virtual switch created previously with the name **My Switch**, and click **Apply**.  Increase the Processor number from **1** to **4** Virtual Processors, click **Apply** and click **Ok**.
 
-    - First tab, assign a name **md4iotsensoroffline**, then click **Next**
-
-    - **Specify Generation**, select **Generation 1**, click **Next** again.
-
-    - Change the memory to **8196MB**, **Next**.
-
-    - **Configure Network** tab, select in **Connection**, **NATSwitch**, **Next**.
-
-    - **Connect Virtual Hard Disk** tab, **Create a virtual hard disk** click **Next**.
-
-    - **Installation Options**, select **Install an operating system from a bootable CD/DVD-ROM** then select **Image file (.iso)** and browse to the Azure defender .iso file that you downloaded in the prerequisites. Last **Finish**
-
-    ![Disk Size](./images/E02T01-04-select-os-image.png 'Disk Size')
-
-</br>
-
-9. Right click on the Virtual machine that you just created, select **Settings** in the **Add Hardware** section and select **Network Adapter**, followed by clicking on **Add**. Now select the virtual switch created previously with the name **My Switch**, and click **Apply**.  Increase the Processor number from **1** to **4** Virtual Processors, click **Apply** and click **Ok**.
-
-### **Task 2: Configure a Microsoft Defender for IoT offline sensor**
+### Task 2: Configure a Microsoft Defender for IoT offline sensor
 
 During this task we will configure Azure Defender based on the IPs highlighted before, this first configuration will be based on an offline sensor.
 
 1. In the Hyper-V Manager, find the **Connect...** in the lower right hand of the screen and click on it, and in the newly opened VM connection window click **Start**.
 
-2. When you connect to the Ubuntu VM you should see the following screen to start the configuration process. 
+1. When you connect to the Ubuntu VM you should see the following screen to start the configuration process. 
 
-    > **Note!**: If you don't see the screen below, your installation timed out or you pressed enter, selecting a different configuration by mistake, delete the virtual machine and start this task over. The timeout period is relatively short so make sure you connect immediately to the nested VM and select the language and the sensor type (in Task 2).
+   > **Note!**: If you don't see the screen below, your installation timed out or you pressed enter, selecting a different configuration by mistake, delete the virtual machine and start this task over. The timeout period is relatively short so make sure you connect immediately to the nested VM and select the language and the sensor type (in Task 2).
 
-    </br>
+   ![Connect to Sensor](./images/E2T2-connect-to-sensor.png 'Initial connect to offline Sensor')
 
-    ![Connect to Sensor](./images/E02T02-01-connect-to-sensor.png 'Initial connect to offline Sensor')
+1. Press **Enter** for English.
 
-</br>
+1. Select the third option *(Office 4CPUs)* and press **Enter**.
 
-3. Press **Enter** for English.
+   ![Setting up Sensor](./images/E2T2-sensor-type.png 'Setting up the offline Sensor')
 
-4. Select the third option *(Office 4CPUs)* and press **Enter**.
+   At this moment, the offline sensor will be installed (including its operating system). This installation takes some time, expect it to run for approximately 15 minutes.
 
-    ![Setting up Sensor](./images/E02T02-02-sensor-type.png 'Setting up the offline Sensor')
+1. As part of the installation process, you will be asked to provide some parameters, it is ***VERY IMPORTANT*** you paid attention to the previous task because you will use the network information you captured before. This information is unique to each Virtual Machine. So the following is an **EXAMPLE**.
 
-    </br>
+   - **configure hardware profile**: **office**, then press enter. 
+   - **Configure network interface**, type **eth0**
+   - **Configure management network interface**: in this example we're using **192.168.0.50**, you will use one of the **Ipv4 Addresses** depending on your network scope from the previous task, either **192.168.0.50 or 172.27.0.50**. Click Enter to continue. ***Take a note of this IP you will need it later on***.
+   - **Subnets mask**: **255.255.255.0** this will be the SAME for everyone.
+   - **Configure DNS**: **8.8.8.8**
+   - **Configure default gateway IP Address**: We are intentionaly mis-configuring this value to force the sensor in **offline** mode. Use either 192.168.0.**2** or 172.27.0.**2**.
+   - **Configure input interface(s)**: **eth1**
+   - **Configure bridge interface**: Just press Enter
+   - Then type **Y** to apply the changes and click **Enter**.
 
-    At this moment, the offline sensor will be installed (including its operating system). This installation takes some time, expect it to run for approximately 15 minutes.
+   Below, a ***sample*** screen, your parameters might be different.
 
-5. As part of the installation process, you will be asked to provide some parameters, it is ***VERY IMPORTANT*** you paid attention to the previous task because you will use the network information you captured before. This information is unique to each Virtual Machine. So the following is an **EXAMPLE**.
+   ![Configuring Sensor](./images/E2T2-defender-config.png 'Configuring the offline Sensor')
 
-- **configure hardware profile**: **office**, then press enter. 
-- **Configure network interface**, type **eth0**
-- **Configure management network interface**: in this example we're using **192.168.0.50**, you will use one of the **Ipv4 Addresses** depending on your network scope from the previous task, either **192.168.0.50 or 172.27.0.50**. Click Enter to continue. ***Take a note of this IP you will need it later on***.
-- **Subnets mask**: **255.255.255.0** this will be the SAME for everyone.
-- **Configure DNS**: **8.8.8.8**
-- **Configure default gateway IP Address**: We are intentionaly mis-configuring this value to force the sensor in **offline** mode. Use either 192.168.0.**2** or 172.27.0.**2**.
-- **Configure input interface(s)**: **eth1**
-- **Configure bridge interface**: Just press Enter
-- Then type **Y** to apply the changes and click **Enter**.
+   Now the installation will continue running for another 10-15 minutes.
 
-    Below, a ***sample*** screen, your parameters might be different.
+1. ***IMPORTANT STEP!!!*** Once the installation is complete, you will have the login information availabe in the screen **TAKE A SCREENSHOT!!** before continuing, press **Enter**. Now you will have the support account login information, again **TAKE THE SCREENSHOT!!** press **Enter** to continue. If you fail to capture the credentials, you will need to start over.
 
-    ![Configuring Sensor](./images/E02T02-03-defender-config.png 'Configuring the offline Sensor')
+   ![Sensor Credentials](./images/E2T2-credentials.png 'Saving Sensor Credentials')
 
-    </br>
+1. Once the installation finished you will ask to login, enter the credentials from previous step. In this screen you can also validate the IP, you will use that IP in your browser.
 
-    Now the installation will continue running for another 10-15 minutes.
+   ***Note:** At this stage your IPs should look similar to the example below. If you can't reach the portal validate the IPs. If you restarted your VM there is a chance your IPs changed so you will need to go back and reconfigure them, if that is the case follow the troubleshooting guidance below.*
 
-6. ***IMPORTANT STEP!!!*** Once the installation is complete, you will have the login information availabe in the screen **TAKE A SCREENSHOT!!** before continuing, press **Enter**. Now you will have the support account, again **TAKE THE SCREENSHOT!!** press **Enter** to continue. If you fail to capture the credentials, you will need to start over.
+   ***Troubleshooting Note:** Once the installation is complete, you will be able to access Azure Defender Console.
+   Check if you can open a cmd window, ping the IP Address you entered in the step 'Configure management network interface'.
+   If the request times out, you will need to reconfigure this step again, for that review the IPs one more time and use the command below to start over:*
 
-    </br>
+   ```bash
+   sudo cyberx-xsense-network-reconfigure
+   ```
 
-    ![Sensor Credentials](./images/E02T02-04-credentials.png 'Saving Sensor Credentials')
+   In the next steps you will be prompt to enter the password capture above, some characteres look alike but they are not, this image will help you to identify some of them.
 
-    </br>
+   ![Defender characters](./images/E2T2-characters.png 'Different defender characteres')
 
-7. Once the installation finished you will ask to login, enter the credentials from previous step. In this screen you can also validate the IP, you will use that IP in your browser.
+1. Login with the credentials provided in step **4**.
 
-    </br>
+   ![Defender IP](./images/E2T2-AzureDefenderForIoTSensor.png 'Defender IP Address')
 
-    ***Note:** At this stage your IPs should look similar to the example below, if you can't reach the portal validate the IPs. If you restarted your VM there is a chance your IPs changed so you will need to go back and reconfigure them, if that is the case follow the troubleshooting guidance below.***
+   > **NOTE:** the "md4iotsensoroffline" VM's keyboard layout is US by default, and it may not match the layout of your physical keyboard. To avoid issues when entering the password, you may use the windows 10 on-screen keyboard. To run it, type "osk" in the search box and click on "On-Screen Keyboard"...
 
-    ***Troubleshooting Note: Once the installation is complete, you will be able to access Azure Defender Console. Check if you can open a cmd window, ping the IP Address you entered in the step 'Configure management network interface'.
-    If the request times out, you will need to reconfigure this step again, for that review the IPs one more time and use the command below to start over:***
+   ![Start-OSK](./images/E2T2-Start-OSK.png 'Start on-screen keybaord')
 
-    ```bash
-    sudo cyberx-xsense-network-reconfigure
-    ```
+   > ...and use it to enter the credentials:
 
-    In the next steps you will be prompt to enter the password capture above, some characteres look alike but they are not, this image will help you to identify some of them.
+   ![OSK-Keyboard-Logon](./images/E2T2-keyboard.png)
 
-    ![Defender characters](./images/E02T02-05-characters.png 'Different defender characteres')
+1. Next, you will be ask to activate the product, click **Upload**, then **Browse Files**, in your downloads folder select the file you downloaded from the Storage Explorer, in this example **myofflinesensor.zip**.
 
-</br>
+   ![Defender Login](./images/E2T2-offline-sensor-activation.png 'Defender Login Screen')
 
-8. Login with the credentials provided in step **4**.
+1. Click **Approve these terms and Conditions**, then **Activate**.
 
-    ![Defender IP](./images/E02T02-06-AzureDefenderForIoTSensor.png 'Defender IP Address')
+1. You will be prompted to select **SSL/TLS Certificates | Onboarding 1/2** for this lab will use the second option **Use a locally generated self signed certificate(..)**. Then click **I CONFIRM**, **Next**.
 
-    </br>
+   ![Certificate selection](./images/E2T2-offline-sensor-certificate.png 'Defender certificate selection')
 
-    > **NOTE:** the "md4iotsensoroffline" VM's keyboard layout is US by default, and it may not match the layout of your physical keyboard. To avoid issues when entering the password, you may use the windows 10 on-screen keyboard. To run it, type "osk" in the search box and click on "On-Screen Keyboard"
+1. For this lab in the next step we will **Disable** the system wide validation. **Finish**.
 
-    </br>
-
-    ![Start-OSK](./images/E02T02-07-Start-OSK.png 'Start on-screen keybaord')
-
-    </br>
-
-    ...and use it to enter the credentials:
-
-    ![OSK-Keyboard-Logon](./images/keyboard.png)
-
-</br>
-
-9. Next, you will be ask to activate the product, click **Upload**, then **Browse Files**, in your downloads folder select the file you downloaded from the Storage Explorer, in this example **myofflinesensor.zip**.
-
-    ![Defender Login](./images/E02T02-07-offline-sensor-activation.png 'Defender Login Screen')
-
-</br>
-
-10. Click **Approve these terms and Conditions**, then **Activate**.
-
-11. You will be prompted to select **SSL/TLS Certificates | Onboarding 1/2** for this lab will use the second option **Use a locally generated self signed certificate(..)**. Then click **I CONFIRM**, **Next**.
-
-    ![Certificate selection](./images/E02T02-08-offline-sensor-certificate.png 'Defender certificate selection')
-
-</br>
- 
-12. For this lab in the next step we will **Disable** the system wide validation. **Finish**.
-
-13. Let's analyze together what information we already have available before moving forward.
-
-</br>
+1. Let's analyze together what information we already have available before moving forward.
 
 ## **Exercise 3: Enabling system settings**
 
