@@ -10,11 +10,7 @@ This Hands-on-Lab (HOL) will be focus on securing your facilities.
 It will cover brownfield and greenfield devices (currently not part of the HOL).
 The scenario below is one of many you would apply these lessons to, other scenarios are Oil, Gas, Utility, and Energy companies.
 
-</br>
-
-![Architecture](./images/architecture-diagram.png 'Architecture Diagram')
-
-</br>
+![Architecture](./images/E0T0-architecture-diagram.png 'Architecture Diagram')
 
 ## **Content:** ##
 - [Exercise #1: Enabling Defender](#Exercise-1-Enabling-Defender)
@@ -45,44 +41,29 @@ The scenario below is one of many you would apply these lessons to, other scenar
     - [Task 1: Delete resources](#Task-1-Delete-resources)
 - [Appendix 1: Troubleshooting](#Appendix-1-Troubleshooting)
 
-</br>
-</br>
-
 ## **Exercise #1: Enabling Defender**
 
 ### **Task 1: Enabling Microsoft Defender for IoT**
 
 You will execute this task on your physical machine, not on the Virtual Machine that you will use later in this HOL to host your Microsoft Defender for IoT sensors.
 
-</br>
-
 1. In the [Azure Portal](https://portal.azure.com/#home "Microsoft Azure Home"), search for **Microsoft Defender for IoT**. Select **Microsoft Defender for IoT** in the popup window, to open the Microsoft Defender for IoT Page.
 
-    ![Microsoft Defender for Cloud Getting Started](./images/E01T01-01-Find-Microsoft-Defender4IoT.png 'Microsoft Defender for IoT')
+   ![Microsoft Defender for Cloud Getting Started](./images/E1T1-Find-Microsoft-Defender4IoT.png 'Microsoft Defender for IoT')
 
-</br>
-
-2. On the Defender for IoT page, in the **Getting Started** section, select **pricing**.
+1. On the Defender for IoT page, in the **Getting Started** section, select **pricing**.
  
-    ![Defender for IoT](./images/E01T01-02-Defender4IoT-GettingStarted.png 'Defender for IoT Pricing')
+   ![Defender for IoT](./images/E1T1-Defender4IoT-GettingStarted.png 'Defender for IoT Pricing')
 
-</br>
+1. On the **Pricing** page, select **Start with a trial**. 
 
-3. On the **Pricing** page, select **Start with a trial**. 
+   ![Defender for IoT Trial](./images/E1T1-Defender4IoT-OnboardSubscription.png 'Defender for IoT Free Trial')
 
-    ![Defender for IoT Trial](./images/E01T01-03-Defender4IoT-OnboardSubscription.png 'Defender for IoT Free Trial')
+1. In the popup screen leave all defaults (make sure you are using the same subscription you have been using for this lab) and click **Evaluate**, followed by **Confirm**.
 
-    </br>
-
-    In the popup screen leave all defaults (make sure you are using the same subscription you have been using for this lab) and click **Evaluate**, followed by **Confirm**.
-
-    ![Defender for IoT Evaluate](./images/E01T01-04-Defender4IoT-Evaluate.png 'Defender for IoT Trial')
-
-</br>
+   ![Defender for IoT Evaluate](./images/E1T1-Defender4IoT-Evaluate.png 'Defender for IoT Trial')
 
 You now have a valid Microsoft Defender for IoT Trial with 1000 committed devices. These devices represent all those equipments/sensors connected to your network in the facility you are analyzing. This configuration allows you for a 30 days trial for free.
-
-</br>
 
 ### **Task 2: Create an IoT Hub:**
 
@@ -91,42 +72,32 @@ The offline sensor can operate completely disconnected, but the online sensor ne
 Before onboarding your sensors you will create an IoT Hub for your online sensor to connect to. 
 You will execute this task on your physical machine, not in the Virtual Machine that we will use later in this HOL to host your Microsoft Defender for IoT sensors.
 
-</br>
+1. Go to the resource group you created for this training. In the Overview panel, click on **+ Create** and type **IoT Hub** in the search box, then click **Create**.
 
-1. Go to the resource group you created for this training, in the Overview panel, you will see at the top **+ Create**, click there and type **IoT Hub** in the search box, then click **Create**.
+1. In the next screen you will ask to fill the **Basics** tab:
 
-2. In the next screen you will ask to fill the **Basics** tab:
+   - **Subscription**: Select the Subscription you are woking on.
+   - **Resource Group**: Should be the resource group created in previous step.
+   - **IoT Hub Name**: hub-md4iot+SUFFIX
+   - **Region**: A region close to your physical location (e.g. West Europe).
 
-    - **Subscription**: Select the Subscription you are woking on.
-    - **Resource Group**: Should be the resource group created in previous step.
-    - **IoT Hub Name**: hub-md4iot+SUFFIX
-    - **Region**: A region close to your physical location (e.g. West Europe).
-
-    </br>
-
-    ![IoT Hub Create](./images/E01T02-01-iothub-create.png 'Create an IoT Hub')
+   ![IoT Hub Create](./images/E1T2-iothub-create.png 'Create an IoT Hub')
  
-</br>
+1. Next, click on **Management** tab and make sure that **S1:Standard Tier** is selected in the **Pricing and scale tier** section.
 
-3. Next, click on **Management** tab and make sure that **S1:Standard Tier** is selected in the **Pricing and scale tier** section.
+1. Finally, click **Review + create**, once validation is completed, click **Create**.
 
-4. Finally, click **Review + create**, once validation is completed, click **Create**.
+1. While the IoT Hub is creating , in the Azure Portal look for the Subscription, click on **Access Control(IAM)**, then select **+ Add**. A new window will open on your right, select the following:
 
-5. While the IoT Hub is creating , in Azure Portal look for the Subscription, click on **Access Control(IAM)**, then select **+ Add**, a new window will open on your right, select the following:
-
-    - **Role**: Contributor
-    - **Assign access to**: User, group or service principal
-    - **Select members**: search for the email you are using in this subscription. Select that email and click **Select**.
+   - **Role**: Contributor
+   - **Assign access to**: User, group or service principal
+   - **Select members**: search for the email you are using in this subscription. Select that email and click **Select**.
     
-    </br>
+1. Click **Review + assign** and again **Review + assign**.
 
-    As a last step, click **Review + assign** and again **Review + assign**.
+   Microsoft Sentinel will need this access to collect the alerts in further exercises when your sensor is online.
 
-    Microsoft Sentinel will need this access to collect the alerts in further exercises when your sensor is online.
-
-    ![Contributor Role](./images/E01T02-02-Subscription-Contributor-role.png)
-
-</br>
+   ![Contributor Role](./images/E1T2-Subscription-Contributor-role.png)
 
 ### **Task 3: Onboarding sensors** ###
 
@@ -134,91 +105,68 @@ For the hands-on lab we will work with two type of sensors, an offline sensor th
 In the next steps we will begin by onboarding the offline sensor.
 You will execute most of this task on your physical machine, not in the Virtual Machine that we will use later in this HOL to host your Microsoft Defender for IoT sensors.
 
-</br>
-
 1. Go back to Microsoft Defender for IoT to create the sensors. You can find it by searching for **Microsoft Defender for IoT** in the Azure Portal.
 
-2. You can download the latest sensor iso image here (from the **Sensor** section). You ***already did this step*** as a prerequisite in the **Before HOL Section**. The iso file is already available in your VM so you don't have to download it to your VM right now. However, you need to know where to find the ISO file. In the **Getting Started** section, select **Sensor**, then pick the **10.5.5 (Stable) and above - Recommended** version. To download it, you would click **Download**. This results in the ISO file being downloaded to your physical device.
+1. You can download the latest sensor iso image here (from the **Sensor** section). You ***already did this step*** as a prerequisite in the **Before HOL Section**. The ISO file is already available in your VM so you don't have to download it to your VM right now. However, you need to know where to find the ISO file. In the **Getting Started** section, select **Sensor**, then pick the **10.5.5 (Stable) and above - Recommended** version. To download it, you would click **Download**. This results in the ISO file being downloaded to your physical device.
 
-    ![Onboard sensor](./images/E01T03-01-download-sensor-iso.png 'Download Sensor ISO')
+   ![Onboard sensor](./images/E1T3-download-sensor-iso.png 'Download Sensor ISO')
 
-    </br>
+   > **NOTE:** At this moment, you might see a Window asking for contact details. You don't have to provide your contact details. Just go to the bottom of the windows and click on **Continue without submitting**. 
 
-    > **NOTE:** At this moment, you might see a Window asking for contact details. You don't have to provide your contact details. Just go to the bottom of the windows and click on **Continue without submitting**. 
+1. Next go to **Sites and Sensors** and click on **+ Onboard OT sensor**.
 
-3. Next go to **Sites and Sensors** and click on **+ Onboard OT sensor**.
+   ![Onboard sensor](./images/E1T3-onboard-sensor.png 'Onboard Sensor')
 
-    ![Onboard sensor](./images/E01T03-02-onboard-sensor.png 'Onboard Sensor')
+1. In the Setup OT/ICS Security screen, expand step 3 and set the following values: Sensor name = **myofflinesensor**, select your subscription and disable **Cloud Connected**. Click **Register**.
 
-</br>
+   ![Register offline sensor](./images/E1T3-register-sensor.png 'Register Sensor')
 
-4. In the Setup OT/ICS Security screen, expand step 3 and set the following values: Sensor name = **myofflinesensor**, select your subscription and disable **Cloud Connected**. Click **Register**.
+1. In the next step, you will be prompted to save the sensor activation file. Save it with the default filename and click **Finish**.
 
-    ![Register offline sensor](./images/E01T03-03-register-sensor.png 'Register Sensor')
+   ![Activation Offline sensor](./images/E1T3-download-activation-file.png 'ActivationOffline Sensor')
 
-</br>
+1. You should see your new sensor onboarded, locally managed, in your list of sensors as shown below.
 
-5. In the next step, you will be prompted to save the sensor activation file. Save it with the default filename and click **Finish**.
+   ![Sensor Onboarded](./images/E1T3-locally-managed-sensor.png 'Sensor Oonboarded')
 
-    ![Activation Offline sensor](./images/E01T03-04-download-activation-file.png 'ActivationOffline Sensor')
+1. Now, we will create another sensor. This will be an online sensor. Click on **+ Onboard OT sensor**, in the next screen input the following information:
 
-</br>
-
-6. You should see your new sensor onboarded, locally managed, in your list of sensors as shown below.
-
-    ![Sensor Onboarded](./images/E01T03-05-locally-managed-sensor.png 'Sensor Oonboarded')
-
-</br>
-
-7. Now, we will create another sensor. This will be an online sensor. Click on **+ Onboard OT sensor**, in the next screen input the following information:
-
-    - **Sensor name**: myonlinesensor
-    - **Subscription**: Select the subscription you are using for this lab.
-    - **Cloud Connected**: Enabled (= default).
-    - **Automatic Threat Intelligence Updates (Preview)**: Enabled (= default).
+   - **Sensor name**: myonlinesensor
+   - **Subscription**: Select the subscription you are using for this lab.
+   - **Cloud Connected**: Enabled (= default).
+   - **Automatic Threat Intelligence Updates (Preview)**: Enabled (= default).
   
-    **Site** Section
-    - **Hub**: Select the IoT Hub you created in the previous step.
-    - **Name**: MD4IoTHub. Usually this name will represent the site you will be analyzing, such as *Plant I*.
-    - **Zone**: Default.
+   **Site** Section
+   - **Hub**: Select the IoT Hub you created in the previous step.
+   - **Name**: MD4IoTHub. Usually this name will represent the site you will be analyzing, such as *Plant I*.
+   - **Zone**: Default.
     
-    </br>
-  
-    ![Reg Online Sensor](./images/E01T03-06-register-online-sensor.png 'Online Sensor')
+   ![Reg Online Sensor](./images/E1T3-register-online-sensor.png 'Online Sensor')
+1. Click **Register**.
 
-</br>
- 
-8. Click **Register**.
+1. In the next step, save the activation file and click **Finish**.
 
-9. In the next step, save the activation file and click **Finish**.
+1. Check again your **Sites and sensors** section. You should now see both sensors onboarded.
 
-10. Check again your **Sites and sensors** section. You should now see both sensors onboarded.
+1. At this point you have 2 files downloaded locally (the activation files for your sensor and optionally also the ISO file, if you decided to download it in Step 3 of Task 3). We will now upload the two activation (zip) files to the Storage account that you created in the [HOL prerequisites](../Before%20HOL/Microsoft%20Defender%20for%20IoT%20BHOL.md "Microsoft Defender for IoT Before Hands-on-Lab"). In this way we will be able to make those files available to download in the Virtual Machine. Another option could be to download the files directly in the Virtual Machine, if you are logged in into the Azure Portal inside the VM. However, sometimes you will have policies on place not allowing this, so the storage account route will make this feasible.
 
-11. At this point you have 2 files downloaded locally (the activation files for your sensor and optionally also the ISO file, if you decided to download it in Step 3 of Task 3). We will now upload the two activation (zip) files to the Storage account that you created in the [HOL prerequisites](../Before%20HOL/Microsoft%20Defender%20for%20IoT%20BHOL.md "Microsoft Defender for IoT Before Hands-on-Lab"). In this way we will be able to make those files available to download in the Virtual Machine. Another option could be to download the files directly in the Virtual Machine, if you are logged in into the Azure Portal inside the VM. However, sometimes you will have policies on place not allowing this, so the storage account route will make this feasible.
+1. To upload the activation files, go to the Storage Account you created before in the Azure Portal. On the left panel select **Containers**, on the right side, click on **actvationfiles**, next on the top menu click **Upload** browse to the location where you download the files, select all of them and click **Upload**.
 
-12. To upload the activation files, go to the Storage Account you created before in the Azure Portal. On the left panel select **Containers**, on the right side, click on **actvationfiles**, next on the top menu click **Upload** browse to the location where you download the files, select all of them and click **Upload**.
+   ![UploadActivationFiles](./images/E1T3-Upload-Activation-Files.png "Upload activation files")
 
-    ![UploadActivationFiles](./images/E01T03-07-Upload-Activation-Files.png "Upload activation files")
+   The next steps will be executed in the Virtual Machine that we created as part of the prerequisites. Make sure to start it from the Azure portal and connect to it using RDP. You should use the same credentials to login to your VM that you used when you created the VM (**Username**: *MDefenderLab*, **Password**: *Learningmode123!*).
 
-    </br>
+1. In your Virtual Machine, open **Microsoft Azure Storage Explorer** and select **Subscription**. You will then be asked to login to your Azure account on which you just upload the files.
 
-    The next steps will be executed in the Virtual Machine that we created as part of the prerequisites. Make sure to start it from the Azure portal and connect to it using RDP. You should use the same credentials to login to your VM that you used when you created the VM (**Username**: *MDefenderLab*, **Password**: *Learningmode123!*).
+   ![ASE-Select-Subscription](./images/E1T3-ASE-Connect.png 'Select Subscription')
 
-13. In your Virtual Machine, open **Microsoft Azure Storage Explorer** and select **Subscription**. You will then be asked to login to your Azure account on which you just upload the files.
+1. Next, click on **Azure**, **Next**. Now **Sign in** to Azure. Once you are signed in, close the browser, in the Storage explorer you you should see your subscription. You might need to select multiple directories, in the Account section to see your subscription. then **Open Explorer** to see your storage accounts.
 
-    ![ASE-Select-Subscription](./images/E01T03-08-ASE-Connect.png 'Select Subscription')
+1. On the left panel, select **Storage Accounts** under your Subscription.
 
-</br>
+1. Once you selected the container on the right side you should see the files, just select the files and click **Download**
 
-14. Next, click on **Azure**, **Next**. Now **Sign in** to Azure. Once you are signed in, close the browser, in the Storage explorer you you should see your subscription. You might need to select multiple directories, in the Account section to see your subscription. then **Open Explorer** to see your storage accounts.
-
-15. On the left panel, select **Storage Accounts** under your Subscription.
-
-16. Once you selected the container on the right side you should see the files, just select the files and click **Download**
-
-    ![ASE-Download-Files](./images/E01T03-09-ASE-download-files.png 'Download activation files')
-
-</br>
+   ![ASE-Download-Files](./images/E1T3-ASE-download-files.png 'Download activation files')
 
 ## **Exercise #2: Setting up your offline sensor**
 
