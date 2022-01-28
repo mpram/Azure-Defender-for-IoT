@@ -355,121 +355,93 @@ During this task we will configure Azure Defender based on the IPs highlighted b
 
 1. Click on **Play All**, in a few minutes you will receive a message saying all the files has been played. 
 
-## **Exercise 4: Analyzing the Data**
+## Exercise 4: Analyzing the Data
 
 After Defender for Cloud learnt about your environment it will be able to share insights pretty fast.
 
-### **Task 1: Devices Map**
+### Task 1: Devices Map
 
 Your first interaction with Devices map you will see a similar map like the one below (details of what you actually see may vary):
 
 ![Pcap Files Uploaded](./images/devices-map.png 'Pcap files uploaded')
 
-</br>
-
 1. Use the four icon bar on the left to select **Layout by Purdue**. In this model you will see the different layers between Corporate IT and site operations.
 
-    ![purdue-layout](https://user-images.githubusercontent.com/60540284/140969899-b83965cc-0900-4f45-95df-e944856d99d3.gif)
+   ![purdue-layout](https://user-images.githubusercontent.com/60540284/140969899-b83965cc-0900-4f45-95df-e944856d99d3.gif)
 
-</br>
+1. Check your notifications available and you can take action at this point.
 
-2. Check your notifications available and you can take action at this point.
+   ![notifications](https://user-images.githubusercontent.com/60540284/140969923-5634ea88-6d74-4b7b-9e13-c278e0cce20f.gif)
 
-    ![notifications](https://user-images.githubusercontent.com/60540284/140969923-5634ea88-6d74-4b7b-9e13-c278e0cce20f.gif)
+1. For each device right click to analyze properties, show events, reports and simulate attack vectors.
 
-</br>
+   ![device-right-click](https://user-images.githubusercontent.com/60540284/140969957-1f51fa73-1e20-4930-8c8d-3271ecb68149.gif)
 
-3. For each device right click to analyze properties, show events, reports and simulate attack vectors.
+1. In the hamburger menu on the left, click the highlights and select one of the **OT Protocols** i.e. **MODBUS** and click on **Filter**. Now your map will show those devices only
 
-    ![device-right-click](https://user-images.githubusercontent.com/60540284/140969957-1f51fa73-1e20-4930-8c8d-3271ecb68149.gif)
+   ![modbus](https://user-images.githubusercontent.com/60540284/140970027-dad74aba-4d88-45cb-8505-830c62b3ecc0.gif)
 
-</br>
+1. Then filter your devices by **CIP** OT Protocol, at the bottom of your map you will see a PLC, where the Vendor is Rockwell Automation, has already 3 alerts activated. Right click on the device, **View Properties**. In this view you will be able to analyze the Backbone of your PLCs, take actions and analyze the Alerts.
 
-4. In the hamburger menu on the left, click the highlights and select one of the **OT Protocols** i.e. **MODBUS** and click on **Filter**. Now your map will show those devices only
+   ![cip](https://user-images.githubusercontent.com/60540284/140970072-7db949da-f87c-41ef-88c0-45cea6da0f62.gif)
 
-    ![modbus](https://user-images.githubusercontent.com/60540284/140970027-dad74aba-4d88-45cb-8505-830c62b3ecc0.gif)
-
-</br>
-
-5. Then filter your devices by **CIP** OT Protocol, at the bottom of your map you will see a PLC, where the Vendor is Rockwell Automation, has already 3 alerts activated. Right click on the device, **View Properties**. In this view you will be able to analyze the Backbone of your PLCs, take actions and analyze the Alerts.
-
-    ![cip](https://user-images.githubusercontent.com/60540284/140970072-7db949da-f87c-41ef-88c0-45cea6da0f62.gif)
-
-</br>
-
-### **Task 2: Alerts**
+### Task 2: Alerts
 
 1. Once you click Alerts in your PLC you will see a new window pop up showing three different types of alerts.
 
-    - Operational(high Alert and lower alert)
-    - Policy Violation
+   - Operational(high Alert and lower alert)
+   - Policy Violation
 
-    For each of these alerts you will be able to analyze the pcap file, export a report, analyze the timeline or mute the alert.
+   For each of these alerts you will be able to analyze the pcap file, export a report, analyze the timeline or mute the alert.
 
-    ![ex4-t2-1](https://user-images.githubusercontent.com/60540284/141076357-ef22ec24-1d94-462b-8076-a3077cbca2a7.gif)
+   ![ex4-t2-1](https://user-images.githubusercontent.com/60540284/141076357-ef22ec24-1d94-462b-8076-a3077cbca2a7.gif)
     
-    </br>
+1. If we remove the device filter from the top of the screen, then click **Confirm** you will see 20 Alerts in process.
 
-2. If we remove the device filter from the top of the screen, then click **Confirm** you will see 20 Alerts in process.
+1. Apply **Custom Groups** to filter different scenarios, such as **Unclassified subnets** then **Confirm**
 
-3. Apply **Custom Groups** to filter different scenarios, such as **Unclassified subnets** then **Confirm**
+   ![ex4-t2-2-3](https://user-images.githubusercontent.com/60540284/141076872-1b8350d6-ad56-4444-995d-256ce0785c81.gif)
 
-    ![ex4-t2-2-3](https://user-images.githubusercontent.com/60540284/141076872-1b8350d6-ad56-4444-995d-256ce0785c81.gif)
-
-    </br>
-
-### **Task 3: Device Inventory**
+### Task 3: Device Inventory
 
 1. In this view, filter all your devices by **Is Authorized**, True or False are possible values.
 
-    > **NOTE:** if you don't see the column "Is Authorized", click on the "Device Inventory Settings" gear icon (upper-right corner) and add it to the view.
+   > **NOTE:** if you don't see the column "Is Authorized", click on the "Device Inventory Settings" gear icon (upper-right corner) and add it to the view.
 
-    ![ex4-t3-st1](https://user-images.githubusercontent.com/60540284/141078788-04910c9d-6dfe-4a03-bc93-42c26d08d778.gif)
+   ![ex4-t3-st1](https://user-images.githubusercontent.com/60540284/141078788-04910c9d-6dfe-4a03-bc93-42c26d08d778.gif)
 
-    </br>
+1. Organize your devices based on filters.
 
-2. Organize your devices based on filters.
+1. Export the list to a csv files.
 
-3. Export the list to a csv files.
-
-<br>
-
-### **Task 4: Event Timeline**
+### Task 4: Event Timeline
 
 This view will allow you a Forensic analysis of your alerts.
 
 1. Choose **Advanced Filters**, filter the timeline by **CIP**, let's analyze the alert timeline.
 
-    ![Event-Time-Line-by-CIP](./gifs/MD4IoT-EventTimeline.gif)
+   ![Event-Time-Line-by-CIP](./gifs/MD4IoT-EventTimeline.gif)
 
-</br>
-
-### **Task 5: Data Mining**
+### Task 5: Data Mining
 
 In this section you can create multiple custom reports.
 As an example we will create a Report based on firmware updates versions.
 
 1. Go To **+**, **New report**, in the categories section select **Modules and Firmware update versions**
 
-2. Assign a name to your report. Then go to Filters, **add** and select **Firmware version(generic)**
+1. Assign a name to your report. Then go to Filters, **add** and select **Firmware version(generic)**
 
-    ![Create-New-Report](./images/E04T05-01-Create-New-Report.png 'Create PLC Firmware Version Report')
+   ![Create-New-Report](./images/E4T5-Create-New-Report.png 'Create PLC Firmware Version Report')
 
-</br>
+1. In the new field added **Firmware Version(GENERIC)** add **0.4.1**, then **Save**.
 
-3. In the new field added **Firmware Version(GENERIC)** add **0.4.1**, then **Save**.
+1. You can remove the filter to list all the firmware updates version in your list also.
 
-4. You can remove the filter to list all the firmware updates version in your list also.
+1. Export you report(pdf, csv) for further actions. 
 
-5. Export you report(pdf, csv) for further actions. 
-
-</br>
-
-### **Task 6: Risk Assessment**
+### Task 6: Risk Assessment
 
 1. Go to the Risk assessment, run the assessment. During this task we will show you how to analyze the assessment. 
-
-</br>
 
 ## **Exercise 5: Online Sensor**
 
