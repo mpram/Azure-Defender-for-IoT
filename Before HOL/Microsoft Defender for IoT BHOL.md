@@ -83,11 +83,11 @@ Once your Azure Pass is activated and you have a new subscription to work with, 
    | **Licensing** |    |
    | I confirm I have an eligible Windows 10 license with multi-tenant hosting rights. | **Check the box**. |
 
-   ![VM size](./images/ActBT02-02-vm-create.png 'Create a new Virtual Machine')
+   ![VMCreate](./images/ActB-T02-vm-create.png 'Create a new Virtual Machine')
 
 1. In the Size section, select **See all Images**, look for the **D-Series v3** open that section, then you will find the right VM.
 
-   ![VM size](./images/ActBT02-vm-size.png 'Select VM size')
+   ![VMsize](./images/ActB-T02-vm-size.png 'Select VM size')
 
 1. Go to the **Management** tab. In the **Monitoring** section, select **Disable** for **Boot Diagnostics**.
 
