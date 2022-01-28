@@ -314,58 +314,46 @@ During this task we will configure Azure Defender based on the IPs highlighted b
 
 1. Let's analyze together what information we already have available before moving forward.
 
-## **Exercise 3: Enabling system settings**
+## Exercise 3: Enabling system settings
 
-### **Task 1: System Properties**
+### Task 1: System Properties
 
 1. In your offline sensor you will find **System Settings** on the left side of the Azure Defender portal, click there as shown below.
 
-    ![Select System Settings](./images/E03T01-01-System-Settings.png 'Defender for IoT Select System Settings')
+   ![Select System Settings](./images/E3T1-System-Settings.png 'Defender for IoT Select System Settings')
 
-</br>
+1. Next, look for the icon **System Properties** on the right side. Click on the icon. You you will see a pop up warning, click **Ok**.
 
-2. Next, look for the icon **System Properties** on the right side. Click on the icon. You you will see a pop up warning, select **Ok**.
+1. In the new window on the left side, scroll down until you see **Pcaps**, click there. Now on the right side scroll all the way down and we will modify three parameters as shown below:
 
-3. In the new window on the left side, scroll down until you see **Pcaps**, click there. Now on the right side scroll all the way down and we will modify three parameters as shown below:
+   - **player_max_amount=200**
+   - **enabled=1**
+   - **player.params=-M 3** <br> <br>
 
-    - **player_max_amount=200**
-    - **enabled=1**
-    - **player.params=-M 3**
+   Amongst others, these settings enable the PCAP player and allow it to playback faster than real-time.
 
-    Amongst others, these settings enable the PCAP player and allow it to playback faster than real-time.
+   ![Set PCAPS](./images/E3T1-Enable-PCAPs.png 'Enable PCAP Settings')
 
-    </br>
+1. Click **Save** and then **Ok**.
 
-    ![Set PCAPS](./images/E03T01-02-Enable-PCAPs.png 'Enable PCAP Settings')
+1. At this point you should see the Pcap Player available (you can close the **Edit System Properties** screen now by clicking the **Cancel** button):
 
-</br>
+   ![Pcap Player](./images/E3T1-PCAP-Player.png 'Pcap player')
 
-4. Click **Save** and then **Ok**.
-
-5. At this point you should see the Pcap Player available (you can close the **Edit System Properties** screen now by clicking the **Cancel** button):
-
-    ![Pcap Player](./images/E03T01-03-PCAP-Player.png 'Pcap player')
-
-</br>
-  
-### **Task 2: Pcap Files**
+### Task 2: Pcap Files
 
 1. In a previous step you already downloaded a  **holpcaps.zip** file from the Storage account. It should be in your Azure Virtual Machine's **Downloads** folder.
 
-2. Unzip **holpcaps.zip**
+1. Unzip **holpcaps.zip**
 
-3.  Go back to Azure Defender, Click on **System Settings**, then **PCAP Player** now select **Upload**,
+1.  Go back to Azure Defender, Click on **System Settings**, then **PCAP Player** now select **Upload**,
 **Browse Files**, browse to the folder where you download the files in the previous step, select all the files and click **Open**. This operation will take a few minutes to upload all the files.
 
-4. At this point you should see all the files uploaded.
+1. At this point you should see all the files uploaded.
 
-    ![Pcap Files Ready](./images/E03T02-01-PCAP-Files-Uploaded.png 'PCAP Files Uploaded')
+   ![Pcap Files Ready](./images/E3T2-PCAP-Files-Uploaded.png 'PCAP Files Uploaded')
 
-</br>
-
-5. Click on **Play All**, in a few minutes you will receive a message saying all the files has been played. 
-
-</br>
+1. Click on **Play All**, in a few minutes you will receive a message saying all the files has been played. 
 
 ## **Exercise 4: Analyzing the Data**
 
