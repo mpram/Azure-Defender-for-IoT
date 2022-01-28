@@ -1,9 +1,6 @@
 # Microsoft Defender for IoT/OT Security
 
-
 **Hands-on lab workshop, Microsoft Defender for IoT/OT Security.**
-
-
 
 January 2022.
 
@@ -23,34 +20,31 @@ Microsoft and the trademarks listed at https://www.microsoft.com/en-us/legal/int
 
 Teams working in projects related to Connected Devices, Smart Places, Factory of the Future, Industrial IoT, Energy, Oil and Gas.
   
-  **Ideal attendee will be:**
-
+**Ideal attendee will be:**
    - Security Teams 
-   - Operational Technology/Engineering(ICS)
-		(Personnel securing facilities such as factory floor, substations, oil and gas facilities.)
+   - Operational Technology/Engineering(ICS) - (Personnel securing facilities such as factory floors, substations, oil and gas facilities).
 
-  **Industries:**
-    - Energy 
-	  - Utility
-	  - Manufacturing
-	  - Oil & Gas
+**Industries:**
+   - Energy
+   - Utility
+   - Manufacturing
+   - Oil & Gas 
 
-  **What to expect:**
-  - Session: This session is 100% Hands-on, no previous knowledge in Azure is required, you will learn by doing, it is important you are a person with Security experience or an Industrial control system engineering working in facilities. You will work with us all day, block any distractions during this day. Explanations will happening while we are building the solution.
+**What to expect:**
+  - Session: This session is 100% Hands-on, no previous knowledge in Azure is required. You will learn by doing. It is important you are a person with Security experience or that you have an Industrial Control System Engineering background, working in facilities. You will work with us all day. Please block any distractions during this day. Explanations will happening while we are building the solution.
 
     **This session will not be recorded**
 
 </br>
 
-## **Date:** ##
+## **Dates:** ##
 
-- Americas: Oct/21/2021
-- Time: 9am to 5pm EST Time
+- Americas: Oct/21/2021 (Time: 9am to 5pm EST Time)
+- EMEA: Feb/01/2022 (Time: 9am to 5pm CET Time)
 
-- EMEA: Feb/01/2022
-- Time: 9am to 5pm CET Time
+This workshop is **by invitation only**. Azure Passes will be provided as part of the training to make sure all the attendees can complete the labs without issues.
 
-This workshop is **by invitation only**, Azure Passes will be provided as part of the training to make sure all the attendees can complete the labs without issues.
+>NOTE: It is possible to run the workshop on your own if you already have an existing Azure subscription. In this case you will be charged for running some of the services used in this HOL.
 
 </br>
 
@@ -72,7 +66,7 @@ This workshop is delivered by SMEs in IoT and Cybersecurity at Microsoft.
 - OT: Operational Technology, old equipment and technology (e.g, conveyer belts, PLCs).
 - Brownfield devices: Type of legacy equipment and legacy software that performs discrete function in isolation, usually nobody is willing to modify existing, well-functioning legacy assets. 
 - ICS: Industrial Control systems
-- Greenfield devices: New and smart "cyber-physical systems", supporting new software landscape such as open communication protocols and open standards such as MQTT, REST APIs, AMQP, OPC-UA, MTConnect and CodeSys.
+- Greenfield devices: New and smart "cyber-physical systems", supporting new software landscapes such as open communication protocols and open standards such as MQTT, REST APIs, AMQP, OPC-UA, MTConnect and CodeSys.
 - SIEM: Security Information and Event Management
 - Section 52: Microsoft Team dedicated to search for threats in the IoT and OT World.
 - PCAP file: Packet Capture or PCAP (also known as libpcap) is an application programming interface (API) that captures live network packet data from OSI model Layers 2-7.
