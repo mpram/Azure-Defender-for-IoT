@@ -585,9 +585,9 @@ You will execute most of this task on your physical machine, not in the Virtual 
  
    ![KustoQuery2](./images/E6T5-FindAlerts-IoTHub.png 'kusto query 2')
 
-## **Exercise 7: Clean Up**
+## Exercise 7: Clean Up
 
-### **Task 1: Delete resources**
+### Task 1: Delete resources
 
 The Azure Passes will allow you to run the services for 90 days for training purposes. Although it is a best practice to delete all your resources after the training. 
 
@@ -600,29 +600,24 @@ Enter your-resource-group-name for **TYPE THE RESOURCE GROUP NAME** and select D
 After that is done go to Microsoft Defender for IoT and deactivate the subscription.
 
 
-## **Appendix 1: Troubleshooting**
+## Appendix 1: Troubleshooting
 
 1. If your Defender portal is not working properly run the following command to validate if the components are running properly
 
-```powershell
-cyberx-xsense-sanity
-```
+   ```powershell
+   cyberx-xsense-sanity
+   ```
+   ![Sanity check](./images/A1T1-sanity-check.png 'Sanity check')
 
-![Sanity check](./images/sanity-check.png 'Sanity check')
+1. If your IoT hub is not receiving messages, check if ubuntu machine can reach IoT Hub, first run the following command to identify the IP of your IoT Hub:
 
+   ```powershell
+   netstat -na | grep EST | grep -v 127.0.0.1
+   ```
 
-2. If your IoT hub is not receiving messages, check if ubuntu machine can reach IoT Hub, first run the following command to identify the IP of your IoT Hub:
+   ![Sanity check](./images/A1T1-ips-connected.png 'Sanity check')
 
+   Then, ping the IoT Hub using the connection string from the overview blade in Azure Portal.
 
-```powershell
-netstat -na | grep EST | grep -v 127.0.0.1
-```
-
-
-![Sanity check](./images/ips-connected.png 'Sanity check')
-
-Then, ping the IoT Hub using the connection string from the overview blade in Azure Portal.
-
-
-![Ping IoT Hub](./images/ping-iot-hub.png 'Ping IoT Hub')
+   ![Ping IoT Hub](./images/A1T1-ping-iot-hub.png 'Ping IoT Hub')
 
