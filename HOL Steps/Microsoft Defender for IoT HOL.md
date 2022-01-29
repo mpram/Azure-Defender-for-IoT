@@ -483,143 +483,107 @@ To modify your sensor to be connected with Azure, you will need to modify the ne
 
    ![IoTHub](./images/E5T1-IoTHub-SecurityAlerts.png 'IoT Hub Security Alerts')
 
-## **Exercise 6: Integrate with Sentinel**
+## Exercise 6: Integrate with Sentinel
 
 You will execute most of this task on your physical machine, not in the Virtual Machine that hosts your your Microsoft Defender for IoT sensor.
 
-**Note**: Please ensure you have completed Task 6 in the ['Before HOL'](../Before%20HOL/Microsoft%20Defender%20for%20IoT%20BHOL.md "Microsoft Defender for IoT Before Hands-on-Lab") prior to working through these instructions.
+> **Note**: Please ensure you have completed Task 6 in the ['Before HOL'](../Before%20HOL/Microsoft%20Defender%20for%20IoT%20BHOL.md "Microsoft Defender for IoT Before Hands-on-Lab") instructions prior to working through the following tasks.
 
-### **Task 1**: Enabling IoT to Integrate with Sentinel
+### Task 1: Enabling IoT to Integrate with Sentinel
 
 1. Ensure your IoT Hub is configured to send Security Alerts to Sentinel.
-2. Navigate to your IoT Hub > Defender for IoT > Settings > Data Collection
+1. Navigate to your IoT Hub > Defender for IoT > Settings > Data Collection
 
-    ![Data Collection](./images/E06T01-01-Data-Collection.png 'IoTHub Data Collection')
+   ![Data Collection](./images/E6T1-Data-Collection.png 'IoTHub Data Collection')
 
-</br>
-
-3. Double check that Data Collection blade, is enabled for  **Enable Microsoft Defender for IoT**
+1. Double check that Data Collection blade, is enabled for **Enable Microsoft Defender for IoT**
  
-    ![Data Collection DIoT](./images/E06T01-02-Data-Collection-D4IoT.png 'Data Collection D4IoT')
+   ![Data Collection DIoT](./images/E6T1-Data-Collection-D4IoT.png 'Data Collection D4IoT')
 
-</br>
-
-### **Task 2**: Connecting Data Connectors
+### Task 2: Connecting Data Connectors
 	
 1. With the *Microsoft Defender for IoT* switch enabled, go to **Microsoft Sentinel** > Configuration > Data Connectors > Search **Microsoft Defender for IoT** to connect Microsoft Defender for IoT to Microsoft Sentinel.
  
-    ![DataConnectorsSentinel](./images/E06T02-01-Data-Connectors-Sentinel.png 'Data Connectors Sentinel')
+   ![DataConnectorsSentinel](./images/E6T2-Data-Connectors-Sentinel.png 'Data Connectors Sentinel')
 
-</br>
-
-2. Click the **Open Connector Page**
+1. Click the **Open Connector Page**
  
-    ![DataConnectorsIoT](./images/E06T02-02-Data-Connectors-IoT.png 'Data Connectors IoT')
+   ![DataConnectorsIoT](./images/E6T2-Data-Connectors-IoT.png 'Data Connectors IoT')
 
-</br>
+1. Review the instructions and click the “Connect” button to connect Microsoft Defender for IoT to Sentinel. If the connection continues to fail, this will most likely be due to the user not having the "Contributor" permissions and you may have missed the access step in the prerequisites. 
 
-3. Review the instructions and click the “Connect” button to connect Microsoft Defender for IoT to Sentinel. If the connection continues to fail, this will most likely be due to the user not having the "Contributor" permissions and you may have missed the access step in the prerequisites. 
+   ![Sentinel Connect](./images/E6T2-Sentinel-Connect.png 'Sentinel Connect')
 
-    ![Sentinel Connect](./images/E06T02-03-Sentinel-Connect.png 'Sentinel Connect')
-
-</br>
+1. If connected correctly you should expect to see the Status change to “Connected” and the link light up green.
  
-4. If connected correctly you should expect to see the Status change to “Connected” and the link light up green.
+   ![Sentinel Connect 2](./images/E6T2-Sentinel-Connected.png 'Sentinel Connect 2')
+
+1. Use the next steps tab to enable Out of the Box alerts. For example, click the create rule and follow the instructions to turn on the rule.
  
-    ![Sentinel Connect 2](./images/E06T02-04-Sentinel-Connected.png 'Sentinel Connect 2')
+   ![SentinelRuleCreation](./images/E6T2-Create-OOB-Rule.png 'Sentinel Rule Creation')
 
-</br>
-
-5. Use the next steps tab to enable Out of the Box alerts. For example, click the create rule and follow the instructions to turn on the rule.
+1. Fill in the “Name” and click **Review and Create**, followed by **Create**. This is enabling incidents to be created based on the Azure Defender IoT alerts that are ingested into Sentinel.
  
-    ![SentinelRuleCreation](./images/E06T02-05-Create-OOB-Rule.png 'Sentinel Rule Creation')
+   ![SentinelRuleSubmission](./images/E6T2-OOB-Rule-Created.png 'Sentinel Rule Submission')
 
-</br>
+1. Additionally, you can create the rule not only on the data connectors page but also on the Microsoft Sentinel “Analytics” blade. See an example below when you go to the “Rule Templates” tab and filter data sources by “Microsoft Defender for IoT (Preview)”.
 
-6. Fill in the “Name” and click **Review and Create**, followed by **Create**. This is enabling incidents to be created based on the Azure Defender IoT alerts that are ingested into Sentinel.
- 
-    ![SentinelRuleSubmission](./images/E06T02-06-OOB-Rule-Created.png 'Sentinel Rule Submission')
+   ![SentinelAnalyticsScreen](./images/E6T2-Sentinel-Analytics-Screen.png 'Sentinel Analytics Screen')
 
-</br>
-
-7. Additionally, you can create the rule not only on the data connectors page but also on the Microsoft Sentinel “Analytics” blade. See an example below when you go to the “Rule Templates” tab and filter data sources by “Microsoft Defender for IoT (Preview)”.
-
-    ![SentinelAnalyticsScreen](./images/E06T02-07-Sentinel-Analytics-Screen.png 'Sentinel Analytics Screen')
-
-</br>
- 
-### **Task 3**: Acknowledge Alerts and Re-run PCAPs
+### Task 3: Acknowledge Alerts and Re-run PCAPs
 
 You will execute most of this task on the Virtual Machine that hosts your your Microsoft Defender for IoT sensor.
 
 1. Go back to your browser interface and acknowledge all of the alerts. The reason we are doing this is so we can re-run the alerts to show how they are sent and analyzed by Sentinel.
 
 	1. Navigate to the Alerts Page
-	2. Click the double check box
-	3. Click **Ok** to acknowledge the alerts 
+	1. Click the double check box
+	1. Click **Ok** to acknowledge the alerts 
     
-    </br>
+   ![iot-portal-acknowledge-alerts](./images/E6T3-IoT-Portal-Ack-Alerts.png 'IoT Portal Acknowledge alerts')
 
-    ![iot-portal-acknowledge-alerts](./images/E06T03-01-IoT-Portal-Ack-Alerts.png 'IoT Portal Acknowledge alerts')
+    1. Now go to the System Setting tab.
+    1. Click the **Play All** on the PCAP Files to replay simulating the alerts.
 
-    </br>
+   ![Rerun-pcaps](./images/E6T3-Rerun-pcaps.png 'Rerun pcaps')
 
-    4. Now go to the System Setting tab.
-    5. Click the **Play All** on the PCAP Files to replay simulating the alerts.
-
-    ![Rerun-pcaps](./images/E06T03-02-Rerun-pcaps.png 'Rerun pcaps')
-
-</br>
-
-### **Task 4**: Sentinel interaction with IoT Incidents
+### Task 4: Sentinel interaction with IoT Incidents
 
 You will execute most of this task on your physical machine, not in the Virtual Machine that hosts your your Microsoft Defender for IoT sensor.
 
 1. Go back to the Sentinel console and under the **Threat Management** section, select the **Incidents** tab.  Filter by Product Name **Azure Defender for IoT**.
 
-    ![SentinelFilterAlerts](./images/E06T04-01-Sentinel-Incidents.png 'Sentinel Filter Alerts')
+   ![SentinelFilterAlerts](./images/E6T4-Sentinel-Incidents.png 'Sentinel Filter Alerts')
 
-</br>
-  
-2. Select one of the alerts and click **View full details**
+1. Select one of the alerts and click **View full details**
 
-    ![IncidentDetails](./images/E06T04-02-Sentinel-Incident-Details.png 'Incident Details')
+   ![IncidentDetails](./images/E6T4-Sentinel-Incident-Details.png 'Incident Details')
 
-</br>
- 
-3. It will take you to this screen to get all the information relative to the incident. This allows analyst to get more details on the entity including what other alerts made up the incident, playbooks to enrich the context of the alert, and comments section to leave details on what the analyst discovered during review or how they came to the determination to dismiss the incident.
+1. It will take you to this screen to get all the information relative to the incident. This allows analyst to get more details on the entity including what other alerts made up the incident, playbooks to enrich the context of the alert, and comments section to leave details on what the analyst discovered during review or how they came to the determination to dismiss the incident.
 
-    ![IncidentFullDetails](./images/E06T04-03-Sentinel-Incident-FUllDetails.png 'Incident Full Details')
+   ![IncidentFullDetails](./images/E6T4-Sentinel-Incident-FullDetails.png 'Incident Full Details')
 
-</br>
+1. By clicking the **Investigate** button, you can dig deeper in the cause of the incident and the relation to other incidents.
 
-4. By clicking the **Investigate** button, you can dig deeper in the cause of the incident and the relation to other incidents.
+   ![IncidentInvestigate](./images/E6T4-Sentinel-Incident-Investigate.png 'Incident Investigate')
 
-    ![IncidentInvestigate](./images/E06T04-03-Sentinel-Incident-FUllDetails.png 'Incident Investigate')
-
-</br>
- 
-### **Task 5**: Kusto Query Language to Find Alert Details
+### Task 5: Kusto Query Language to Find Alert Details
 
 1. Navigate to the “Logs” tab and run this query. Querying the data will provide the ability to join tables and datasets to curate data from multiple sources. KQL is a similar language to SQL but will take some research and some dedicated time to become familiar with.
 
-Here are two basic examples:
+   Here are two basic examples:
 
-```sql
+   ```sql
 	SecurityAlert | where ProviderName contains "IoTSecurity"
-```
+   ``` 
  
-![KustoQquery](./images/E06T05-01-FindAlerts-IoTSecurity.png 'kusto query')
+   ![KustoQquery](./images/E6T5-FindAlerts-IoTSecurity.png 'kusto query')
 
-</br>
-
-```sql
-	SecurityAlert | where CompromisedEntity == "hub-md4iot-mst01"
-```
+   ```sql
+   SecurityAlert | where CompromisedEntity == "hub-md4iot-mst01"
+   ```
  
-![KustoQuery2](./images/E06T05-02-FindAlerts-IoTHub.png 'kusto query 2')
-
-</br>
+   ![KustoQuery2](./images/E6T5-FindAlerts-IoTHub.png 'kusto query 2')
 
 ## **Exercise 7: Clean Up**
 
