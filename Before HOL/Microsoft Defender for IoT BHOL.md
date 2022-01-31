@@ -79,7 +79,8 @@ Once your Azure Pass is activated and you have a new subscription to work with, 
    | Password | **Learningmode123!** |
    | Confirm password | **Learningmode123!** |
    | **Inbound port rules** |    |
-   | Public inbound ports | Select **3389** |
+   | Public inbound ports | Select **Allow selected ports** |
+   | Select inbound ports | **RDP (3389)** |
    | **Licensing** |    |
    | I confirm I have an eligible Windows 10 license with multi-tenant hosting rights. | **Check the box**. |
 
