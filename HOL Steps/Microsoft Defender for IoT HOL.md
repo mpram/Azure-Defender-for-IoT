@@ -151,7 +151,7 @@ You will execute most of this task on your physical machine, not in the Virtual 
 
 1. At this point you have 2 files downloaded locally (the activation files for your sensors). Since you are using RDP to connect to the Virtual Machine that will host your Microsoft Defender for IoT Sensor, you can simply copy the activation files and paste them in your VM using copy (ctrl-c) and paste (crtl-v). 
 
-<!--- NOTE: When suggesting to use Bastion, the following instructions are needed to copy activation files to the VM that hosts the offline sensor!!!!
+<!--- NOTE: When using Bastion to remote into the VM, the following instructions are needed to copy activation files to the VM that hosts the offline sensor!!!!
 
 1. At this point you have 2 files downloaded locally (the activation files for your sensor and optionally also the ISO file, if you decided to download it in Step 3 of Task 3). We will now upload the two activation (zip) files to the Storage account that you created in the [HOL prerequisites](../Before%20HOL/Microsoft%20Defender%20for%20IoT%20BHOL.md "Microsoft Defender for IoT Before Hands-on-Lab"). In this way we will be able to make those files available to download in the Virtual Machine. Another option could be to download the files directly in the Virtual Machine, if you are logged in into the Azure Portal inside the VM. However, sometimes you will have policies on place not allowing this, so the storage account route will make this feasible.
 1. 
