@@ -13,10 +13,10 @@ During this time, we will set up the environment that is required for the Hands-
   - [Task 2: Virtual Machine](#task-2-virtual-machine)
   - [Task 3: Connect to Virtual Machine](#task-3-connect-to-virtual-machine)
   - [Task 4: Enable Hyper-V](#task-4-enable-hyper-v)
-<!--- NOTE: When using Bastion to remote into the VM, the following section is needed!!!
+   <!--- NOTE: When using Bastion to remote into the VM, the following section is needed!!!
   - [Task 5: Create a Storage Account](#task-5-create-a-storage-account)
--->
-  - [Task 6: Microsoft Sentinel](#task-6-Microsoft-Sentinel)
+   -->
+  - [Task 5: Microsoft Sentinel](#task-5-Microsoft-Sentinel)
 
 ## Action A: Azure Passes
 
@@ -222,7 +222,7 @@ You will execute this task on your physical machine, not in the Virtual Machine 
 
    ![StopVM](./images/ActB-T05-stop-vm.png 'Stop the VM') 
 
-## Task 6: Microsoft Sentinel
+## Task 5: Microsoft Sentinel
 
 You will execute this task on your physical machine, not in the Virtual Machine you should have stopped in the previous step.
 
