@@ -13,7 +13,9 @@ During this time, we will set up the environment that is required for the Hands-
   - [Task 2: Virtual Machine](#task-2-virtual-machine)
   - [Task 3: Connect to Virtual Machine](#task-3-connect-to-virtual-machine)
   - [Task 4: Enable Hyper-V](#task-4-enable-hyper-v)
+<!--- NOTE: When using Bastion to remote into the VM, the following section is needed!!!
   - [Task 5: Create a Storage Account](#task-5-create-a-storage-account)
+-->
   - [Task 6: Microsoft Sentinel](#task-6-Microsoft-Sentinel)
 
 ## Action A: Azure Passes
@@ -164,6 +166,8 @@ We are going to enable Hyper-V via PowerShell in the newly created VM. This allo
 
 1. Once the download is completed run the installation selecting **Install for me only (recommended)** option. Next, click on **I accept the agreement**, and **Install**, you will ask a few additional questions, select **Next** each time, the installation will run for a few seconds.
 
+<!--- NOTE: When using Bastion to remote into the VM, the following instructions are needed to copy activation files to the VM that hosts the offline sensor!!!!
+
 ## Task 5: Create a Storage Account
 
 You will execute this task on your physical machine, not in the Virtual Machine you created in the previous steps.
@@ -190,13 +194,13 @@ You will execute this task on your physical machine, not in the Virtual Machine 
 
    ![SA container](./images/ActB-T05-sa-create-container.png 'Add Container to Storage Account')
 
-1. Login to the Windows Virtual Machine you created earlier with RDP. In the search box on the desktop enter **Microsoft Storage Explorer**. 
+-->
+
+1. On the Windows Virtual Machine you created earlier, in the search box on the desktop enter **Microsoft Azure Storage Explorer** if you don't have the Azure Storage Explorer already open. 
 
    ![SA](./images/ActB-T05-storage-explorer.png 'Find Azure Storage Explorer')
 
-1. You will be prompt to login, use the personal email you are using to set up your Azure Pass for this training.
-
-1. Once you are login, go to the connect icon on the left bar, then select **Storage account or service**.
+1. Go to the connect icon on the left bar, and select **Storage account or service**.
 
    ![SAResource](./images/ActB-T05-connect-to-sa.png 'Select Azure Storage Explorer Resource') 
 
