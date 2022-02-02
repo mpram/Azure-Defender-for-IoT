@@ -149,8 +149,12 @@ You will execute most of this task on your physical machine, not in the Virtual 
 
 1. Check again your **Sites and sensors** section. You should now see both sensors onboarded.
 
-1. At this point you have 2 files downloaded locally (the activation files for your sensor and optionally also the ISO file, if you decided to download it in Step 3 of Task 3). We will now upload the two activation (zip) files to the Storage account that you created in the [HOL prerequisites](../Before%20HOL/Microsoft%20Defender%20for%20IoT%20BHOL.md "Microsoft Defender for IoT Before Hands-on-Lab"). In this way we will be able to make those files available to download in the Virtual Machine. Another option could be to download the files directly in the Virtual Machine, if you are logged in into the Azure Portal inside the VM. However, sometimes you will have policies on place not allowing this, so the storage account route will make this feasible.
+1. At this point you have 2 files downloaded locally (the activation files for your sensors). Since you are using RDP to connect to the Virtual Machine that will host your Microsoft Defender for IoT Sensor, you can simply copy the activation files and paste them in your VM using copy (ctrl-c) and paste (crtl-v). 
 
+<!--- NOTE: When suggesting to use Bastion, the following instructions are needed to copy activation files to the VM that hosts the offline sensor!!!!
+
+1. At this point you have 2 files downloaded locally (the activation files for your sensor and optionally also the ISO file, if you decided to download it in Step 3 of Task 3). We will now upload the two activation (zip) files to the Storage account that you created in the [HOL prerequisites](../Before%20HOL/Microsoft%20Defender%20for%20IoT%20BHOL.md "Microsoft Defender for IoT Before Hands-on-Lab"). In this way we will be able to make those files available to download in the Virtual Machine. Another option could be to download the files directly in the Virtual Machine, if you are logged in into the Azure Portal inside the VM. However, sometimes you will have policies on place not allowing this, so the storage account route will make this feasible.
+1. 
 1. To upload the activation files, go to the Storage Account you created before in the Azure Portal. On the left panel select **Containers**, on the right side, click on **actvationfiles**, next on the top menu click **Upload** browse to the location where you download the files, select all of them and click **Upload**.
 
    ![UploadActivationFiles](./images/E1T3-Upload-Activation-Files.png "Upload activation files")
@@ -161,13 +165,14 @@ You will execute most of this task on your physical machine, not in the Virtual 
 
    ![ASE-Select-Subscription](./images/E1T3-ASE-Connect.png 'Select Subscription')
 
-1. Next, click on **Azure**, **Next**. Now **Sign in** to Azure. Once you are signed in, close the browser, in the Storage explorer you you should see your subscription. You might need to select multiple directories, in the Account section to see your subscription. then **Open Explorer** to see your storage accounts.
+   # (1. Next, click on **Azure**, **Next**. Now **Sign in** to Azure. Once you are signed in, close the browser, in the Storage explorer you you should see your subscription. You might need to select multiple directories, in the Account section to see your subscription. then **Open Explorer** to see your storage accounts.)
 
 1. On the left panel, select **Storage Accounts** under your Subscription.
 
 1. Once you selected the container on the right side you should see the files, just select the files and click **Download**
 
    ![ASE-Download-Files](./images/E1T3-ASE-download-files.png 'Download activation files')
+-->
 
 ## Exercise #2: Setting up your offline sensor
 
